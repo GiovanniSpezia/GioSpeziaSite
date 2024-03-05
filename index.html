@@ -12,6 +12,9 @@
 </head>
 <body>
 
+<!-- Tasto Torna su -->
+<button onclick="scrollToTop()" id="btnTop" title="Torna su">Top</button>
+
 <div class="overflow-h">
 
   <header class="header">
@@ -208,9 +211,7 @@
     </div>
   </footer>
 
-
 </div>
-
    <script> 
     let item = document.querySelector('.icon-hamburger');
     item.addEventListener("click", function() {
@@ -257,6 +258,24 @@
   <!-- Telegram -->
   <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
   <div class="elfsight-app-e7ba8181-143d-42ab-b4bf-8ce423d3fcfd" data-elfsight-app-lazy></div>
+
+  <!-- To Top -->
+  <script>
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("btnTop").style.display = "block";
+      } else {
+        document.getElementById("btnTop").style.display = "none";
+      }
+    }
+
+    function scrollToTop() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+  </script>
 
 </body>
 </html>

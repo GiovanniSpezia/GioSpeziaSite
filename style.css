@@ -1,11 +1,11 @@
 /* Reset */
 body, html{ font-family: 'Inter', sans-serif; line-height: 1; font-size: 16px; box-sizing: border-box;margin: 0;padding: 0;}*,*:before,*:after{ box-sizing: border-box; }h1,h2,h3,h4,h5,h6, p, ol, ul{margin: 0 0 1rem 0;padding: 0;}ol,ul{padding-left: 20px;line-height: 1.5;}img{height: auto;}h1{font-size: 4rem;} h2{font-size: 3rem;} h3{font-size: 2rem;} h4{font-size: 1rem;} h5{font-size: 0.8rem;} h6{font-size: 0.6rem;}a{text-decoration:none}
-body{ background:  #DCFAFF;}
+body{ background:  white;}
 
 html{scroll-behavior: smooth;}
 
 /* Menu */
-:root { --menu-bg: #DCFAFF; --menu-color: #6699cc; }
+:root { --menu-bg: white; --menu-color: gray; }
 
 .header{ background-color: var(--menu-bg); position: fixed; top:0;  left:0; z-index: 9999; width: 100%; padding: 10px 15px; }
 .header__content{max-width: 1200px;width: 100%;margin: 0 auto; display: flex;justify-content: space-between;}
@@ -17,7 +17,7 @@ html{scroll-behavior: smooth;}
 .header__menu li{display: inline-block;}
 .header__menu li a{color:var(--menu-color); opacity: 1; display: block; padding: 16px; font-size: 20px;}
 
-.header__menu a.underline{text-decoration: underline; color:#04407c}
+.header__menu a.underline{text-decoration: underline; color:#ff9100}
 
 @media (max-width: 768px) {
   .header__menu{   
@@ -86,7 +86,7 @@ p{font-size: 1rem;margin-bottom:1rem; line-height: 1.5;}
 
 /* ! Button System */
 .button { 
-  font-size: 1rem; text-transform: uppercase; background: #0080ff; color:#fff; 
+  font-size: 1rem; text-transform: uppercase; background: #ffd900; color:#fff; 
   text-decoration: none;padding: 14px 25px; display: inline-block;
   border-radius: 4px; font-weight: 700;
   transition: all 0.5s;
@@ -94,11 +94,11 @@ p{font-size: 1rem;margin-bottom:1rem; line-height: 1.5;}
 }  
 
 .button:hover{
-  background: #04407c;
+  background: #ff9100;
 }
 
 .button-small { 
-  font-size: 1rem; text-transform: uppercase; background: #0080ff; color:#fff; 
+  font-size: 1rem; text-transform: uppercase; background: #ffd900; color:#fff; 
   text-decoration: none;padding: 10px 20px; display: inline-block;
   border-radius: 4px; font-weight: 700;
 } 
@@ -184,14 +184,14 @@ button#btnTop {
   font-size: 16px;
   padding: 10px 20px;
   cursor: pointer;
-  background-color: #0080ff;
+  background-color: #ffd900;
   color: #fff;
   border: none;
   border-radius: 5px;
 }
 
 button#btnTop:hover {
-  background-color: #0080ff;
+  background-color: #ffd900;
 }
 
 .youtube-video-container iframe {
@@ -204,6 +204,6 @@ button#btnTop:hover {
 
 
 /* Footer */
-.footer{background-color: #6699cc; color:#fff}
-.footer-bottom{background-color: #6699cc; color:#fff; padding: 20px; text-align: center; margin-bottom: 0;}
+.footer{background-color: gray; color:#fff}
+.footer-bottom{background-color: gray; color:#fff; padding: 20px; text-align: center; margin-bottom: 0;}
 .footer-bottom a{color:#fff}

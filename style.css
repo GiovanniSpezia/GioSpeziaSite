@@ -147,18 +147,25 @@ p{font-size: 1rem;margin-bottom:1rem; line-height: 1.5;}
 .cover * {color:#fff}
 
 /* Helpers - Utility */
-.img-round{ border-radius: 50%;}
-.round{border-radius: 20px;}
-.spacer{height: 10vh;}
-.relative{position: relative;}
-.overflow-h{overflow: hidden;}
+.img-round { border-radius: 50%;}
+.round {border-radius: 20px;}
+.spacer {height: 10vh;}
+.relative {position: relative;}
+.overflow-h {overflow: hidden;}
 
 @media (max-width: 768px) {
   .sma-text-center{text-align: center;}
 }
 
-.img-small{height: 270px;object-fit: cover;}
-.ionicon{width: 20px;height: 20px;margin: 10px;}
+.img-small {
+  height: 270px;
+  object-fit: cover;
+}
+.ionicon {
+  width: 20px;
+  height: 20px;
+  margin: 10px;
+}
 .font-normal{font-weight: 400;}
 
 

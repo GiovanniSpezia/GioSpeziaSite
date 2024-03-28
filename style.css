@@ -161,13 +161,14 @@ p{font-size: 1rem;margin-bottom:1rem; line-height: 1.5;}
   height: 270px;
   object-fit: cover;
 }
+
 .ionicon {
   width: 20px;
   height: 20px;
   margin: 10px;
 }
-.font-normal{font-weight: 400;}
 
+.font-normal{font-weight: 400;}
 
 
 /* Hero */
@@ -201,7 +202,15 @@ button#btnTop:hover {
   background-color: #ffd900;
 }
 
-.youtube-video-container iframe {
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.video-container iframe {
   position: absolute;
   top: 0;
   left: 0;

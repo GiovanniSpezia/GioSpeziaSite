@@ -10,13 +10,13 @@
 </head>
 <body>
 
-<!-- Navbar -->
 <header class="header">
   <div class="header__content">
     <ul class="header__menu">
       <li><a href="index.html#home">Home</a></li>
       <li><a href="magia.html" class="underline">Magia</a></li>
       <li><a href="index.html#progetti">Progetti</a></li>
+      <li><a href="index.html#vlogs">Vlogs</a></li>
       <li><a href="index.html#servizi">Servizi</a></li>
     </ul>
     <div class="header__quick">
@@ -112,7 +112,7 @@
   </footer>
 
   <!-- To Top -->
-  <script>
+<script>
     window.onscroll = function() {scrollFunction()};
 
     function scrollFunction() {
@@ -127,10 +127,43 @@
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
     }
-  </script>
+</script>
 
-<!-- Script -->
-<script src="script.js"></script>
+<script> 
+    let item = document.querySelector('.icon-hamburger');
+    item.addEventListener("click", function() {
+      document.body.classList.toggle('menu-open');
+    });
+
+
+  let items = document.querySelectorAll('.header__menu a');
+  items.forEach((item) => {
+    item.addEventListener("click", function() {
+        items.forEach((item) => {
+          item.classList.remove('underline');
+        });
+        item.classList.add('underline');
+
+        // close menu mobile
+        document.body.classList.remove('menu-open');
+    });
+  });
+
+  let hero_imgs = document.querySelectorAll('.hero img');
+
+  window.addEventListener('scroll' , function(){
+
+      let win_pos = window.pageYOffset;
+      hero_imgs.forEach((hero_img) => {
+
+        let element_rect = hero_img.getBoundingClientRect();
+
+        if(win_pos > element_rect.top ){        
+          hero_img.style.transform = "translateY(" +  element_rect.top  * - 1  * .13 + "px)";
+        }
+      });
+  });
+</script>
 
 </body>
 </html>

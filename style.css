@@ -19,6 +19,13 @@ html{scroll-behavior: smooth;}
 
 .header__menu a.underline{text-decoration: underline; color:#ff9100}
 
+::selection {
+  background-color: #ffd9008e;
+  color: black;
+}
+
+
+
 @media (max-width: 768px) {
   .header__menu{   
     position: absolute; top:70px; right:0; background-color: var(--menu-bg); width: 90%; height: 100vh;  

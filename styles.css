@@ -442,3 +442,206 @@ footer .social-link {
 footer .social-link:hover {
     text-decoration: underline;
 }
+
+/* Media Queries */
+@media (max-width: 767px) {
+    header {
+        padding: 10px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header h1 {
+        margin: 0;
+    }
+
+    header nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        margin: 10px 0 0 0;
+    }
+
+    header nav ul li {
+        margin: 10px 0;
+    }
+
+    header nav ul li a {
+        color: #FFF;
+        font-weight: bold;
+        font-size: 1.1rem;
+    }
+
+    #hero {
+        padding: 100px 20px;
+    }
+
+    #hero h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    #hero p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+
+    #about {
+        padding: 50px 20px;
+        text-align: center;
+    }
+
+    #about .container {
+        display: block;
+        gap: 20px;
+    }
+
+    #about .about-img img {
+        max-width: 80%;
+    }
+
+    #about .about-text {
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.7);
+        border-radius: 10px;
+    }
+
+    #about .about-text h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: #FFD700;
+    }
+
+    #about .about-text p {
+        color: #DDD;
+        font-size: 1rem;
+    }
+
+    #projects {
+        padding: 50px 20px;
+    }
+
+    .projects-container {
+        display: block;
+        gap: 20px;
+    }
+
+    .project-item {
+        width: 100%;
+        height: auto;
+    }
+
+    .project-item img {
+        width: 100%;
+    }
+
+    #contact {
+        padding: 50px 20px;
+        text-align: center;
+    }
+
+    #contact p {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+
+    #contact .btn {
+        padding: 15px 30px;
+    }
+
+    /* Stile per la sezione presentazione */
+    #presentation {
+        padding: 50px 20px;
+    }
+
+    #presentation h2 {
+        font-size: 2rem;
+    }
+
+    #presentation p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+
+    #presentation video {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Stile per il CV */
+    .cv-container {
+        display: block;
+        padding: 20px;
+    }
+
+    .cv-sidebar {
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    .cv-photo img {
+        width: 100%;
+        max-width: 200px;
+        border-radius: 50%;
+    }
+
+    .cv-info, .cv-skills, .cv-languages {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .cv-info p {
+        font-size: 1rem;
+    }
+
+    .cv-skills ul, .cv-languages ul {
+        padding: 0;
+        list-style: none;
+    }
+
+    .cv-skills li, .cv-languages li {
+        margin-bottom: 10px;
+        font-size: 1rem;
+    }
+
+    .cv-content {
+        padding: 0 10px;
+    }
+
+    .cv-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .cv-item h3 {
+        font-size: 1.2rem;
+    }
+
+    .cv-item span {
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .cv-item p {
+        font-size: 1rem;
+    }
+
+    footer {
+        padding: 20px 10px;
+    }
+
+    footer .footer-content {
+        gap: 10px;
+    }
+
+    footer .socials {
+        gap: 15px;
+    }
+
+    footer .social-link {
+        font-size: 1rem;
+    }
+}

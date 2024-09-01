@@ -1,0 +1,444 @@
+/* Stili Globali */
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+    background-color: #FFF;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #FFD700;
+    font-weight: 700;
+}
+
+p {
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+a {
+    text-decoration: none;
+    color: #FFD700;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #fff;
+}
+
+/* Header */
+header {
+    background-color: #FFD700;
+    padding: 20px 0;
+}
+
+header h1 {
+    color: #FFF;
+    text-align: center;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: #FFF;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+header nav ul li a:hover {
+    color: #333;
+}
+
+/* Hero Section */
+#hero {
+    background-color: #FFF;
+    color: #333;
+    text-align: center;
+    padding: 150px 20px;
+}
+
+#hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+#hero p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+}
+
+#hero .btn {
+    background-color: #FFD700;
+    color: #FFF;
+    padding: 15px 30px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#hero .btn:hover {
+    background-color: #FFA500;
+    transform: translateY(-5px);
+}
+
+/* About Section */
+#about {
+    background-color: #FFF;
+    padding: 100px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    color: #FFF;
+}
+
+#about .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    padding: 0 20px;
+    gap: 50px;
+}
+
+#about .about-text {
+    flex: 1;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+}
+
+#about .about-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #FFD700;
+}
+
+#about .about-text p {
+    color: #DDD;
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+#about .about-img {
+    flex: 1;
+    text-align: center;
+}
+
+#about .about-img img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Contenitore del video */
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px; /* Imposta una larghezza massima per evitare che il video diventi troppo grande su schermi molto larghi */
+    margin: 0 auto;
+    padding-top:35%; /* Rapporto 16:9 */
+    overflow: hidden;
+    border-radius: 8px; /* Bordi arrotondati */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Ombra per un effetto di sollevamento */
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Occupa tutta la larghezza del contenitore */
+    height: 100%; /* Occupa tutta l'altezza del contenitore */
+    border: 0; /* Rimuove il bordo del video */
+}
+
+/* Contenitore principale */
+#projects {
+    background-color: #f9f9f9;
+    padding: 100px 0;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* Titolo */
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Contenitore dei progetti */
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: center;
+}
+
+/* Elemento del progetto */
+.project-item {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.project-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay-content {
+    text-align: center;
+}
+
+.project-item:hover {
+    transform: scale(1.05);
+}
+
+.project-item:hover .project-overlay {
+    opacity: 1;
+}
+
+.btn {
+    background-color: #f7c300;
+    color: #000;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #f7b600;
+}
+
+/* Contact Section */
+#contact {
+    background-color: #FFF;
+    padding: 100px 0;
+    text-align: center;
+    color: #333;
+}
+
+#contact p {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+}
+
+#contact .btn {
+    background-color: #FFD700;
+    color: #FFF;
+    padding: 15px 30px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#contact .btn:hover {
+    background-color: #FFA500;
+    transform: translateY(-5px);
+}
+
+/* Footer */
+footer {
+    background-color: #FFD700;
+    padding: 40px 0;
+    text-align: center;
+    color: #FFF;
+}
+
+footer .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+footer .socials {
+    display: flex;
+    gap: 20px;
+}
+
+footer .social-link {
+    text-decoration: none;
+    color: #FFF;
+    font-size: 1.2rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+footer .social-link:hover {
+    color: #333;
+    transform: scale(1.2);
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.cv-header {
+    background-color: #FFD700;
+    color: #222;
+    padding: 2rem 0;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.cv-header p {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+    color: #555;
+}
+
+.cv-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.cv-sidebar {
+    flex: 1;
+    background-color: #fff;
+    padding: 2rem;
+    margin-right: 2rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cv-photo img {
+    width: 100%;
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+}
+
+.cv-info, .cv-skills, .cv-languages {
+    margin-bottom: 2rem;
+}
+
+.cv-info h2, .cv-skills h2, .cv-languages h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #FFD700;
+}
+
+.cv-skills ul, .cv-languages ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.cv-skills li, .cv-languages li {
+    background: #f4f4f4;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+}
+
+.cv-content {
+    flex: 2;
+    background-color: #fff;
+    padding: 2rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cv-section {
+    margin-bottom: 2rem;
+}
+
+.cv-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #FFD700;
+    border-bottom: 2px solid #FFD700;
+    padding-bottom: 0.5rem;
+}
+
+.cv-item {
+    margin-bottom: 1.5rem;
+}
+
+.cv-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.cv-item span {
+    font-weight: bold;
+    color: #777;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.cv-item p {
+    font-size: 1rem;
+    color: #555;
+}
+
+footer {
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+footer .socials {
+    margin-top: 1rem;
+}
+
+footer .social-link {
+    color: #FFD700;
+    text-decoration: none;
+    margin: 0 0.5rem;
+}
+
+footer .social-link:hover {
+    text-decoration: underline;
+}

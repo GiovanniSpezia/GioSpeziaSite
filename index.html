@@ -3,128 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giovanni Spezia</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="img/avatar.png" type="image/png">
+    <title>GioSpezia</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
+    <header class="navbar">
         <div class="container">
-            <h1>GioSpezia</h1>
+            <div class="logo">
+                <a href="#home">GioSpezia</a>
+            </div>
             <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html#about">About Me</a></li>
-                    <li><a href="index.html#projects">Projects</a></li>
-                    <li><a href="presentation.html">Presentazione</a></li>
-                    <li><a href="cv.html">Curriculum</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
+                <ul class="nav-links">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About Me</a></li>
+                    <li><a href="#presentazione" class="nav-link">Presentazione</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="curriculum.html" class="nav-link">Curriculum</a></li>
+                    <li><a href="#contact" class="nav-link">Contact Me</a></li>
                 </ul>
             </nav>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </header>
 
-    <section id="hero">
-        <div class="container">
-            <h2>Benvenuto</h2>
-            <p style="color: rgb(61, 61, 61);">Il mio portfolio online, dove puoi scoprire i miei progetti e contattarmi per collaborare!</p>
-            <a href="#about" class="btn">Scopri di più</a>
+    <!-- Sezione Benvenuto -->
+    <section id="home" class="home-section">
+        <div class="hero">
+            <h1>Benvenuti nel mio mondo</h1>
+            <p>Sono Giovanni Spezia, uno studente.</p>
+            <a href="#about" class="btn-primary">Scopri di più</a>
         </div>
     </section>
 
-    <section id="about">
+    <!-- Sezione About Me -->
+    <section id="about" class="about-section">
         <div class="container">
-            <div class="about-img">
-                <img src="img/avatar.png" alt="Giovanni Spezia">
-            </div>
-            <div class="about-text">
-                <h2>About Me</h2>
-                <p>Giovanni Spezia è un giovane ragazzo di 18 anni. Giovanni è circondato da molte passioni e interessi, ad esempio: la cartomagia, lo sport, lo studio e il mentalismo. Si trova in un momento cruciale della sua vita, avrà molte opportunità e sfide che lo attendono.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects">
-        <div class="container">
-            <h2>Progetti</h2>
-            <div class="projects-container">
-                <div class="project-item">
-                    <img src="img/tris.png" alt="TrisGio">
-                    <div class="project-overlay">
-                        <div class="overlay-content">
-                            <h3>TrisGio</h3>
-                            <p>Un programma semplice in C++ del gioco del Tris.</p>
-                            <a href="https://github.com/GiovanniSpezia/TrisGio" class="btn" target="_blank">Scopri di più</a>
-                        </div>
-                    </div>
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="img/avatar (1).png" alt="Il Mio Nome">
                 </div>
-                <div class="project-item">
-                    <img src="img/CosmoVerse.png" alt="CosmoVerse">
-                    <div class="project-overlay">
-                        <div class="overlay-content">
-                            <h3>CosmoVerse</h3>
-                            <p>Un sito web per un piccolo server Minecraft.</p>
-                            <a href="https://github.com/GiovanniSpezia/CosmoVerse" class="btn" target="_blank">Scopri di più</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-item">
-                    <img src="img/tnt.png" alt="Explosion Plugin">
-                    <div class="project-overlay">
-                        <div class="overlay-content">
-                            <h3>Explosion Plugin</h3>
-                            <p>Un plugin per Minecraft che consente di creare e programmare esplosioni.</p>
-                            <a href="https://github.com/GiovanniSpezia/explosionplugin" class="btn" target="_blank">Scopri di più</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-item">
-                    <img src="img/immobili.png" alt="Crearredo">
-                    <div class="project-overlay">
-                        <div class="overlay-content">
-                            <h3>Crearredo</h3>
-                            <p>Un sito web per un'azienda di immobili.</p>
-                            <a href="https://www.crearredo.net/" class="btn" target="_blank">Scopri di più</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-item">
-                    <img src="img/MythicMaster.png" alt="MythicMaster">
-                    <div class="project-overlay">
-                        <div class="overlay-content">
-                            <h3>MythicMaster</h3>
-                            <p>Un sito web per risolvere quiz.</p>
-                            <a href="https://giovannispezia.wixsite.com/mythicmaster" class="btn" target="_blank">Scopri di più</a>
-                        </div>
-                    </div>
+                <div class="about-text">
+                    <p>Giovanni Spezia è un giovane ragazzo di 18 anni. Giovanni è circondato da molte passioni e interessi, ad esempio: la cartomagia, lo sport, lo studio e il mentalismo. Si trova in un momento cruciale della sua vita, avrà molte opportunità e sfide che lo attendono.</p>
                 </div>
             </div>
         </div>
     </section>
-    
 
-    <section id="contact">
+    <!-- Sezione Presentazione con Video -->
+    <section id="presentazione" class="video-section">
         <div class="container">
-            <p style="color: rgb(61, 61, 61);">Vuoi collaborare con me? Clicca sul bottone qui sotto per contattarmi!</p>
-            <a href="https://giovannispezia.wixsite.com/ilmiosito" class="btn">Contattami</a>
+            <h2>Presentazione</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/vaCyNgExl0g?si=7TS-IeNcJkrJfxIF" title="Presentazione Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
         </div>
     </section>
 
-    <footer>
+    <!-- Sezione Projects -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h2>I Miei Progetti</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="img/tris.png" alt="Progetto 1">
+                    <div class="project-info">
+                        <h3>TrisGio</h3>
+                        <p>Un programma semplice in C++ del gioco del Tris.</p>
+                        <a href="https://github.com/GiovanniSpezia/TrisGio" class="btn-secondary" target="_blank">Visualizza</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="img/tnt.png" alt="Progetto 2">
+                    <div class="project-info">
+                        <h3>Explosion Plugin</h3>
+                        <p>Un plugin per Minecraft che consente di creare e programmare esplosioni.</p>
+                        <a href="https://github.com/GiovanniSpezia/explosionplugin" class="btn-secondary" target="_blank">Visualizza</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <img src="img/immobili.png">
+                    <div class="project-info">
+                        <h3>Crearredo</h3>
+                        <p>Un sito web per un'azienda di immobili.</p>
+                        <a href="https://www.crearredo.net/" class="btn-secondary" target="_blank">Visualizza</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <img src="img/MythicMaster.png">
+                    <div class="project-info">
+                        <h3>MythicMaster</h3>
+                        <p>Sitoweb per Dungeons & Dragons</p>
+                        <a href="https://giovannispezia.wixsite.com/mythicmaster" class="btn-secondary" target="_blank">Visualizza</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione Contact Me -->
+    <section id="contact" class="contact-section">
+        <h2>Contact Me</h2>
+        <p>Per collaborazioni o qualsiasi richiesta clicca sul pulsante per contattarmi!</p>
+        <a href="https://giovannispezia.wixsite.com/ilmiosito" class="contact-btn">Scopri di più</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <p>&copy; 2024 GioSpezia - Giovanni Spezia</p>
-                <div class="socials">
-                    <a href="https://www.youtube.com/@GioSpezia" class="social-link" target="_blank">YouTube</a>
-                    <a href="https://www.linkedin.com/in/giovanni-spezia-71577124b/" class="social-link" target="_blank">LinkedIn</a>
-                    <a href="https://github.com/giovannispezia" class="social-link" target="_blank">GitHub</a>
-                    <a href="https://www.paypal.com/paypalme/GioSpezia" class="social-link" target="_blank">Donazione</a>
+                <p>&copy; 2024 Giovanni Spezia. Tutti i diritti riservati.</p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/giospezia06/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@GioSpeziao" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.linkedin.com/in/giovanni-spezia-71577124b/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/giovannispezia" target="_blank"><i class="fab fa-github"></i></a>
+                </div>
+                <div class="quick-contact">
+                    <div>
+                        <i class="fas fa-envelope"></i> <a href="mailto:gio@giospezia.it">gio@giospezia.it</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </footer>
+    </footer>    
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top"><i class="fas fa-chevron-up"></i></button>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>

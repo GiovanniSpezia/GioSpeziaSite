@@ -420,6 +420,148 @@ body {
     box-shadow: 0 5px 10px rgba(0, 170, 255, 0.3);
 }
 
+/* Stile base per la sezione servizi */
+.services-section {
+    padding: 60px 0;
+    background-color: #f9f9f9;
+    position: relative;
+    overflow: hidden;
+}
+
+.services-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 36px;
+    animation: fadeInDown 1s ease-in-out;
+}
+
+/* Griglia per i servizi */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    opacity: 0;
+    animation: fadeInUp 1.2s ease forwards;
+}
+
+/* Stile delle card dei servizi */
+.service-card {
+    background-color: #fff;
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+}
+
+/* Icona dei servizi con animazione */
+.service-icon {
+    font-size: 50px;
+    color: #007BFF;
+    margin-bottom: 10px;
+    transform: scale(0);
+    transition: transform 0.3s ease;
+}
+
+.service-card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.service-card p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Stile dei bottoni fancy */
+.btn-fancy {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #007BFF;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+/* Effetto hover con transizione fluida */
+.btn-fancy:hover {
+    background-color: #0057b4;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    color: #fff;
+}
+
+/* Pulsante con effetto di onda al passaggio */
+.btn-fancy::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: all 0.75s ease;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+}
+
+.btn-fancy:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+}
+
+/* Per allineare meglio i bottoni */
+.service-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+/* Effetti di hover */
+.service-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.2);
+    color: #007BFF;
+}
+
+/* Animazioni */
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 /* Footer */
 .footer {
     background: linear-gradient(135deg, #0a192f, #172a45);

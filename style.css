@@ -91,7 +91,7 @@ a {
 /* Hero Section */
 .home-section {
     height: 100vh;
-    background: url('img/natale.png') no-repeat center center/cover;
+    background: url('img/hero-bg.jpg') no-repeat center center/cover;
     display: flex;
     align-items: center;
     justify-content: center;

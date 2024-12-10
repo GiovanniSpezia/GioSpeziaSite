@@ -1,5 +1,49 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@600&display=swap');
 
+/* Loading */
+#loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #121212;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    opacity: 1;
+    transition: opacity 1s ease;
+    z-index: 1000;
+}
+
+#loader-text {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #3498db, #e91e63, #f1c40f);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 3s infinite, typing 2s steps(10) forwards;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid rgba(255, 255, 255, 0.75);
+    width: 0;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 10ch; }
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -407,66 +451,6 @@ footer {
 
 .newsletter-form button:active {
     transform: scale(0.98);
-}
-
-/* Contact Section */
-.contact-section {
-    text-align: center;
-    padding: 100px 0;
-    background: linear-gradient(135deg, #fff);
-    color: black;
-    position: relative;
-}
-
-.contact-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 100%;
-    height: 5px;
-    background: #00aaff;
-    transform: translateX(-50%);
-}
-
-.contact-section h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-.contact-section p {
-    font-size: 20px;
-    margin-bottom: 40px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.contact-section .contact-btn {
-    display: inline-block;
-    padding: 20px 50px;
-    background-color: #00aaff;
-    color: #fff;
-    font-size: 20px;
-    font-weight: bold;
-    border-radius: 50px;
-    text-transform: uppercase;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    text-decoration: none;
-    box-shadow: 0 10px 20px rgba(0, 170, 255, 0.5);
-}
-
-.contact-section .contact-btn:hover {
-    background-color: #0077cc;
-    transform: translateY(-10px);
-    box-shadow: 0 20px 30px rgba(0, 170, 255, 0.7);
-}
-
-.contact-section .contact-btn:active {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 10px rgba(0, 170, 255, 0.3);
 }
 
 /* Stile base per la sezione servizi */
@@ -961,7 +945,7 @@ footer {
     animation: snowfall 2s infinite linear;
   }
 
-  /* Animazione fiocchi di neve */
+/* Animazione fiocchi di neve */
   @keyframes snowfall {
     0% { transform: translateY(-5px); opacity: 1; }
     100% { transform: translateY(10px); opacity: 0; }
@@ -977,13 +961,13 @@ footer {
     animation: glow 1.5s infinite alternate;
   }
 
-  /* Animazione bagliore */
+/* Animazione bagliore */
   @keyframes glow {
     0% { box-shadow: 0 0 5px #ffad33; }
     100% { box-shadow: 0 0 15px #ff4d4d; }
   }
 
-  /* Contenitore neve */
+/* Contenitore neve */
   .snowflakes {
       position: fixed;
       top: 0;
@@ -995,7 +979,7 @@ footer {
       overflow: hidden; /* Per garantire che non esca dalla pagina */
   }
 
-  /* Singolo fiocco di neve */
+/* Singolo fiocco di neve */
   .snowflake {
       position: absolute;
       top: -5%;
@@ -1005,7 +989,7 @@ footer {
       animation: snow 10s linear infinite;
   }
 
-  /* Animazione neve */
+/* Animazione neve */
   @keyframes snow {
       0% {
       transform: translateY(0) translateX(0);
@@ -1017,7 +1001,7 @@ footer {
       }
   }
 
-  /* Distribuzione casuale */
+/* Distribuzione casuale */
   .snowflake:nth-child(1) { left: 5%; animation-delay: 0s; animation-duration: 8s; }
   .snowflake:nth-child(2) { left: 15%; animation-delay: 1s; animation-duration: 10s; }
   .snowflake:nth-child(3) { left: 25%; animation-delay: 2s; animation-duration: 12s; }

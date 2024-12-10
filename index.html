@@ -10,194 +10,194 @@
     <link rel="icon" href="img/avatar (1).png" type="image/png">
 </head>
 <body>
-    <header class="navbar">
-        <div class="container">
-            <div class="logo">
-                <a href="#home">GioSpezia</a>
-            </div>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="#home" class="nav-link">Home</a></li>
-                    <li><a href="social.html" class="nav-link">Social</a></li>
-                    <li><a href="staffexp.html" class="nav-link">Staff Experience</a></li>
-                    <li><a href="eventi.html" class="nav-link">Event</a></li>
-                    <li><a href="contact.html" class="nav-link">Contact Me</a></li>
-                </ul>
-            </nav>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div class="christmas-section">
-                <div class="snowflake">❄</div>
-                <div class="christmas-text"><a href="natale.html">🎅 Christmas</a></div>
-                <div class="snowflake">❄</div>
-            </div>
-        </div>
-    </header>
+    <!-- Loader -->
+    <div id="loader-wrapper">
+        <div id="loader-text">GioSpezia</div>
+    </div>
 
-    <!-- Sezione Benvenuto -->
-    <section id="home" class="home-section">
-        <div class="hero">
-            <h1>Welcome to my world</h1>    
-            <p>♠️ “Rebel and believe in yourself”</p>
-            <a href="#about" class="btn-primary">Read more</a>
-        </div>
-    </section>
-
-    <!-- Sezione About Me -->
-    <section id="about" class="about-section">
-        <div class="container">
-            <h2>About Me</h2>
-            <div class="about-content">
-                <div class="about-image">
-                    <img src="img/avatar (1).png" alt="Il Mio Nome">
+    <!-- Contenuto principale -->
+    <div id="content" style="display: none;">
+        <header class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <a href="#home">GioSpezia</a>
                 </div>
-                <div class="about-text">
-                    <p>Ciao! Sono Giovanni Spezia, ho 18 anni e sono un ragazzo con una forte passione per ciò che faccio. Mi interessano molte cose, come: la cartomagia, lo sport, lo studio e il mondo della tecnologia. Ogni giorno cerco di migliorarmi, imparando qualcosa di nuovo e mettendomi alla prova in diversi ambiti. Mi trovo in una fase importante della mia vita, piena di opportunità da cogliere e sfide da affrontare.</p>
-                    <p>La mia passione per la cartomagia mi permette di stupire e intrattenere le persone, mentre lo sport mi insegna disciplina e determinazione. Lo studio mi dà gli strumenti per crescere e il mentalismo mi aiuta a capire meglio la mente umana. In tutto quello che faccio, cerco sempre di dare il massimo e di affrontare ogni situazione con curiosità e voglia di migliorare.</p>
-                    <p>Esplora il mio sito per scoprire di più su di me e sui miei interessi!</p>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="#home" class="nav-link">Home</a></li>
+                        <li><a href="social.html" class="nav-link">Social</a></li>
+                        <li><a href="staffexp.html" class="nav-link">Staff Experience</a></li>
+                        <li><a href="eventi.html" class="nav-link">Event</a></li>
+                        <li><a href="#contact" class="nav-link">Contact Me</a></li>
+                    </ul>
+                </nav>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Sezione Presentazione con Video -->
-    <section id="presentazione" class="video-section">
-        <div class="container">
-            <h2>Presentation</h2>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/vaCyNgExl0g?si=7TS-IeNcJkrJfxIF" title="Presentazione Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </header>
+    
+        <!-- Sezione Benvenuto -->
+        <section id="home" class="home-section">
+            <div class="hero">
+                <h1>Welcome to my world</h1>    
+                <p>♠️ “Rebel and believe in yourself”</p>
+                <a href="#about" class="btn-primary">Read more</a>
             </div>
-        </div>
-    </section>
-
-    <!-- Sezione Servizi -->
-    <section id="services" class="services-section">
-        <div class="container">
-            <h2>Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <i class="fas fa-code service-icon"></i>
-                    <h3>Web Development</h3>
-                    <p>Creazione di siti web personalizzati, con particolare attenzione al design e all'usabilità. Anche con l'utilizzo di database.</p>
-                    <a href="#contact" class="btn-fancy">Contact Me</a>
-                </div>
-
-                <div class="service-card">
-                    <i class="fab fa-instagram service-icon"></i>
-                    <h3>Social Media Manager</h3>
-                    <p>Gestione e ottimizzazione di profili social, con particolare attenzione a Instagram e altre piattaforme.</p>
-                    <a href="#contact" class="btn-fancy">Contact Me</a>
-                </div>
-
-                <div class="service-card">
-                    <i class="fas fa-video service-icon"></i>
-                    <h3>Video Editing</h3>
-                    <p>Editing di video per YouTube o anche per altre piattaforme. Posso anche sviluppare video brevi.</p>
-                    <a href="#contact" class="btn-fancy">Contact Me</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sezione Projects -->
-    <section id="projects" class="projects-section">
-        <div class="container">
-            <h2>Project</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <img src="img/tris.png" alt="Progetto 1">
-                    <div class="project-info">
-                        <h3>TrisGio</h3>
-                        <p>Un programma semplice in C++ del gioco del Tris.</p>
-                        <a href="https://github.com/GiovanniSpezia/TrisGio" class="btn-secondary" target="_blank">View</a>
+        </section>
+    
+        <!-- Sezione About Me -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2>About Me</h2>
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="img/avatar (1).png" alt="Il Mio Nome">
                     </div>
-                </div>
-
-                <div class="project-card">
-                    <img src="img/tnt.png" alt="Progetto 2">
-                    <div class="project-info">
-                        <h3>Explosion Plugin</h3>
-                        <p>Un plugin per Minecraft che consente di creare e programmare esplosioni.</p>
-                        <a href="https://github.com/GiovanniSpezia/explosionplugin" class="btn-secondary" target="_blank">View</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <img src="img/immobili.png">
-                    <div class="project-info">
-                        <h3>Crearredo</h3>
-                        <p>Un sito web per un'azienda di immobili.</p>
-                        <a href="https://www.crearredo.net/" class="btn-secondary" target="_blank">View</a>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <img src="img/MythicMaster.png">
-                    <div class="project-info">
-                        <h3>MythicMaster</h3>
-                        <p>Sitoweb per Dungeons & Dragons</p>
-                        <a href="https://giovannispezia.wixsite.com/mythicmaster" class="btn-secondary" target="_blank">View</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <img src="img/VogueVibes.png">
-                    <div class="project-info">
-                        <h3>Vogue Vibes</h3>
-                        <p>Sitoweb per un negozio di vestiti</p>
-                        <a href="https://giovannispezia.github.io/VogueVibes/" class="btn-secondary" target="_blank">View</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <img src="img/click.png">
-                    <div class="project-info">
-                        <h3>CPS Test</h3>
-                        <p>Sitoweb per provare i propri CPS con il mouse, in poche parole i propri click per secondo.</p>
-                        <a href="https://giovannispezia.github.io/CPS-Test/" class="btn-secondary" target="_blank">View</a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Sezione Contact Me -->
-    <section id="contact" class="contact-section">
-        <h2>Contact Me</h2>
-        <p>Per collaborazioni o qualsiasi richiesta clicca sul pulsante per contattarmi!</p>
-        <a href="contact.html" class="contact-btn">Read more</a>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2024 Giovanni Spezia. Tutti i diritti riservati.</p>
-                <div class="social-icons">
-                    <a href="https://www.instagram.com/giospezia06/" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.youtube.com/@GioSpezia" target="_blank"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.linkedin.com/in/giovanni-spezia-71577124b/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://github.com/giovannispezia" target="_blank"><i class="fab fa-github"></i></a>
-                </div>
-                <div class="quick-contact">
-                    <div>
-                        <i class="fas fa-envelope"></i> <a href="mailto:gio@giospezia.it">gio@giospezia.it</a>
+                    <div class="about-text">
+                        <p>Ciao! Sono Giovanni Spezia, ho 18 anni e sono un ragazzo con una forte passione per ciò che faccio. Mi interessano molte cose, come: la cartomagia, lo sport, lo studio e il mondo della tecnologia. Ogni giorno cerco di migliorarmi, imparando qualcosa di nuovo e mettendomi alla prova in diversi ambiti. Mi trovo in una fase importante della mia vita, piena di opportunità da cogliere e sfide da affrontare.</p>
+                        <p>La mia passione per la cartomagia mi permette di stupire e intrattenere le persone, mentre lo sport mi insegna disciplina e determinazione. Lo studio mi dà gli strumenti per crescere e il mentalismo mi aiuta a capire meglio la mente umana. In tutto quello che faccio, cerco sempre di dare il massimo e di affrontare ogni situazione con curiosità e voglia di migliorare.</p>
+                        <p>Esplora il mio sito per scoprire di più su di me e sui miei interessi!</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </footer> 
+        </section>
+    
+        <!-- Sezione Presentazione con Video -->
+        <section id="presentazione" class="video-section">
+            <div class="container">
+                <h2>Presentation</h2>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/vaCyNgExl0g?si=7TS-IeNcJkrJfxIF" title="Presentazione Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Sezione Servizi -->
+        <section id="services" class="services-section">
+            <div class="container">
+                <h2>Services</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <i class="fas fa-code service-icon"></i>
+                        <h3>Web Development</h3>
+                        <p>Creazione di siti web personalizzati, con particolare attenzione al design e all'usabilità. Anche con l'utilizzo di database.</p>
+                        <a href="#contact" class="btn-fancy">Contact Me</a>
+                    </div>
+    
+                    <div class="service-card">
+                        <i class="fab fa-instagram service-icon"></i>
+                        <h3>Social Media Manager</h3>
+                        <p>Gestione e ottimizzazione di profili social, con particolare attenzione a Instagram e altre piattaforme.</p>
+                        <a href="#contact" class="btn-fancy">Contact Me</a>
+                    </div>
+    
+                    <div class="service-card">
+                        <i class="fas fa-video service-icon"></i>
+                        <h3>Video Editing</h3>
+                        <p>Editing di video per YouTube o anche per altre piattaforme. Posso anche sviluppare video brevi.</p>
+                        <a href="#contact" class="btn-fancy">Contact Me</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Sezione Projects -->
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <h2>Project</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <img src="img/tris.png" alt="Progetto 1">
+                        <div class="project-info">
+                            <h3>TrisGio</h3>
+                            <p>Un programma semplice in C++ del gioco del Tris.</p>
+                            <a href="https://github.com/GiovanniSpezia/TrisGio" class="btn-secondary" target="_blank">View</a>
+                        </div>
+                    </div>
+    
+                    <div class="project-card">
+                        <img src="img/tnt.png" alt="Progetto 2">
+                        <div class="project-info">
+                            <h3>Explosion Plugin</h3>
+                            <p>Un plugin per Minecraft che consente di creare e programmare esplosioni.</p>
+                            <a href="https://github.com/GiovanniSpezia/explosionplugin" class="btn-secondary" target="_blank">View</a>
+                        </div>
+                    </div>
+    
+                    <div class="project-card">
+                        <img src="img/immobili.png">
+                        <div class="project-info">
+                            <h3>Crearredo</h3>
+                            <p>Un sito web per un'azienda di immobili.</p>
+                            <a href="https://www.crearredo.net/" class="btn-secondary" target="_blank">View</a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <img src="img/MythicMaster.png">
+                        <div class="project-info">
+                            <h3>MythicMaster</h3>
+                            <p>Sitoweb per Dungeons & Dragons</p>
+                            <a href="https://giovannispezia.wixsite.com/mythicmaster" class="btn-secondary" target="_blank">View</a>
+                        </div>
+                    </div>
+    
+                    <div class="project-card">
+                        <img src="img/VogueVibes.png">
+                        <div class="project-info">
+                            <h3>Vogue Vibes</h3>
+                            <p>Sitoweb per un negozio di vestiti</p>
+                            <a href="https://giovannispezia.github.io/VogueVibes/" class="btn-secondary" target="_blank">View</a>
+                        </div>
+                    </div>
+    
+                    <div class="project-card">
+                        <img src="img/click.png">
+                        <div class="project-info">
+                            <h3>CPS Test</h3>
+                            <p>Sitoweb per provare i propri CPS con il mouse, in poche parole i propri click per secondo.</p>
+                            <a href="https://giovannispezia.github.io/CPS-Test/" class="btn-secondary" target="_blank">View</a>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+        </section>
+    
+        <!-- Sezione Contact Me -->
+        <section id="contact" class="contact-section">
+            <h2>Contact Me</h2>
+            <p>Per collaborazioni o qualsiasi richiesta clicca sul pulsante per contattarmi!</p>
+            <a href="https://giovannispezia.wixsite.com/ilmiosito" class="contact-btn">Read more</a>
+        </section>
+    
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <p>&copy; 2024 Giovanni Spezia. Tutti i diritti riservati.</p>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/giospezia06/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@GioSpezia" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.linkedin.com/in/giovanni-spezia-71577124b/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/giovannispezia" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                    <div class="quick-contact">
+                        <div>
+                            <i class="fas fa-envelope"></i> <a href="mailto:gio@giospezia.it">gio@giospezia.it</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div> 
     
     <!-- Effetto neve -->
     <div class="snowflakes" aria-hidden="true">
         <!-- Aggiunti più fiocchi di neve -->
-        <div class="snowflake">❄</div>
-        <div class="snowflake">❄</div>
-        <div class="snowflake">❄</div>
         <div class="snowflake">❄</div>
         <div class="snowflake">❄</div>
         <div class="snowflake">❄</div>
@@ -213,5 +213,21 @@
 
     <!-- JavaScript -->
     <script src="script.js"></script>
+
+    <!-- JavaScript - Loading-->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(function() {
+                const loaderWrapper = document.getElementById("loader-wrapper");
+                loaderWrapper.style.opacity = "0";
+                setTimeout(() => {
+                    loaderWrapper.style.display = "none";
+                }, 1000);
+
+                const content = document.getElementById("content");
+                content.style.display = "block";
+            }, 3000);
+        });
+    </script>
 </body>
 </html>

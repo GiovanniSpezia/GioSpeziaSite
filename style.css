@@ -278,6 +278,34 @@ a {
     background-color: #00528d;
 }
 
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+.hidden-projects {
+    display: none;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+.toggle-container {
+    text-align: center;
+    margin-top: 20px;
+}
+.btn-toggle {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+.btn-toggle:hover {
+    background-color: #0056b3;
+}
+
 /* Video Section */
 .video-section {
     padding: 80px 0;

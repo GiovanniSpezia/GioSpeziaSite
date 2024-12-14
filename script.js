@@ -49,3 +49,16 @@ sections.forEach(section => {
     section.classList.add('hidden');
     observer.observe(section);
 });
+
+document.getElementById('toggle-projects').addEventListener('click', function() {
+    const hiddenProjects = document.querySelector('.hidden-projects');
+    const button = this;
+
+    if (hiddenProjects.style.display === 'none' || hiddenProjects.style.display === '') {
+        hiddenProjects.style.display = 'grid';
+        button.innerHTML = 'Nascondi &#x25B2;';
+    } else {
+        hiddenProjects.style.display = 'none';
+        button.innerHTML = 'Mostra Altri &#x25BC;';
+    }
+});

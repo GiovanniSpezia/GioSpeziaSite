@@ -1,6 +1,22 @@
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
 
+// Loading
+document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(function() {
+        const loaderWrapper = document.getElementById("loader-wrapper");
+        loaderWrapper.style.opacity = "0";
+        setTimeout(() => {
+            loaderWrapper.style.display = "none";
+        }, 1000);
+
+        const content = document.getElementById("content");
+        content.style.display = "block";
+    }, 3000);
+});
+
+
+
 hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('open');
     hamburger.classList.toggle('toggle');
@@ -13,6 +29,7 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 });
 
+// to top button
 const backToTopButton = document.getElementById('back-to-top');
 
 window.addEventListener('scroll', () => {
@@ -49,6 +66,8 @@ sections.forEach(section => {
     section.classList.add('hidden');
     observer.observe(section);
 });
+
+// Mostra / Nascondi projects
 
 document.getElementById('toggle-projects').addEventListener('click', function() {
     const hiddenProjects = document.querySelector('.hidden-projects');

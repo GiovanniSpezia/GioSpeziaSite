@@ -69,99 +69,19 @@ sections.forEach(section => {
 
 // Mostra / Nascondi projects
 
-document.getElementById('toggle-projects').addEventListener('click', function() {
-    const hiddenProjects = document.querySelector('.hidden-projects');
-    const button = this;
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleButton = document.getElementById('toggle-projects');
+    const projectsGrid = document.querySelector('.projects-grid'); // La grid dei progetti
 
-    if (hiddenProjects.style.display === 'none' || hiddenProjects.style.display === '') {
-        hiddenProjects.style.display = 'grid';
-        button.innerHTML = 'Nascondi &#x25B2;';
-    } else {
-        hiddenProjects.style.display = 'none';
-        button.innerHTML = 'Mostra Altri &#x25BC;';
-    }
-});
-
-// 2025
-
-const canvas = document.getElementById("fireworksCanvas");
-const ctx = canvas.getContext("2d");
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-window.addEventListener("resize", () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-});
-
-class Firework {
-    constructor(x, y, colors) {
-        this.x = x;
-        this.y = y;
-        this.colors = colors;
-        this.particles = [];
-        for (let i = 0; i < 100; i++) {
-            this.particles.push(new Particle(this.x, this.y, this.colors));
-        }
-    }
-
-    draw() {
-        this.particles.forEach((particle) => particle.update());
-    }
-}
-
-class Particle {
-    constructor(x, y, colors) {
-        this.x = x;
-        this.y = y;
-        this.colors = colors;
-        this.radius = Math.random() * 2 + 1;
-        this.angle = Math.random() * 2 * Math.PI;
-        this.speed = Math.random() * 5 + 2;
-        this.gravity = 0.1;
-        this.friction = 0.98;
-        this.opacity = 1;
-        this.decay = Math.random() * 0.02 + 0.01;
-    }
-
-    update() {
-        this.speed *= this.friction;
-        this.x += Math.cos(this.angle) * this.speed;
-        this.y += Math.sin(this.angle) * this.speed + this.gravity;
-        this.opacity -= this.decay;
-
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
-        ctx.fillStyle = `rgba(${this.colors[0]}, ${this.colors[1]}, ${this.colors[2]}, ${this.opacity})`;
-        ctx.fill();
-        ctx.closePath();
-    }
-}
-
-const fireworks = [];
-
-function createFirework() {
-    const x = Math.random() * canvas.width;
-    const y = Math.random() * canvas.height / 2;
-    const colors = [
-        Math.floor(Math.random() * 255),
-        Math.floor(Math.random() * 255),
-        Math.floor(Math.random() * 255),
-    ];
-    fireworks.push(new Firework(x, y, colors));
-}
-
-function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    fireworks.forEach((firework, index) => {
-        firework.draw();
-        if (firework.particles.every((particle) => particle.opacity <= 0)) {
-            fireworks.splice(index, 1);
+    // Gestisci il click sul pulsante
+    toggleButton.addEventListener('click', function() {
+        // Verifica se i progetti sono visibili
+        if (projectsGrid.style.display === 'none' || projectsGrid.style.display === '') {
+            projectsGrid.style.display = 'grid'; // Mostra i progetti
+            toggleButton.innerHTML = 'Nascondi &#x25B2;'; // Cambia il testo del bottone
+        } else {
+            projectsGrid.style.display = 'none'; // Nascondi i progetti
+            toggleButton.innerHTML = 'Mostra Progetti &#x25BC;'; // Cambia il testo del bottone
         }
     });
-    requestAnimationFrame(animate);
-}
-
-setInterval(createFirework, 500);
-animate();
+});

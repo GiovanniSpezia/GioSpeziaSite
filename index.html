@@ -99,9 +99,14 @@
         <!-- Sezione Projects -->
         <section id="projects" class="projects-section">
             <div class="container">
-                <h2>Projects</h2>
-                <div class="projects-grid">
-                    <!-- Progetti visibili di default -->
+                <h2 id="projects-title">Projects</h2>
+
+                <!-- Pulsante per mostrare/nascondere -->
+                <div class="toggle-container">
+                    <button id="toggle-projects" class="btn-toggle">Mostra Progetti &#x25BC;</button>
+                </div>
+
+                <div class="projects-grid" style="display: none;">
                     <div class="project-card">
                         <img src="img/MythicMaster.png" alt="Progetto 4">
                         <div class="project-info">
@@ -128,10 +133,16 @@
                             <a href="https://www.crearredo.net/" class="btn-secondary" target="_blank">View</a>
                         </div>
                     </div>
-                </div>
 
-                <!-- Progetti nascosti inizialmente -->
-                <div class="hidden-projects">
+                    <div class="project-card">
+                        <img src="img/lightbulb.png" alt="Progetto 1">
+                        <div class="project-info">
+                            <h3>LumionTech</h3>
+                            <p>Ricarica veloce e luce smart in un design compatto e raffinato.</p>
+                            <a href="https://giovannispezia.github.io/LumionTech/" class="btn-secondary" target="_blank">View</a>
+                        </div>
+                    </div>
+
                     <div class="project-card">
                         <img src="img/running.png" alt="Progetto 1">
                         <div class="project-info">
@@ -185,11 +196,6 @@
                             <a href="https://giovannispezia.github.io/Walify/" class="btn-secondary" target="_blank">View</a>
                         </div>
                     </div>
-                </div>
-
-                <!-- Pulsante per mostrare/nascondere -->
-                <div class="toggle-container">
-                    <button id="toggle-projects" class="btn-toggle">Mostra Progetti &#x25BC;</button>
                 </div>
             </div>
         </section>

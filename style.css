@@ -210,21 +210,63 @@ a {
     gap: 30px;
 }
 
+/* Immagine con effetto floating */
 .about-image img {
     width: 100%;
-    max-width: 400px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    max-width: 350px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
 }
 
+.about-image img:hover {
+    transform: translateY(-5px);
+}
+
+/* Testo */
 .about-text {
-    flex: 1;
-    min-width: 280px;
+    max-width: 500px;
+    text-align: left;
+    font-size: 1.2rem;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-.about-text p {
-    margin-bottom: 20px;
-    font-size: 1rem;
+.about-text.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Effetto animato sul testo */
+.animated-text {
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(90deg, #007BFF, #00D4FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: glowing-text 3s infinite linear;
+}
+
+@keyframes glowing-text {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Evidenziazione con effetto luminoso */
+.highlight {
+    position: relative;
+    display: inline-block;
+    color: white;
+    background-color: #007BFF;
+    padding: 4px 8px;
+    border-radius: 5px;
+    transition: box-shadow 0.3s ease;
+}
+
+.highlight:hover {
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.8);
 }
 
 /* Projects Section */
@@ -818,7 +860,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 10px; /* Ridotto da 20px per un margine più stretto tra l'icona e il testo */
     margin-bottom: 40px;
 }
 

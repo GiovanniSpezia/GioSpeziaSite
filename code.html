@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Social - GioSpezia</title>
+    <title>Code - GioSpezia</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@600&display=swap" rel="stylesheet">
@@ -20,9 +20,10 @@
             <nav>
                 <ul class="nav-links">
                     <li><a href="index.html" class="nav-link">Home</a></li>
-                    <li><a href="#" class="nav-link">Social</a></li>
+                    <li><a href="social.html" class="nav-link">Social</a></li>
                     <li><a href="staffexp.html" class="nav-link">Staff Experience</a></li>
                     <li><a href="eventi.html" class="nav-link">Event</a></li>
+                    <li><a href="code.html" class="nav-link">Code</a></li>
                     <li><a href="index.html#contact" class="nav-link">Contact Me</a></li>
                 </ul>
             </nav>
@@ -34,43 +35,42 @@
         </div>
     </header>
 
-    <section class="social-section">
+    <!-- Sezione Code Gallery -->
+    <section class="code-section">
         <div class="container">
-            <h1>Social Network</h1>
-            <p>Seguimi su tutti i miei social per rimanere connesso.</p>
-            <div class="social-grid">
-                <a href="https://www.youtube.com/@GioSpezia" class="social-card youtube" target="_blank">
-                    <i class="fab fa-youtube"></i>
-                    <span>YouTube</span>
-                </a>
-                <a href="https://www.twitch.tv/giospezia" class="social-card twitch" target="_blank">
-                    <i class="fab fa-twitch"></i>
-                    <span>Twitch</span>
-                </a>
-                <a href="https://www.instagram.com/giospezia06/" class="social-card instagram" target="_blank">
-                    <i class="fab fa-instagram"></i>
-                    <span>Instagram</span>
-                </a>
-                <a href="https://www.tiktok.com/@giovaspezia" class="social-card tiktok" target="_blank">
-                    <i class="fab fa-tiktok"></i>
-                    <span>TikTok</span>
-                </a>
-                <a href="https://telegram.org" class="social-card telegram" target="_blank">
-                    <i class="fab fa-telegram-plane"></i>
-                    <span>Telegram</span>
-                </a>
-                <a href="https://linkedin.com" class="social-card linkedin" target="_blank">
-                    <i class="fab fa-linkedin-in"></i>
-                    <span>LinkedIn</span>
-                </a>
+            <h2>Code Gallery</h2>
+            
+            <p class="section-subtitle">Scopri i miei script pronti all’uso per i tuoi siti web oppure i tuoi programmi</p>
+
+            <div class="code-cards">
+                <!-- Script Card -->
+                <div class="code-card">
+                    <div class="code-header">
+                        <h3>Screen Loader</h3>
+                    </div>
+                    <p class="code-description">Una schermata di caricamento professionale da aggiungere al proprio sitoweb.</p>
+                    <div class="code-actions">
+                        <button class="copy-btn" onclick="window.location.href='https://paste.coralmc.it/oneteduzow.xml'"><i class="fa fa-copy"></i> Copia Codice</button>
+                    </div>
+                </div>
+
+                <div class="code-card">
+                    <div class="code-header">
+                        <h3>Example</h3>
+                    </div>
+                    <p class="code-description"</p>
+                    <div class="code-actions">
+                        <button class="copy-btn" onclick="window.location.href='https://paste.coralmc.it/oneteduzow.xml'"><i class="fa fa-copy"></i> Copia Codice</button>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>    
+    </section>
 
     <!-- Sezione Contact Me -->
     <section id="contact" class="contact-section">
         <h2>Contact Me</h2>
-        <p>Hai domande o vuoi discutere una collaborazione? Contattami via email!</p>
+        <p>Se hai qualche suggerimento per un nuovo Code o Script da aggiungere al sito, scrivimi per mail.</p>
         <div class="contact-info">
             <p><i class="fas fa-envelope contact-icon"></i> gio@giospezia.it</p>
         </div>
@@ -101,7 +101,7 @@
         </div>
     </footer>
 
-    <!-- JavaScript -->
+    <!-- JavaScript -->            
     <script src="script.js"></script>
 </body>
 </html>

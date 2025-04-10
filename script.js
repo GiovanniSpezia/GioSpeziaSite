@@ -15,8 +15,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }, 3000);
 });
 
-
-
 hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('open');
     hamburger.classList.toggle('toggle');
@@ -67,7 +65,7 @@ sections.forEach(section => {
     observer.observe(section);
 });
 
-// Mostra / Nascondi projects
+// Mostra / Nascondi Projects
 
 document.addEventListener('DOMContentLoaded', function() {
     const toggleButton = document.getElementById('toggle-projects');
@@ -85,3 +83,56 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// Cookie
+const cookieBox = document.getElementById('cookieBox');
+const acceptBtn = document.getElementById('acceptCookies');
+const customizeBtn = document.getElementById('customizeCookies');
+const cookieManage = document.getElementById('cookieManage');
+const savePreferences = document.getElementById('savePreferences');
+const reopenButton = document.getElementById('reopenButton');
+const closeBanner = document.getElementById('closeBanner');
+
+// Mostra solo il bottone dopo 3 secondi
+function showReopenButton() {
+  setTimeout(() => {
+    reopenButton.style.display = 'block';
+  }, 3000);
+}
+
+// Mostra il banner al click del bottone
+reopenButton.addEventListener('click', () => {
+  cookieBox.style.display = 'block';
+  cookieManage.style.display = 'none';
+  reopenButton.style.display = 'none';
+});
+
+// Accetta tutti i cookie
+acceptBtn.addEventListener('click', () => {
+  localStorage.setItem('cookieConsent', 'accepted');
+  cookieBox.style.display = 'none';
+  reopenButton.style.display = 'block';
+});
+
+// Personalizza i cookie
+customizeBtn.addEventListener('click', () => {
+  cookieManage.style.display = 'block';
+});
+
+// Salva preferenze
+savePreferences.addEventListener('click', () => {
+  const analytics = document.getElementById('analytics').checked;
+  const marketing = document.getElementById('marketing').checked;
+  localStorage.setItem('cookieConsent', JSON.stringify({ analytics, marketing }));
+  cookieBox.style.display = 'none';
+  reopenButton.style.display = 'block';
+});
+
+// Chiudi il banner
+closeBanner.addEventListener('click', () => {
+  cookieBox.style.display = 'none';
+  reopenButton.style.display = 'block';
+});
+
+// Avvio
+window.addEventListener('load', showReopenButton);

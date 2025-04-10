@@ -17,6 +17,30 @@
         <div id="loader-text">GioSpezia</div>
     </div>
 
+    <!-- Cookie Banner -->
+    <div id="cookieBox" class="cookie-banner" style="display: none;">
+        <button id="closeBanner">✖️</button>
+        <div class="cookie-content">
+        <h3>🍪 Questo sito utilizza i cookie</h3>
+        <p>Miglioriamo la tua esperienza. Puoi accettare tutti o personalizzare le preferenze.</p>
+        <div class="cookie-buttons">
+            <button id="acceptCookies">Accetta Tutto</button>
+            <button id="customizeCookies" class="outline">Personalizza</button>
+        </div>
+        <div id="cookieManage" class="cookie-manage">
+            <h4>🎛️ Gestisci Preferenze</h4>
+            <label><input type="checkbox" id="analytics"> Cookie Analitici</label><br>
+            <label><input type="checkbox" id="marketing"> Cookie Marketing</label><br>
+            <button id="savePreferences">Salva Preferenze</button>
+        </div>
+        </div>
+    </div>
+    
+    <!-- Bottone per riaprire il banner -->
+    <button id="reopenButton" style="display: none; position: fixed; bottom: 20px; left: 20px; z-index: 9999;">
+        🍪 Cookie
+    </button>  
+
     <!-- Contenuto principale -->
     <div id="content" style="display: none;">
         <header class="navbar">
@@ -56,7 +80,7 @@
                 <h2 class="fade-in">About Me</h2>
                 <div class="about-content">
                     <div class="about-image fade-in">
-                        <img src="img/avatar (1).png" alt="Giovanni Spezia">
+                        <img src="img/avatar.png" alt="Giovanni Spezia">
                     </div>
                     <div class="about-text fade-in">
                         <p>Ciao! Sono <span class="animated-text">Giovanni Spezia</span>, ho 18 anni e sono un ragazzo con mille passioni.</p>
@@ -91,6 +115,29 @@
                         <h3>Video Editing</h3>
                         <p>Editing di video per YouTube o anche per altre piattaforme. Posso anche sviluppare video brevi.</p>
                         <a href="#contact" class="btn-fancy">Contact Me</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sezione Founder -->
+        <section id="founder" class="founder-section">
+            <div class="container">
+                <div class="founder-header fade-in">
+                    <i class="fa-solid fa-rocket icon"></i>
+                    <h2><span class="gradient-text">Founder</span> di MythicMaster</h2>
+                </div>
+                <div class="founder-card fade-in">
+                    <div class="founder-image">
+                        <img src="img/MythicMaster.png" alt="Logo MythicMaster">
+                    </div>
+                    <div class="founder-info">
+                        <p>
+                            Sono uno dei Founder di <span class="highlight">MythicMaster</span> con l’obiettivo di riportare tra i ragazzi il gioco più esclusivo, <em>Dungeons & Dragons</em>.
+                            Organizziamo eventi incredibili per far sì che più giocatori possano divertirsi e vivere esperienze straordinarie. 
+                        </p>
+                        <p class="quote">"L'immaginazione è l'unico limite in un mondo pieno di avventure."</p>
+                        <a href="https://giovannispezia.github.io/MythicMaster/" target="_blank" class="founder-btn">Scopri di più</a>
                     </div>
                 </div>
             </div>
@@ -234,6 +281,10 @@
                         <div>
                             <i class="fas fa-envelope"></i> <a href="mailto:gio@giospezia.it">gio@giospezia.it</a>
                         </div>
+                    </div>
+                    <!-- Privacy Policy Link -->
+                    <div class="privacy-policy">
+                        <a href="privacy.html" class="privacy-link">Informativa sulla privacy</a>
                     </div>
                 </div>
             </div>

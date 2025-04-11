@@ -38,34 +38,44 @@
     <!-- Sezione Code Gallery -->
     <section class="code-section">
         <div class="container">
-            <h2>Code Gallery</h2>
-            
-            <p class="section-subtitle">Scopri i miei script pronti all’uso per i tuoi siti web oppure i tuoi programmi</p>
-
+            <h2 class="animate-title">CODE</h2>
+            <p class="section-subtitle"></p>
+    
             <div class="code-cards">
-                <!-- Script Card -->
-                <div class="code-card">
+                <!-- Card 1 -->
+                <div class="code-card tilt">
                     <div class="code-header">
-                        <h3>Screen Loader</h3>
+                        <i class="fas fa-code code-icon"></i>
+                        <h3>Test</h3>
                     </div>
-                    <p class="code-description">Una schermata di caricamento professionale da aggiungere al proprio sitoweb.</p>
+                    <p class="code-description">.</p>
+                    <pre class="code-preview">Hello World!</pre>
                     <div class="code-actions">
-                        <button class="copy-btn" onclick="window.location.href='https://paste.coralmc.it/oneteduzow.xml'"><i class="fa fa-copy"></i> Copia Codice</button>
+                        <button class="copy-btn" onclick="copyToClipboard(`<p>Hello World!</p>`)">
+                            <i class="fas fa-copy"></i> Copia Codice
+                        </button>
+                        <a href="#" class="demo-btn disabled"><i class="fas fa-eye-slash"></i> Nessuna Demo</a>
                     </div>
                 </div>
 
-                <div class="code-card">
+                <!-- Card 2 -->
+                <div class="code-card tilt">
                     <div class="code-header">
-                        <h3>Example</h3>
+                        <i class="fas fa-code code-icon"></i>
+                        <h3>Test</h3>
                     </div>
-                    <p class="code-description"</p>
+                    <p class="code-description">.</p>
+                    <pre class="code-preview">Hello World!</pre>
                     <div class="code-actions">
-                        <button class="copy-btn" onclick="window.location.href='https://paste.coralmc.it/oneteduzow.xml'"><i class="fa fa-copy"></i> Copia Codice</button>
+                        <button class="copy-btn" onclick="copyToClipboard(`<p>Hello World!</p>`)">
+                            <i class="fas fa-copy"></i> Copia Codice
+                        </button>
+                        <a href="#" class="demo-btn disabled"><i class="fas fa-eye-slash"></i> Nessuna Demo</a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </section>     
 
     <!-- Sezione Contact Me -->
     <section id="contact" class="contact-section">
@@ -103,5 +113,16 @@
 
     <!-- JavaScript -->            
     <script src="script.js"></script>
+
+    <script>
+        function copyToClipboard(code) {
+            navigator.clipboard.writeText(code).then(() => {
+                alert("Codice copiato!");
+            }).catch(err => {
+                alert("Errore nella copia.");
+                console.error(err);
+            });
+        }
+    </script>        
 </body>
 </html>

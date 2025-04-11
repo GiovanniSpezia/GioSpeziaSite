@@ -76,10 +76,10 @@ document.addEventListener('DOMContentLoaded', function() {
         // Verifica se i progetti sono visibili
         if (projectsGrid.style.display === 'none' || projectsGrid.style.display === '') {
             projectsGrid.style.display = 'grid'; // Mostra i progetti
-            toggleButton.innerHTML = 'Hide &#x25B2;'; // Cambia il testo del bottone
+            toggleButton.innerHTML = 'Nascondi &#x25B2;'; // Cambia il testo del bottone
         } else {
             projectsGrid.style.display = 'none'; // Nascondi i progetti
-            toggleButton.innerHTML = 'View Projects &#x25BC;'; // Cambia il testo del bottone
+            toggleButton.innerHTML = 'Mostra Progetti &#x25BC;'; // Cambia il testo del bottone
         }
     });
 });

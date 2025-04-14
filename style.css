@@ -792,7 +792,7 @@ a {
 }
 
 .social-card i {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-bottom: 10px;
 }
 
@@ -808,6 +808,7 @@ a {
 .tiktok { background-color: #010101; }
 .telegram { background-color: #0088cc; }
 .linkedin { background-color: #0077B5; }
+.github { background-color: #010101; }
 
 /* Hover Effects */
 .social-card:hover {

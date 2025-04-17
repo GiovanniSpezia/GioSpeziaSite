@@ -74,10 +74,24 @@
     position: absolute;
     top: 12px;
     right: 12px;
-    background: transparent;
+    background: linear-gradient(90deg, #007BFF, #00D4FF);
     border: none;
-    font-size: 18px;
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    color: #fff;
+    font-size: 16px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 123, 255, 0.3);
+    transition: all 0.3s ease;
+  }
+  
+  #closeBanner:hover {
+    transform: scale(1.1) rotate(90deg);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
   }
   
   /* Titolo e testo */

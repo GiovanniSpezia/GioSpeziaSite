@@ -136,3 +136,35 @@ closeBanner.addEventListener('click', () => {
 
 // Avvio
 window.addEventListener('load', showReopenButton);
+
+// contact.html
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('contactForm');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Prendi i valori
+    const nome      = this.nome.value.trim();
+    const email     = this.email.value.trim();
+    const oggetto   = this.oggetto.value.trim();
+    const messaggio = this.messaggio.value.trim();
+
+    // Se qualche campo è vuoto, interrompi
+    if (!nome || !email || !oggetto || !messaggio) {
+      alert('Per favore, compila tutti i campi.');
+      return;
+    }
+
+    // Costruisci il mailto
+    const params = new URLSearchParams({
+      subject: oggetto,
+      body: `Nome: ${nome}\r\nEmail: ${email}\r\n\r\n${messaggio}`
+    });
+
+    const mailtoLink = `mailto:gio@giospezia.it?${params.toString()}`;
+
+    // Apri il client di posta
+    window.open(mailtoLink, '_self');
+  });
+});

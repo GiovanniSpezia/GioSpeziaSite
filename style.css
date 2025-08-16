@@ -804,21 +804,27 @@ a {
 
 .founder-btn {
     display: inline-block;
-    margin-top: 25px;
-    padding: 12px 24px;
+    margin-top: auto;
+    padding: 13px 32px;
     background: linear-gradient(90deg, #007BFF, #00D4FF);
     color: #fff;
     border: none;
     border-radius: 30px;
     text-decoration: none;
-    font-weight: 600;
-    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
-    transition: background 0.3s ease, transform 0.2s ease;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.18);
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+    z-index: 1;
 }
 
 .founder-btn:hover {
     background: linear-gradient(90deg, #0066cc, #00aaff);
-    transform: translateY(-2px);
+    transform: translateY(-3px) scale(1.04);
+    box-shadow: 0 8px 24px rgba(0, 123, 255, 0.22);
 }
 
 /* Fade-in effect */
@@ -1809,21 +1815,27 @@ footer {
 
 .contact-btn {
     display: inline-block;
-    margin-top: 25px;
-    padding: 12px 24px;
+    margin-top: auto;
+    padding: 13px 32px;
     background: linear-gradient(90deg, #007BFF, #00D4FF);
     color: #fff;
     border: none;
     border-radius: 30px;
     text-decoration: none;
-    font-weight: 600;
-    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
-    transition: background 0.3s ease, transform 0.2s ease;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.18);
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+    z-index: 1;
 }
 
 .contact-btn:hover {
     background: linear-gradient(90deg, #0066cc, #00aaff);
-    transform: translateY(-2px);
+    transform: translateY(-3px) scale(1.04);
+    box-shadow: 0 8px 24px rgba(0, 123, 255, 0.22);
 }
 
 /* =========================

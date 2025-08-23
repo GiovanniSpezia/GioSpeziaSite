@@ -1247,6 +1247,7 @@ a {
     flex-direction: column;
     align-items: center;
     min-height: 170px;
+    will-change: transform, box-shadow, filter;
 }
 
 .social-card::before {
@@ -1267,6 +1268,7 @@ a {
     z-index: 1;
     filter: drop-shadow(0 2px 8px #00d4ff33);
     transition: transform 0.3s, filter 0.3s;
+    will-change: transform, filter;
 }
 
 .social-card span {
@@ -1280,10 +1282,11 @@ a {
 .youtube { background: linear-gradient(120deg, #FF0000 80%, #fff0 100%); }
 .twitch { background: linear-gradient(120deg, #9146FF 80%, #fff0 100%); }
 .instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
-.tiktok { background: linear-gradient(120deg, #010101 80%, #fff0 100%); }
+.tiktok { background: radial-gradient(circle at 30% 107%, #ff0050 6%, #000000 60%, #00f2ea 90%); }
 .telegram { background: linear-gradient(120deg, #0088cc 80%, #fff0 100%); }
 .linkedin { background: linear-gradient(120deg, #0077B5 80%, #fff0 100%); }
 .github { background: linear-gradient(120deg, #010101 80%, #fff0 100%); }
+.facebook { background: linear-gradient(135deg, #1877f2 0%, #3b5998 100%); }
 
 .social-card:hover {
     transform: translateY(-12px) scale(1.045);
@@ -1308,10 +1311,12 @@ a {
         min-height: 120px;
         padding: 24px 10px 18px 10px;
         border-radius: 12px;
+        will-change: transform, box-shadow, filter;
     }
     .social-card i {
         font-size: 2rem;
         margin-bottom: 8px;
+        will-change: transform, filter;
     }
     .social-card span {
         font-size: 1rem;

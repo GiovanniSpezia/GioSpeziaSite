@@ -82,7 +82,7 @@
                         <img src="img/avatar.png" alt="Giovanni Spezia">
                     </div>
                     <div class="about-text fade-in">
-                        <p>Ciao! Sono <span class="animated-text">Giovanni Spezia</span>, ho 18 anni e sono un ragazzo con mille passioni.</p>
+                        <p>Ciao! Sono <span class="animated-text">Giovanni Spezia</span>, ho <span id="eta"></span> anni e sono un ragazzo con mille passioni.</p>
                         <p>Mi piace <span class="highlight">mettermi alla prova</span> ogni giorno, scoprire nuove abilità e crescere costantemente.</p>
                         <p>Cartomagia, sport, tecnologia e mentalismo sono il mio mondo.</p>
                     </div>
@@ -288,5 +288,26 @@
 
     <!-- JavaScript -->
     <script src="script.js"></script>
+
+    <script>
+        /* Script Anno di Nascita */
+        const annoNascita = 2006;
+        const oggi = new Date();
+        const annoCorrente = oggi.getFullYear();
+        const meseCorrente = oggi.getMonth() + 1;
+        const giornoCorrente = oggi.getDate();
+
+        const meseNascita = 8;
+        const giornoNascita = 10;
+
+        let eta = annoCorrente - annoNascita;
+
+        // Se il compleanno non è ancora arrivato quest'anno, togli 1
+        if (meseCorrente < meseNascita || (meseCorrente === meseNascita && giornoCorrente < giornoNascita)) {
+            eta--;
+        }
+
+        document.getElementById("eta").textContent = eta;
+    </script>
 </body>
 </html>

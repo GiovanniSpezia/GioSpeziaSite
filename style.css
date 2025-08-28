@@ -1554,6 +1554,153 @@ footer {
     }
 }
 
+/* ---------- CLIENTI & COLLABORAZIONI ---------- */
+.clients-section {
+  padding: 90px 0 70px 0;
+  background: linear-gradient(135deg, #f9f9fb 60%, #e6f2ff 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.clients-section h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 2.9rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: #222;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.clients-section h2::after {
+  content: "";
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #007BFF, #00D4FF);
+  position: absolute;
+  left: 50%;
+  bottom: -12px;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.clients-subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 28px;
+  opacity: 0.85;
+}
+
+.clients-wrapper {
+  position: relative;
+}
+
+/* Contenitore scrollabile */
+.clients-track {
+  display: flex;
+  gap: 28px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding: 60px 10px 20px;
+  scrollbar-width: none; /* Firefox */
+  cursor: grab;
+  user-select: none; /* Impedisce la selezione del testo e immagini */
+}
+
+.clients-track:active {
+  cursor: grabbing;
+}
+
+.clients-track::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+/* Card dei clienti */
+.client-card {
+  position: relative;
+  flex: 0 0 auto;
+  min-width: 220px;
+  max-width: 240px;
+  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)) padding-box,
+              linear-gradient(135deg, #007BFF, #00D4FF) border-box;
+  border: 3px solid transparent;
+  backdrop-filter: blur(12px);
+  border-radius: 22px;
+  padding: 60px 24px 24px;
+  text-align: center;
+  scroll-snap-align: start;
+  transition: transform 0.35s, box-shadow 0.35s;
+  box-shadow: 0 6px 24px rgba(0, 123, 255, 0.15);
+  user-select: none; /* Impedisce la selezione */
+}
+
+.client-card img {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  background: linear-gradient(white, white) padding-box,
+              linear-gradient(135deg, #007BFF, #00D4FF) border-box;
+  border: 3px solid transparent;
+  border-radius: 50%;
+  padding: 10px;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.15));
+  pointer-events: none; /* Impedisce interazioni con l'immagine */
+}
+
+.client-card p {
+  font-size: 1.08rem;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  color: #333;
+}
+
+.client-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 14px 34px rgba(0, 123, 255, 0.22);
+}
+
+/* Hint scorri */
+.scroll-hint {
+  text-align: center;
+  font-size: 1rem;
+  color: #007BFF;
+  margin-top: 16px;
+  opacity: 0.7;
+  animation: fadeInOut 2.5s infinite;
+  user-select: none;
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+@media (max-width: 576px) {
+  .client-card {
+    min-width: 160px;
+    padding: 50px 18px 18px;
+  }
+  .client-card img {
+    width: 70px;
+    height: 70px;
+    top: -35px;
+    padding: 8px;
+  }
+  .clients-track {
+    padding: 50px 10px 20px;
+  }
+  .clients-section h2 {
+    font-size: 2.2rem;
+  }
+}
+
 /* Sezione Eventi */
 .events-section {
     padding: 80px 0 60px 0;

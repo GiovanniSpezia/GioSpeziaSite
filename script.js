@@ -168,3 +168,36 @@ document.addEventListener('DOMContentLoaded', () => {
     window.open(mailtoLink, '_self');
   });
 });
+
+/* Collaborazioni e Clienti */
+const track = document.getElementById("clientsTrack");
+
+if (track) {
+  // Drag con il cursore
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  track.addEventListener("mousedown", (e) => {
+    isDown = true;
+    track.classList.add("active");
+    startX = e.pageX - track.offsetLeft;
+    scrollLeft = track.scrollLeft;
+  });
+
+  track.addEventListener("mouseleave", () => {
+    isDown = false;
+  });
+
+  track.addEventListener("mouseup", () => {
+    isDown = false;
+  });
+
+  track.addEventListener("mousemove", (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - track.offsetLeft;
+    const walk = (x - startX) * 1.5; // velocità
+    track.scrollLeft = scrollLeft - walk;
+  });
+}

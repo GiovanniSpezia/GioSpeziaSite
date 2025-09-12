@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@600&display=swap');
 
-/* Loading */
+/* Loader wrapper */
 #loader-wrapper {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #121212;
+    background-color: #121212; /* default (dark) */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,6 +18,17 @@
     z-index: 1000;
 }
 
+/* Tema chiaro: cambia sfondo */
+@media (prefers-color-scheme: light) {
+    #loader-wrapper {
+        background-color: #f9f9f9;
+    }
+    #loader-text {
+        border-right: 2px solid rgba(0, 0, 0, 0.8); /* cursore scuro su sfondo chiaro */
+    }
+}
+
+/* Testo del loader */
 #loader-text {
     font-size: 4rem;
     font-weight: bold;
@@ -26,23 +37,32 @@
     background-size: 200% 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: gradientShift 3s infinite, typing 2s steps(10) forwards;
+    animation: gradientShift 3s infinite, typing 2s steps(10) forwards, blink 1s step-end infinite;
     white-space: nowrap;
     overflow: hidden;
-    border-right: 2px solid rgba(255, 255, 255, 0.75);
+    border-right: 2px solid rgba(255, 255, 255, 0.75); /* cursore chiaro su sfondo scuro */
     width: 0;
 }
 
+/* Animazione del gradiente */
 @keyframes gradientShift {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
 
+/* Effetto typing */
 @keyframes typing {
     from { width: 0; }
     to { width: 10ch; }
 }
+
+/* Lampeggio del cursore */
+@keyframes blink {
+    0%, 50% { border-color: inherit; }
+    50%, 100% { border-color: transparent; }
+}
+
 
 ::selection {
     background-color: #007BFF;

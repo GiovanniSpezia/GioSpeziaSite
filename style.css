@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@600&display=swap');
 
-<<<<<<< HEAD
 /* Root variables for themes */
 :root {
     --bg-primary: #f9f9f9;
@@ -36,21 +35,14 @@
     --danger: #ff4757;
 }
 
-/* Loading */
-=======
 /* Loader wrapper */
->>>>>>> 8fed250e79517c76c022d2f32ce0adf30645950d
 #loader-wrapper {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-<<<<<<< HEAD
     background-color: var(--bg-primary);
-=======
-    background-color: #121212; /* default (dark) */
->>>>>>> 8fed250e79517c76c022d2f32ce0adf30645950d
     display: flex;
     justify-content: center;
     align-items: center;
@@ -83,17 +75,13 @@
     animation: gradientShift 3s infinite, typing 2s steps(10) forwards, blink 1s step-end infinite;
     white-space: nowrap;
     overflow: hidden;
-<<<<<<< HEAD
     border-right: 2px solid #888; /* Default: gray cursor for light theme */
-=======
-    border-right: 2px solid rgba(255, 255, 255, 0.75); /* cursore chiaro su sfondo scuro */
->>>>>>> 8fed250e79517c76c022d2f32ce0adf30645950d
     width: 0;
     color: var(--text-primary);
 }
 
 .dark #loader-text {
-    border-right: 2px solid #fff; /* White cursor for dark theme */
+    border-right: 2px solid rgba(255, 255, 255, 0.75); /* cursore chiaro su sfondo scuro */
 }
 
 /* Animazione del gradiente */
@@ -114,7 +102,6 @@
     0%, 50% { border-color: inherit; }
     50%, 100% { border-color: transparent; }
 }
-
 
 ::selection {
     background-color: var(--accent-primary);

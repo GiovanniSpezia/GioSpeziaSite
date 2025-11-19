@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calisthenics | GioSpezia</title>
+    <meta name="description" content="Il mio percorso nel Calisthenics: skills, progressi, filosofia e codici sconto esclusivi per la community.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <link rel="icon" href="img/icon.png" type="image/png">
+</head>
+<body>
+    <canvas id="fireworksCanvas"></canvas>
+    
+    <div id="loader-wrapper"><div id="loader-text">GioSpezia</div></div>
+    <button id="back-to-top"><i class="fas fa-chevron-up"></i></button>
+
+    <!-- Cookie Banner identico -->
+    <div id="cookieBox" class="cookie-banner" style="display: none;">
+        <button id="closeBanner"><i class="fa-solid fa-xmark"></i></button>
+        <div class="cookie-content">
+            <h3>Questo sito utilizza i cookie</h3>
+            <p>Miglioriamo la tua esperienza. Puoi accettare tutti o personalizzare le preferenze.</p>
+            <div class="cookie-buttons">
+                <button id="acceptCookies">Accetta Tutto</button>
+                <button id="customizeCookies" class="outline">Personalizza</button>
+            </div>
+            <div id="cookieManage" class="cookie-manage">
+                <h4>Gestisci Preferenze</h4>
+                <label><input type="checkbox" id="analytics"> Cookie Analitici</label><br>
+                <label><input type="checkbox" id="marketing"> Cookie Marketing</label><br>
+                <button id="savePreferences">Salva Preferenze</button>
+            </div>
+        </div>
+    </div>
+    <button id="reopenButton" style="display:none;">Cookie</button>
+
+    <div id="content" style="display:none;">
+        <!-- NAVBAR -->
+        <header class="navbar">
+            <div class="container">
+                <div class="logo"><a href="https://giospezia.it">GioSpezia</a></div>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li><a href="social.html" class="nav-link">Social</a></li>
+                        <li><a href="staffexp.html" class="nav-link">Staff Experience</a></li>
+                        <li><a href="eventi.html" class="nav-link">Event</a></li>
+                        <li><a href="calisthenics.html" class="nav-link active">Calisthenics</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact Me</a></li>
+                    </ul>
+                </nav>
+                <div class="hamburger"><span></span><span></span><span></span></div>
+                <button class="theme-toggle" id="themeToggle">
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- CHI SONO NEL CALISTHENICS -->
+        <section id="about-cali" class="about-section">
+            <div class="container">
+                <h2 class="section-title">CALISTHENICS</h2>
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="img/cali-gio.jpg" alt="Giovanni Spezia Calisthenics">
+                    </div>
+                    <div class="about-text fade-in">
+                        <p>Il <strong>calisthenics</strong> non è solo un allenamento per me: è uno stile di vita.</p>
+                        <p>Da un anno mi alleno esclusivamente a corpo libero, sfidando la gravità e i miei limiti ogni giorno. Handstand, human flag, front lever, dips, planche.. ogni skill è stata conquistata con pazienza, tecnica e costanza.</p>
+                        <p>Non servono palestre costose o attrezzi: basta una sbarra, il tuo corpo e tanta determinazione.</p>
+                        <p class="highlight" style="font-size:1.3rem; margin-top:20px;">«Il corpo raggiunge ciò che la mente crede.»</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS CONQUISTATE (super migliorata) -->
+        <section id="skills" class="skills-section">
+            <div class="container">
+                <h2 class="section-title">Skills Conquistate</h2>
+                <p class="section-subtitle">Ogni movimento è frutto di mesi o anni di lavoro. Ecco il mio livello attuale</p>
+                
+                <div class="skills-grid">
+
+                <!-- SKILL AVANZATE IN CORSO -->
+                <div class="skill-card advanced">
+                    <i class="fas fa-arrow-up"></i>
+                    <h3>Muscle-Up</h3>
+                    <span class="level">In allenamento</span>
+                    <p>Transizione pulita + esplosività</p>
+                </div>
+
+                <div class="skill-card advanced">
+                    <i class="fas fa-balance-scale-left"></i>
+                    <h3>Front Lever</h3>
+                    <span class="level">In allenamento</span>
+                    <p>Full con 2 elastici leggeri</p>
+                </div>
+
+                <div class="skill-card mastered">
+                    <i class="fas fa-hands"></i>
+                    <h3>Tuke Planche</h3>
+                    <span class="level">Buono</span>
+                    <p>Hold stabile e transizioni</p>
+                </div>
+
+                <div class="skill-card advanced">
+                    <i class="fas fa-flag"></i>
+                    <h3>Human Flag</h3>
+                    <span class="level">In allenamento</span>
+                    <p>Tuck / Straddle progressions</p>
+                </div>
+
+                <!-- SKILL DI FORZA SOLIDE -->
+                <div class="skill-card mastered">
+                    <i class="fas fa-chevron-up"></i>
+                    <h3>Dips</h3>
+                    <span class="level">Ottimo</span>
+                    <p>20+ ripetizioni pulite</p>
+                </div>
+
+                <div class="skill-card mastered">
+                    <i class="fas fa-angle-up"></i>
+                    <h3>Pull-Up</h3>
+                    <span class="level">Buono</span>
+                    <p>10 ripetizioni clean</p>
+                </div>
+
+                <div class="skill-card mastered">
+                    <i class="fas fa-hand-rock"></i>
+                    <h3>Push-Up</h3>
+                    <span class="level">Buono</span>
+                    <p>20+ ripetizioni</p>
+                </div>
+
+                <!-- SKILL SUPPLEMENTARI -->
+                <div class="skill-card advanced">
+                    <i class="fas fa-spinner"></i>
+                    <h3>Handstand</h3>
+                    <span class="level">In Allenamento</span>
+                    <p>Primi approcci in libera</p>
+                </div>
+
+                <div class="skill-card mastered">
+                    <i class="fas fa-grip-lines"></i>
+                    <h3>L-Sit</h3>
+                    <span class="level">Buono</span>
+                    <p>Hold 15–20s</p>
+                </div>
+
+                <!-- NON INIZIATI (ROSSI) -->
+                <div class="skill-card no">
+                    <i class="fas fa-times-circle"></i>
+                    <h3>Back Lever</h3>
+                    <span class="level">Non iniziato</span>
+                    <p></p>
+                </div>
+
+                <div class="skill-card no">
+                    <i class="fas fa-times-circle"></i>
+                    <h3>V-Sit</h3>
+                    <span class="level">Non iniziato</span>
+                    <p></p>
+                </div>
+
+            </div>
+            </div>
+        </section>
+
+        <!-- TRASFORMAZIONE (nascosta con teaser) -->
+        <section class="transformation-teaser">
+            <div class="container">
+                <h2 class="section-title">La Mia Trasformazione</h2>
+                <div style="text-align:center; padding:60px 20px; background:var(--card-bg); border-radius:20px; box-shadow:0 8px 32px var(--shadow-card);">
+                    <i class="fas fa-lock" style="font-size:4rem; color:var(--accent-primary); margin-bottom:20px; opacity:0.6;"></i>
+                    <h3 style="font-size:1.8rem; margin:20px 0;">In arrivo molto presto...</h3>
+                    <p style="font-size:1.2rem; color:var(--text-muted); max-width:600px; margin:0 auto;">
+                        Sto preparando un prima/dopo pazzesco con tutti i dettagli del mio percorso. Torna presto!
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CODICI SCONTO & PARTNER -->
+        <section class="discounts-section">
+            <div class="container">
+                <h2 class="section-title">Codici Sconto Esclusivi</h2>
+                <p class="section-subtitle">Grazie alla community, ho stretto collaborazioni con i migliori brand di calisthenics. Usa i miei codici!</p>
+                <div class="discounts-grid">
+                    <div class="discount-card">
+                        <h3>VitaStrong</h3>
+                        <p class="code">Spicy</p>
+                        <p class="benefit">-20% su tutti i prodotti</p>
+                        <a href="https://vitastrong.it/?coupon=Spicy" target="_blank" class="event-btn">Usa il codice</a>
+                    </div>
+                </div>
+                <p style="text-align:center; margin-top:40px; color:var(--text-muted);">
+                    Nuovi codici in arrivo! Seguimi su Instagram per non perderteli
+                </p>
+            </div>
+        </section>
+
+        <!-- GALLERIA -->
+        <section class="instagram-showcase">
+            <div class="container">
+                <h2 class="section-title">In Azione</h2>
+                <p class="section-subtitle">Alcuni momenti del mio percorso</p>
+                <div class="insta-feed">
+                    <div class="insta-item"><img src="img/cali1.jpg" alt="Calisthenics"></div>
+                    <div class="insta-item"><img src="img/cali2.jpg" alt="Calisthenics"></div>
+                    <div class="insta-item"><img src="img/cali3.jpg" alt="Calisthenics"></div>
+                    <div class="insta-item"><img src="img/cali4.jpg" alt="Calisthenics"></div>
+                    <div class="insta-item"><img src="img/cali5.jpg" alt="Calisthenics"></div>
+                    <div class="insta-item"><img src="img/cali6.jpg" alt="Calisthenics"></div>
+                </div>
+                <div class="btn-wrapper">
+                    <a href="https://www.instagram.com/giospezia06/" target="_blank" class="event-btn insta-btn">
+                        Instagram <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <p>© 2025 Giovanni Spezia. Tutti i diritti riservati.</p>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/giospezia06/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@GioSpezia" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.linkedin.com/in/giovanni-spezia-71577124b/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/giovannispezia" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                    <div class="quick-contact">
+                        <div><i class="fas fa-envelope"></i> <a href="mailto:gio@giospezia.it">gio@giospezia.it</a></div>
+                    </div>
+                    <div class="privacy-policy">
+                        <a href="privacy.html" class="privacy-link">Informativa sulla privacy</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

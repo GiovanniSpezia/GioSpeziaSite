@@ -2453,6 +2453,123 @@ a {
   filter: brightness(1.2);
 }
 
+/* ====================== CALISTHENICS PAGE ====================== */
+
+/* Hero scuro (già nello style locale sopra, ma puoi anche metterlo qui) */
+
+/* Skills Section */
+.skills-section {
+    padding: 120px 0;
+    background: var(--bg-gradient-light);
+}
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+    margin-top: 50px;
+}
+.skill-card {
+    background: var(--card-bg);
+    padding: 32px 24px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 8px 32px var(--shadow-card);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+.skill-card i {
+    font-size: 3.5rem;
+    margin-bottom: 16px;
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.skill-card h3 {
+    font-size: 1.4rem;
+    margin: 12px 0 8px;
+    color: var(--text-primary);
+}
+.skill-card .level {
+    display: block;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 6px 14px;
+    border-radius: 30px;
+    margin: 12px auto;
+    width: fit-content;
+}
+.skill-card.mastered .level { background: #1da34a; color: white; }
+.skill-card.advanced .level { background: #ffa500; color: white; }
+.skill-card.no .level {
+    background: linear-gradient(135deg, #d7263d, #b71c30);
+    color: #fff;
+    border-radius: 6px;
+    padding: 3px 8px;
+    font-weight: 600;
+    box-shadow: 0 0 8px rgba(215, 38, 61, 0.4);
+}
+.skill-card.wip .level { background: #666; color: white; }
+.skill-card:hover {
+    transform: translateY(-12px) scale(1.05);
+    box-shadow: 0 20px 40px var(--shadow-card);
+}
+
+/* Discounts Section */
+.discounts-section {
+    padding: 100px 0;
+    background: var(--bg-secondary);
+}
+.discounts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+    margin-top: 50px;
+}
+.discount-card {
+    background: linear-gradient(135deg, var(--card-bg) 0%, rgba(0,123,255,0.05) 100%);
+    padding: 40px 24px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 8px 32px var(--shadow-card);
+    border: 1px solid var(--border-light);
+    transition: all 0.3s ease;
+}
+.discount-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 16px;
+    color: var(--accent-primary);
+}
+.discount-card .code {
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: 4px;
+    margin: 20px 0;
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    padding: 10px 20px;
+    border-radius: 12px;
+    display: inline-block;
+}
+.discount-card .benefit {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+}
+.discount-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-primary);
+}
+
+/* Trasformazione teaser */
+.transformation-teaser {
+    padding: 100px 0;
+    background: var(--bg-primary);
+}
+.transformation-teaser .section-title::after {
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+}
+
 /* Sezione Contact Me */
 .contact-section {
     padding: 90px 0 80px 0;

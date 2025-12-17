@@ -203,8 +203,9 @@ if (track) {
 }
 
 // JavaScript for Theme Toggle
+// JavaScript for Theme Toggle
 document.addEventListener('DOMContentLoaded', function() {
-  const themeToggle = document.getElementById('themeToggle');
+  const themeToggles = document.querySelectorAll('.theme-toggle');
   const body = document.body; // or document.documentElement if you prefer html
 
   // Function to set theme
@@ -216,6 +217,10 @@ document.addEventListener('DOMContentLoaded', function() {
       body.classList.remove('dark');
       localStorage.setItem('theme', 'light');
     }
+    // Update aria-pressed on all toggles
+    themeToggles.forEach(toggle => {
+      toggle.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+    });
   }
 
   // Function to get initial theme
@@ -238,15 +243,19 @@ document.addEventListener('DOMContentLoaded', function() {
     const newIsDark = !currentIsDark;
     setTheme(newIsDark);
 
-    // Add toggling class for animation
-    themeToggle.classList.add('toggling');
-    setTimeout(() => {
-      themeToggle.classList.remove('toggling');
-    }, 600); // Match animation duration
+    // Add toggling class for animation on all toggles
+    themeToggles.forEach(toggle => {
+      toggle.classList.add('toggling');
+      setTimeout(() => {
+        toggle.classList.remove('toggling');
+      }, 600); // Match animation duration
+    });
   }
 
-  // Event listener for toggle
-  themeToggle.addEventListener('click', toggleTheme);
+  // Event listener for all toggles
+  themeToggles.forEach(toggle => {
+    toggle.addEventListener('click', toggleTheme);
+  });
 
   // Listen for system theme changes (if no manual preference set)
   const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');

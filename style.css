@@ -404,19 +404,31 @@ a {
 .dark .theme-toggle .icon-sun { opacity: 0; transform: rotate(90deg) scale(0.5); }
 .dark .theme-toggle .icon-moon { opacity: 1; transform: rotate(0deg) scale(1); }
 
+/* Stili per il toggle mobile dentro il menu */
+.mobile-theme-toggle {
+  display: none; /* Nascosto di default (desktop) */
+  text-align: center;
+  padding: 10px 0; /* Spazio verticale per integrarsi nel menu */
+}
+
+.mobile-theme-toggle .theme-toggle {
+  margin: 0 auto; /* Centra il bottone nel li */
+  background: transparent; /* Nessun background extra nel menu */
+  box-shadow: none;
+  border: none;
+  z-index: auto; /* Non serve z-index alto qui */
+}
+
 /* Mobile */
 @media (max-width: 992px) {
-    .theme-toggle {
-        position: fixed;
-        top: 18px;
-        left: 50%;
-        right: auto;
-        transform: translateX(-50%);
-        background: rgba(255,255,255,0.85);
-        box-shadow: 0 2px 8px var(--shadow-light);
-        border: 1.5px solid var(--border-light);
-        z-index: 1201;
+    .mobile-theme-toggle {
+        display: list-item; /* Mostra come elemento di lista nel menu */
     }
+    
+    #themeToggle {
+        display: none; /* Nasconde il toggle desktop su mobile */
+    }
+    
     .theme-toggle svg {
         width: 22px;
         height: 22px;
@@ -424,17 +436,7 @@ a {
 }
 
 @media (max-width: 768px) {
-    .theme-toggle {
-        position: fixed;
-        top: 18px;
-        left: 50%;
-        right: auto;
-        transform: translateX(-50%);
-        background: rgba(255,255,255,0.85);
-        box-shadow: 0 2px 8px var(--shadow-light);
-        border: 1.5px solid var(--border-light);
-        z-index: 1201;
-    }
+    /* Nessun ulteriore ajuste necessario, eredita da sopra */
 }
 
 /* Riduci spazio tra le sezioni principali */
@@ -2455,8 +2457,6 @@ a {
 
 /* ====================== CALISTHENICS PAGE ====================== */
 
-/* Hero scuro (già nello style locale sopra, ma puoi anche metterlo qui) */
-
 /* Skills Section */
 .skills-section {
     padding: 120px 0;
@@ -2477,6 +2477,13 @@ a {
     transition: all 0.4s ease;
     position: relative;
     overflow: hidden;
+}
+.skill-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 16px;
+    object-fit: cover;
 }
 .skill-card i {
     font-size: 3.5rem;
@@ -2514,6 +2521,24 @@ a {
     transform: translateY(-12px) scale(1.05);
     box-shadow: 0 20px 40px var(--shadow-card);
 }
+.skill-card progress {
+    width: 100%;
+    height: 8px;
+    margin-top: 12px;
+    border-radius: 4px;
+    background: var(--bg-secondary);
+}
+.skill-card progress::-webkit-progress-bar {
+    background: var(--bg-secondary);
+    border-radius: 4px;
+}
+.skill-card progress::-webkit-progress-value {
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+    border-radius: 4px;
+}
+.skill-card.mastered progress::-webkit-progress-value { background: #1da34a; }
+.skill-card.advanced progress::-webkit-progress-value { background: #ffa500; }
+.skill-card.no progress::-webkit-progress-value { background: #d7263d; }
 
 /* Discounts Section */
 .discounts-section {
@@ -2534,6 +2559,18 @@ a {
     box-shadow: 0 8px 32px var(--shadow-card);
     border: 1px solid var(--border-light);
     transition: all 0.3s ease;
+}
+.discount-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 16px;
+    object-fit: cover;
+}
+.discount-card .description {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
 }
 .discount-card h3 {
     font-size: 1.8rem;
@@ -2568,6 +2605,40 @@ a {
 }
 .transformation-teaser .section-title::after {
     background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+}
+
+/* Instagram Showcase (Gallery "In Azione") */
+.instagram-showcase {
+    padding: 100px 0;
+    background: var(--bg-primary); /* Adatta al tuo tema se necessario */
+}
+
+.insta-feed {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Griglia flessibile per responsive */
+    gap: 20px; /* Spazio tra le immagini */
+    margin-top: 40px;
+}
+
+.insta-item {
+    position: relative;
+    aspect-ratio: 1 / 1; /* Forza un aspect ratio quadrato per i contenitori */
+    overflow: hidden;
+    border-radius: 10px; /* Bordi arrotondati per estetica */
+    box-shadow: 0 4px 12px var(--shadow-light); /* Ombra leggera */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.insta-item:hover {
+    transform: scale(1.05); /* Effetto zoom al hover */
+    box-shadow: 0 8px 24px var(--shadow-card);
+}
+
+.insta-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Copre il contenitore quadrato, croppando se necessario senza distorcere */
+    display: block;
 }
 
 /* Sezione Contact Me */

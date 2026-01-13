@@ -1808,6 +1808,44 @@ a {
     }
 }
 
+/* glow overlay (invisibile finché non hover) */
+.service-card{
+  border: 1px solid var(--border-light); /* quasi impercettibile, coerente */
+}
+
+.service-card::after{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  border-radius: 22px; /* uguale al tuo */
+  background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%),
+    rgba(0,212,255,0.14) 0%,
+    rgba(0,123,255,0.10) 18%,
+    transparent 55%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events:none;
+  z-index: 0;
+}
+
+/* mantieni tutto sopra */
+.service-card > *{
+  position: relative;
+  z-index: 1;
+}
+
+/* hover: lasciamo il tuo transform/box-shadow, aggiungiamo solo glow */
+.service-card:hover::after{
+  opacity: 1;
+}
+
+/* accessibilità */
+@media (prefers-reduced-motion: reduce){
+  .service-card::after{
+    transition: none !important;
+  }
+}
+
 /* ---------- CLIENTI & COLLABORAZIONI ---------- */
 .clients-section {
   padding: 90px 0 70px 0;
@@ -2539,6 +2577,274 @@ a {
 .skill-card.mastered progress::-webkit-progress-value { background: #1da34a; }
 .skill-card.advanced progress::-webkit-progress-value { background: #ffa500; }
 .skill-card.no progress::-webkit-progress-value { background: #d7263d; }
+
+/* ================= MINI DISCOUNT (Instant Gaming) ================= */
+.mini-discount{
+  padding: 40px 0 10px;
+  background: transparent;
+}
+
+.mini-discount-card{
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 18px;
+
+  background: linear-gradient(135deg, var(--card-bg) 0%, rgba(0,123,255,0.06) 100%);
+  border: 1px solid var(--border-light);
+  border-radius: 18px;
+  box-shadow: 0 8px 28px var(--shadow-card);
+  overflow: hidden;
+  position: relative;
+
+  transition: transform 0.35s cubic-bezier(.22,1,.36,1),
+              box-shadow 0.35s cubic-bezier(.22,1,.36,1),
+              border-color 0.35s;
+}
+
+/* Glow interattivo che segue il mouse */
+.mini-discount-card::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  border-radius: 20px;
+  background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%),
+    rgba(0,212,255,0.18) 0%,
+    rgba(0,123,255,0.10) 18%,
+    transparent 55%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events:none;
+}
+
+.mini-discount-card:hover{
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 18px 45px var(--shadow-card), 0 10px 30px var(--shadow-light);
+  border-color: rgba(0,123,255,0.35);
+}
+
+.mini-discount-card:hover::before{
+  opacity: 1;
+}
+
+.mini-discount-left{
+  flex: 1 1 auto;
+  padding: 20px 20px 18px;
+  position: relative;
+  z-index: 2;
+}
+
+.mini-discount-badge{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  box-shadow: 0 6px 18px rgba(0,123,255,0.18);
+  margin-bottom: 10px;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+.mini-discount-card:hover .mini-discount-badge{
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 10px 24px rgba(0,123,255,0.25);
+  filter: saturate(1.1);
+}
+
+.mini-discount-left h3{
+  margin: 0 0 6px;
+  font-size: 1.35rem;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--text-primary);
+  transition: transform 0.3s ease, letter-spacing 0.3s ease;
+}
+
+.mini-discount-card:hover .mini-discount-left h3{
+  transform: translateY(-1px);
+  letter-spacing: 0.3px;
+}
+
+.mini-discount-left p{
+  margin: 0 0 14px;
+  font-size: 0.98rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  max-width: 560px;
+}
+
+.mini-discount-code-wrap{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.mini-discount-code{
+  display: inline-block;
+  font-size: 1.3rem;
+  font-weight: 900;
+  letter-spacing: 3px;
+  color: var(--text-primary);
+
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-light);
+  padding: 8px 14px;
+  border-radius: 12px;
+
+  box-shadow: 0 6px 18px var(--shadow-light);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.mini-discount-card:hover .mini-discount-code{
+  transform: translateY(-1px);
+  border-color: rgba(0,212,255,0.35);
+  box-shadow: 0 14px 28px rgba(0,123,255,0.18);
+}
+
+.mini-discount-copy{
+  border: 1px solid var(--border-light);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: 9px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease, border-color 0.22s ease;
+}
+
+.mini-discount-copy:hover{
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 22px var(--shadow-card);
+  border-color: rgba(0,123,255,0.35);
+  filter: brightness(1.03);
+}
+
+.mini-discount-actions{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.mini-discount-btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  color: #fff;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  box-shadow: 0 8px 20px rgba(0,123,255,0.18);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.mini-discount-btn:hover{
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 14px 28px rgba(0,123,255,0.22);
+}
+
+.mini-discount-note{
+  display: block;
+  margin-top: 10px;
+  color: var(--text-muted);
+  opacity: 0.9;
+  font-size: 0.85rem;
+}
+
+/* RIGHT decorative */
+.mini-discount-right{
+  width: 160px;
+  position: relative;
+  background: radial-gradient(circle at 30% 30%, rgba(0,212,255,0.18) 0%, transparent 60%),
+              radial-gradient(circle at 70% 70%, rgba(0,123,255,0.18) 0%, transparent 55%);
+  border-left: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: transform 0.35s ease;
+  z-index: 1;
+}
+
+.mini-discount-icon{
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 14px 34px rgba(0,123,255,0.25);
+  transform: rotate(8deg);
+
+  transition: transform 0.35s cubic-bezier(.22,1,.36,1), box-shadow 0.35s;
+}
+
+.mini-discount-icon i{
+  font-size: 30px;
+  color: #fff;
+}
+
+.mini-discount-glow{
+  position: absolute;
+  inset: -40px;
+  background: radial-gradient(circle, rgba(0,212,255,0.20) 0%, transparent 55%);
+  filter: blur(6px);
+  pointer-events: none;
+}
+
+.mini-discount-card:hover .mini-discount-right{
+  transform: translateY(-2px);
+}
+
+.mini-discount-card:hover .mini-discount-icon{
+  transform: rotate(0deg) scale(1.05);
+  box-shadow: 0 18px 42px rgba(0,123,255,0.28);
+}
+
+/* Responsive */
+@media (max-width: 768px){
+  .mini-discount-card{
+    flex-direction: column;
+  }
+  .mini-discount-right{
+    width: 100%;
+    height: 110px;
+    border-left: none;
+    border-top: 1px solid var(--border-light);
+  }
+}
+
+/* Accessibilità */
+@media (prefers-reduced-motion: reduce){
+  .mini-discount-card,
+  .mini-discount-card::before,
+  .mini-discount-badge,
+  .mini-discount-icon,
+  .mini-discount-code,
+  .mini-discount-right,
+  .mini-discount-copy,
+  .mini-discount-btn{
+    transition: none !important;
+    animation: none !important;
+  }
+}
 
 /* Discounts Section */
 .discounts-section {

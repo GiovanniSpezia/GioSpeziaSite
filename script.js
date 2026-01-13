@@ -266,3 +266,81 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+/* Mini Discount */
+
+/* ================= MINI DISCOUNT (Instant Gaming) ================= */
+(function () {
+
+  const miniCard = document.getElementById("miniDiscountCard");
+  const copyBtn = document.getElementById("copyIgCode");
+  const codeEl = document.getElementById("igCode");
+
+  // ---- COPY CODE ----
+  if (copyBtn && codeEl) {
+    copyBtn.addEventListener("click", async () => {
+      const code = codeEl.textContent.trim();
+
+      try {
+        await navigator.clipboard.writeText(code);
+        copyBtn.innerHTML = '<i class="fa-solid fa-check"></i> Copiato!';
+        copyBtn.style.borderColor = "rgba(0,123,255,0.35)";
+
+        setTimeout(() => {
+          copyBtn.innerHTML = '<i class="fa-regular fa-copy"></i> Copia';
+          copyBtn.style.borderColor = "";
+        }, 1300);
+
+      } catch {
+        // fallback
+        const temp = document.createElement("textarea");
+        temp.value = code;
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand("copy");
+        document.body.removeChild(temp);
+      }
+    });
+  }
+
+  // ---- GLOW FOLLOW CURSOR ----
+  if (miniCard) {
+    miniCard.addEventListener("mousemove", (e) => {
+      const r = miniCard.getBoundingClientRect();
+      const x = ((e.clientX - r.left) / r.width) * 100;
+      const y = ((e.clientY - r.top) / r.height) * 100;
+
+      miniCard.style.setProperty("--mx", `${x}%`);
+      miniCard.style.setProperty("--my", `${y}%`);
+    });
+
+    miniCard.addEventListener("mouseleave", () => {
+      miniCard.style.setProperty("--mx", "50%");
+      miniCard.style.setProperty("--my", "50%");
+    });
+  }
+
+})();
+
+/* Servizi */
+
+/* ====== SERVIZI: glow che segue il cursore (NO conflitti) ====== */
+(function () {
+  const cards = document.querySelectorAll(".service-card");
+  if (!cards.length) return;
+
+  cards.forEach((card) => {
+    card.addEventListener("mousemove", (e) => {
+      const r = card.getBoundingClientRect();
+      const x = ((e.clientX - r.left) / r.width) * 100;
+      const y = ((e.clientY - r.top) / r.height) * 100;
+      card.style.setProperty("--mx", `${x}%`);
+      card.style.setProperty("--my", `${y}%`);
+    });
+
+    card.addEventListener("mouseleave", () => {
+      card.style.setProperty("--mx", "50%");
+      card.style.setProperty("--my", "50%");
+    });
+  });
+})();

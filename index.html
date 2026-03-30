@@ -21,18 +21,18 @@
     <div id="cookieBox" class="cookie-banner" style="display: none;">
         <button id="closeBanner"><i class="fa-solid fa-xmark"></i></button>
         <div class="cookie-content">
-        <h3>🍪 Questo sito utilizza i cookie</h3>
-        <p>Miglioriamo la tua esperienza. Puoi accettare tutti o personalizzare le preferenze.</p>
-        <div class="cookie-buttons">
-            <button id="acceptCookies">Accetta Tutto</button>
-            <button id="customizeCookies" class="outline">Personalizza</button>
-        </div>
-        <div id="cookieManage" class="cookie-manage">
-            <h4>🎛️ Gestisci Preferenze</h4>
-            <label><input type="checkbox" id="analytics"> Cookie Analitici</label><br>
-            <label><input type="checkbox" id="marketing"> Cookie Marketing</label><br>
-            <button id="savePreferences">Salva Preferenze</button>
-        </div>
+            <h3>🍪 Questo sito utilizza i cookie</h3>
+            <p>Miglioriamo la tua esperienza. Puoi accettare tutti o personalizzare le preferenze.</p>
+            <div class="cookie-buttons">
+                <button id="acceptCookies">Accetta Tutto</button>
+                <button id="customizeCookies" class="outline">Personalizza</button>
+            </div>
+            <div id="cookieManage" class="cookie-manage">
+                <h4>🎛️ Gestisci Preferenze</h4>
+                <label><input type="checkbox" id="analytics"> Cookie Analitici</label><br>
+                <label><input type="checkbox" id="marketing"> Cookie Marketing</label><br>
+                <button id="savePreferences">Salva Preferenze</button>
+            </div>
         </div>
     </div>
     
@@ -43,6 +43,7 @@
 
     <!-- Contenuto principale -->
     <div id="content" style="display: none;">
+        <!-- Header/Navbar -->
         <header class="navbar">
             <div class="container">
                 <div class="logo">
@@ -54,9 +55,7 @@
                         <li><a href="social.html" class="nav-link">Social</a></li>
                         <li><a href="staffexp.html" class="nav-link">Staff Experience</a></li>
                         <li><a href="eventi.html" class="nav-link">Event</a></li>
-                        <li><a href="cali.html" class="nav-link">Calisthenics</a></li>
                         <li><a href="contact.html" class="nav-link">Contact Me</a></li>
-                        <!-- Nuovo elemento per il toggle tema solo su mobile -->
                         <li class="mobile-theme-toggle">
                             <button class="theme-toggle" aria-label="Cambia tema" aria-pressed="false">
                                 <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -78,9 +77,10 @@
                     </ul>
                 </nav>
                 <div class="hamburger">
-                    <span></span><span></span><span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
-                <!-- Theme Toggle Button per desktop -->
                 <button class="theme-toggle" id="themeToggle" aria-label="Cambia tema" aria-pressed="false">
                     <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="12" cy="12" r="5"/>
@@ -99,7 +99,7 @@
                 </button>
             </div>
         </header>
-    
+
         <!-- Sezione Benvenuto -->
         <section id="home" class="home-section">
             <div class="hero">
@@ -107,7 +107,7 @@
                 <a href="#about" class="btn-primary">Scopri di più</a>
             </div>
         </section>
-    
+
         <!-- Sezione About Me -->
         <section id="about" class="about-section">
             <div class="container">
@@ -124,34 +124,34 @@
                 </div>
             </div>
         </section>
-    
+
         <!-- Sezione Servizi -->
         <section id="services" class="services-section">
-        <div class="container">
-            <h2>I miei Servizi</h2>
-            <div class="services-grid">
-            <div class="service-card">
-                <i class="fas fa-code service-icon"></i>
-                <h3>Web Development</h3>
-                <p>Creazione di siti web personalizzati, con particolare attenzione al design e all'usabilità. Anche con l'utilizzo di database.</p>
-                <a href="contact.html" class="btn-fancy">Contattami</a>
-            </div>
+            <div class="container">
+                <h2>I miei Servizi</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <i class="fas fa-code service-icon"></i>
+                        <h3>Web Development</h3>
+                        <p>Creazione di siti web personalizzati, con particolare attenzione al design e all'usabilità. Anche con l'utilizzo di database.</p>
+                        <a href="contact.html" class="btn-fancy">Contattami</a>
+                    </div>
 
-            <div class="service-card">
-                <i class="fab fa-instagram service-icon"></i>
-                <h3>Social Media Manager</h3>
-                <p>Gestione e ottimizzazione di profili social, con particolare attenzione a Instagram e altre piattaforme.</p>
-                <a href="contact.html" class="btn-fancy">Contattami</a>
-            </div>
+                    <div class="service-card">
+                        <i class="fab fa-instagram service-icon"></i>
+                        <h3>Social Media Manager</h3>
+                        <p>Gestione e ottimizzazione di profili social, con particolare attenzione a Instagram e altre piattaforme.</p>
+                        <a href="contact.html" class="btn-fancy">Contattami</a>
+                    </div>
 
-            <div class="service-card">
-                <i class="fas fa-video service-icon"></i>
-                <h3>Video Editing</h3>
-                <p>Editing di video per YouTube o anche per altre piattaforme. Posso anche realizzare video brevi.</p>
-                <a href="contact.html" class="btn-fancy">Contattami</a>
+                    <div class="service-card">
+                        <i class="fas fa-video service-icon"></i>
+                        <h3>Video Editing</h3>
+                        <p>Editing di video per YouTube o anche per altre piattaforme. Posso anche realizzare video brevi.</p>
+                        <a href="contact.html" class="btn-fancy">Contattami</a>
+                    </div>
+                </div>
             </div>
-            </div>
-        </div>
         </section>
 
         <!-- Sezione Founder -->
@@ -167,7 +167,7 @@
                     </div>
                     <div class="founder-info">
                         <p>
-                            Sono uno dei Founder di <span class="highlight">MythicMaster</span> con l’obiettivo di riportare tra i ragazzi il gioco più esclusivo, <em>Dungeons & Dragons</em>.
+                            Sono uno dei Founder di <span class="highlight">MythicMaster</span> con l'obiettivo di riportare tra i ragazzi il gioco più esclusivo, <em>Dungeons & Dragons</em>.
                             Organizziamo eventi incredibili per far sì che più giocatori possano divertirsi e vivere esperienze straordinarie. 
                         </p>
                         <p class="quote">"L'immaginazione è l'unico limite in un mondo pieno di avventure."</p>
@@ -176,20 +176,19 @@
                 </div>
             </div>
         </section>
-    
+
         <!-- Sezione Projects -->
         <section id="projects" class="projects-section">
             <div class="container">
                 <h2 id="projects-title">I miei Progetti</h2>
 
-                <!-- Pulsante per mostrare/nascondere -->
                 <div class="toggle-container">
                     <button id="toggle-projects" class="btn-toggle">Mostra Progetti &#x25BC;</button>
                 </div>
 
                 <div class="projects-grid" style="display: none;">
                     <div class="project-card">
-                        <img src="img/mythicmasterbanner.png">
+                        <img src="img/mythicmasterbanner.png" alt="MythicMaster">
                         <div class="project-info">
                             <h3>MythicMaster</h3>
                             <p>Una Community di Dungeons & Dragons</p>
@@ -198,7 +197,7 @@
                     </div>
 
                     <div class="project-card">
-                        <img src="img/SpicyQoL.png">
+                        <img src="img/SpicyQoL.png" alt="SpicyQoL">
                         <div class="project-info">
                             <h3>SpicyQoL</h3>
                             <p>Un moderno e ottimizzato Quality of Life plugin per il proprio Server Minecraft.</p>
@@ -207,7 +206,17 @@
                     </div>
 
                     <div class="project-card">
-                        <img src="img/immobili.png">
+                        <img src="img/tnt.png" alt="BoomCraft">
+                        <div class="project-info">
+                            <h3>BoomCraft</h3>
+                            <p>Un plugin per le esplosioni moderno, potente e ottimizzato per i server di Minecraft.</p>
+                            <a href="https://github.com/GiovanniSpezia/explosionplugin" class="btn-secondary" target="_blank">Visualizza</a>
+                            <a href="File/ExplosionPlugin-1.0.jar" class="btn-secondary" target="_blank">Download</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="img/immobili.png" alt="Crearredo">
                         <div class="project-info">
                             <h3>Crearredo</h3>
                             <p>Agenzia Immobiliare</p>
@@ -216,7 +225,7 @@
                     </div>
 
                     <div class="project-card">
-                        <img src="img/bistrot.png">
+                        <img src="img/bistrot.png" alt="Bistrot">
                         <div class="project-info">
                             <h3>Bistrot</h3>
                             <p>Classico Sitoweb per un ristorante, bar e bistrot.</p>
@@ -225,7 +234,7 @@
                     </div>
 
                     <div class="project-card">
-                        <img src="img/CPS-Test.png">
+                        <img src="img/CPS-Test.png" alt="CPS Test">
                         <div class="project-info">
                             <h3>CPS Test</h3>
                             <p>Applicazione web per provare i propri CPS e salvare tutti i propri progressi.</p>
@@ -234,7 +243,7 @@
                     </div>
 
                     <div class="project-card">
-                        <img src="img/colorsmc.png">
+                        <img src="img/colorsmc.png" alt="Minecraft Color">
                         <div class="project-info">
                             <h3>Minecraft Color</h3>
                             <p>Applicazione web per Sviluppatori, utile per scrivere i testi colorati per Minecraft.</p>
@@ -243,16 +252,7 @@
                     </div>
 
                     <div class="project-card">
-                        <img src="img/runningevent.png">
-                        <div class="project-info">
-                            <h3>Running Event</h3>
-                            <p>Pagina web per un Evento di Corsa</p>
-                            <a href="https://giovannispezia.github.io/RunningEvent/" class="btn-secondary" target="_blank">Visualizza</a>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <img src="img/SnakeGame.png">
+                        <img src="img/SnakeGame.png" alt="SnakeGame">
                         <div class="project-info">
                             <h3>SnakeGame</h3>
                             <p>Minigioco del serpentino che ha l'obiettivo di mangiare la mela.</p>
@@ -262,7 +262,7 @@
                     </div>
 
                     <div class="project-card">
-                        <img src="img/RunnerGame.png" alt="Progetto 5">
+                        <img src="img/RunnerGame.png" alt="RunnerGame">
                         <div class="project-info">
                             <h3>RunnerGame</h3>
                             <p>Minigioco di una macchinina che deve saltare gli ostacoli (versione nuova simile al dinosauro di google).</p>
@@ -271,7 +271,7 @@
                     </div>
 
                     <div class="project-card">
-                        <img src="img/tris.png">
+                        <img src="img/tris.png" alt="Tris">
                         <div class="project-info">
                             <h3>Tris</h3>
                             <p>Minigioco del Tris. E' possibile giocare in modalità multiplayer con altri utenti.</p>
@@ -280,17 +280,7 @@
                     </div>
 
                     <div class="project-card">
-                        <img src="img/tnt.png">
-                        <div class="project-info">
-                            <h3>Explosion Plugin</h3>
-                            <p>Un plugin per Minecraft che consente di creare e programmare esplosioni.</p>
-                            <a href="https://github.com/GiovanniSpezia/explosionplugin" class="btn-secondary" target="_blank">Visualizza</a>
-                            <a href="File/ExplosionPlugin-1.0.jar" class="btn-secondary" target="_blank">Download</a>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <img src="img/calc.png">
+                        <img src="img/calc.png" alt="Calculator">
                         <div class="project-info">
                             <h3>Calculator</h3>
                             <p>Pagina web con una calcolatrice, esercizio della seconda superiore.</p>
@@ -299,7 +289,7 @@
                     </div>
 
                     <div class="project-card">
-                        <img src="img/coralmcbanner.png">
+                        <img src="img/coralmcbanner.png" alt="CoralMC KitPvP">
                         <div class="project-info">
                             <h3>CoralMC Short per il KitPvP</h3>
                             <p>Ho realizzato un video short per il kitpvp di coralmc come editor.</p>
@@ -308,7 +298,7 @@
                     </div>
 
                     <div class="project-card">
-                        <img src="img/coralmcbanner.png">
+                        <img src="img/coralmcbanner.png" alt="CoralMC Prison">
                         <div class="project-info">
                             <h3>CoralMC Short per il Prison</h3>
                             <p>Ho realizzato un video short per il Prison di coralmc come editor.</p>
@@ -316,114 +306,181 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="slider-dots"></div>
             </div>
         </section>
 
-        <div class="slider-dots"></div>
-        </section>
-        
         <!-- Sezione Clienti -->
         <section id="clients" class="clients-section">
-        <div class="container">
-            <h2>I miei Clienti</h2>
-            <!--<p class="clients-subtitle"></p>-->
+            <div class="container">
+                <h2>I miei Clienti</h2>
 
-            <div class="clients-wrapper">
-            <div class="clients-track" id="clientsTrack">
-                <div class="client-card">
-                    <img src="img/immobili.png" alt="Crearredo" draggable="false" oncontextmenu="return false;" style="user-select: none;">
-                    <p>Crearredo <br> Agenzia Immobiliare</p>
-                </div>
+                <div class="clients-wrapper">
+                    <div class="clients-track" id="clientsTrack">
+                        <div class="client-card">
+                            <img src="img/immobili.png" alt="Crearredo" draggable="false" oncontextmenu="return false;" style="user-select: none;">
+                            <p>Crearredo <br> Agenzia Immobiliare</p>
+                        </div>
 
-                <div class="client-card">
-                    <img src="img/coralmc.png" alt="Bistrot" draggable="false" oncontextmenu="return false;" style="user-select: none;">
-                    <p>CoralMC Network <br> +1000 giocatori </p>
-                </div>
+                        <div class="client-card">
+                            <img src="img/coralmc.png" alt="CoralMC" draggable="false" oncontextmenu="return false;" style="user-select: none;">
+                            <p>CoralMC Network <br> +1000 giocatori </p>
+                        </div>
 
-                <div class="client-card">
-                    <img src="img/BuildProfit.png" alt="BuildProfit" draggable="false" oncontextmenu="return false;" style="user-select: none;">
-                    <p>BuildProfit <br> +400 utenti </p>
-                </div>
+                        <div class="client-card">
+                            <img src="img/BuildProfit.png" alt="BuildProfit" draggable="false" oncontextmenu="return false;" style="user-select: none;">
+                            <p>BuildProfit <br> +400 utenti </p>
+                        </div>
 
-                <div class="client-card">
-                    <img src="img/cosmoverse.png" alt="CosmoVerse" draggable="false" oncontextmenu="return false;" style="user-select: none;">
-                    <p>CosmoVerse Community <br> +50 utenti </p>
-                </div>
+                        <div class="client-card">
+                            <img src="img/cosmoverse.png" alt="CosmoVerse" draggable="false" oncontextmenu="return false;" style="user-select: none;">
+                            <p>CosmoVerse Community <br> +50 utenti </p>
+                        </div>
 
-                <div class="client-card">
-                    <img src="img/zShowly.png" alt="zShowly" draggable="false" oncontextmenu="return false;" style="user-select: none;">
-                    <p>zShowly YouTuber <br> +200 iscritti </p>
-                </div>
+                        <div class="client-card">
+                            <img src="img/zShowly.png" alt="zShowly" draggable="false" oncontextmenu="return false;" style="user-select: none;">
+                            <p>zShowly YouTuber <br> +200 iscritti </p>
+                        </div>
 
-                <div class="client-card">
-                    <img src="img/MythicMaster.png" alt="MythicMaster" draggable="false" oncontextmenu="return false;" style="user-select: none;">
-                    <p>MythicMaster <br> GDR Community</p>
+                        <div class="client-card">
+                            <img src="img/MythicMaster.png" alt="MythicMaster" draggable="false" oncontextmenu="return false;" style="user-select: none;">
+                            <p>MythicMaster <br> GDR Community</p>
+                        </div>
+                    </div>
+                    <div class="scroll-hint">⇆ Scorri</div>
                 </div>
             </div>
-            <div class="scroll-hint">⇆ Scorri</div>
-            </div>
-        </div>
         </section>
 
-        <!-- MINI DISCOUNT (Instant Gaming) - interattivo -->
+        <!-- Sezione Mini Discount (Instant Gaming) -->
         <section class="mini-discount">
-        <div class="container">
+            <div class="container">
+                <div class="mini-discount-card" id="miniDiscountCard">
+                    <!-- LEFT -->
+                    <div class="mini-discount-left">
+                        <div class="mini-discount-badge">
+                            <i class="fa-solid fa-tag"></i>
+                            <span>Codice Sconto</span>
+                        </div>
 
-            <div class="mini-discount-card" id="miniDiscountCard">
+                        <h3>Instant Gaming</h3>
 
-            <!-- LEFT -->
-            <div class="mini-discount-left">
+                        <p>Videogiochi, DLC e gift card scontati. Usa il mio codice al checkout:</p>
 
-                <div class="mini-discount-badge">
-                <i class="fa-solid fa-tag"></i>
-                <span>Codice Sconto</span>
+                        <div class="mini-discount-code-wrap">
+                            <span class="mini-discount-code" id="igCode">Spicy</span>
+                            <button class="mini-discount-copy" id="copyIgCode" type="button">
+                                <i class="fa-regular fa-copy"></i>
+                                Copia
+                            </button>
+                        </div>
+
+                        <div class="mini-discount-actions">
+                            <a href="https://www.instant-gaming.com/?igr=giospicy" target="_blank" rel="noopener" class="mini-discount-btn">
+                                Vai su Instant Gaming
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+
+                        <small class="mini-discount-note">
+                            *Codice soggetto a disponibilità/promozioni del sito.
+                        </small>
+                    </div>
+
+                    <!-- RIGHT (decorativo) -->
+                    <div class="mini-discount-right" aria-hidden="true">
+                        <div class="mini-discount-icon">
+                            <i class="fa-solid fa-gamepad"></i>
+                        </div>
+                        <div class="mini-discount-glow"></div>
+                    </div>
                 </div>
 
-                <h3>Instant Gaming</h3>
+                <div class="mini-discount-card" id="miniDiscountCard">
+                    <!-- LEFT -->
+                    <div class="mini-discount-left">
+                        <div class="mini-discount-badge">
+                            <i class="fa-solid fa-tag"></i>
+                            <span>Codice Sconto</span>
+                        </div>
 
-                <p>
-                Videogiochi, DLC e gift card scontati.
-                Usa il mio codice al checkout:
-                </p>
+                        <h3>PushMore</h3>
 
-                <div class="mini-discount-code-wrap">
-                <span class="mini-discount-code" id="igCode">Spicy</span>
+                        <p>Integratori e equipment sportivi. Usa il mio codice al checkout:</p>
 
-                <button class="mini-discount-copy" id="copyIgCode" type="button">
-                    <i class="fa-regular fa-copy"></i>
-                    Copia
-                </button>
+                        <div class="mini-discount-code-wrap">
+                            <span class="mini-discount-code" id="pmCode">Spicy -27%</span>
+                            <button class="mini-discount-copy" id="copyPmCode" type="button">
+                                <i class="fa-regular fa-copy"></i>
+                                Copia
+                            </button>
+                        </div>
+
+                        <div class="mini-discount-actions">
+                            <a href="https://www.pushmore.it/" target="_blank" rel="noopener" class="mini-discount-btn">
+                                Vai su PushMore
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+
+                        <small class="mini-discount-note">
+                            *Codice soggetto a disponibilità/promozioni del sito.
+                        </small>
+                    </div>
+
+                    <!-- RIGHT (decorativo) -->
+                    <div class="mini-discount-right" aria-hidden="true">
+                        <div class="mini-discount-icon">
+                            <i class="fa-solid fa-dumbbell"></i>
+                        </div>
+                        <div class="mini-discount-glow"></div>
+                    </div>
                 </div>
 
-                <div class="mini-discount-actions">
-                <a href="https://www.instant-gaming.com/?igr=giospicy"
-                    target="_blank"
-                    rel="noopener"
-                    class="mini-discount-btn">
-                    Vai su Instant Gaming
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
+                <div class="mini-discount-card" id="miniDiscountCard">
+                    <!-- LEFT -->
+                    <div class="mini-discount-left">
+                        <div class="mini-discount-badge">
+                            <i class="fa-solid fa-tag"></i>
+                            <span>Codice Sconto</span>
+                        </div>
+
+                        <h3>VitaStrong</h3>
+
+                        <p>Integratori e nutrizione sportiva. Usa il mio codice al checkout:</p>
+
+                        <div class="mini-discount-code-wrap">
+                            <span class="mini-discount-code" id="vsCode">Spicy -20%</span>
+                            <button class="mini-discount-copy" id="copyVsCode" type="button">
+                                <i class="fa-regular fa-copy"></i>
+                                Copia
+                            </button>
+                        </div>
+
+                        <div class="mini-discount-actions">
+                            <a href="https://www.vitastrong.it/" target="_blank" rel="noopener" class="mini-discount-btn">
+                                Vai su VitaStrong
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+
+                        <small class="mini-discount-note">
+                            *Codice soggetto a disponibilità/promozioni del sito.
+                        </small>
+                    </div>
+
+                    <!-- RIGHT (decorativo) -->
+                    <div class="mini-discount-right" aria-hidden="true">
+                        <div class="mini-discount-icon">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                        </div>
+                        <div class="mini-discount-glow"></div>
+                    </div>
                 </div>
-
-                <small class="mini-discount-note">
-                *Codice soggetto a disponibilità/promozioni del sito.
-                </small>
-
             </div>
-
-            <!-- RIGHT (decorativo) -->
-            <div class="mini-discount-right" aria-hidden="true">
-                <div class="mini-discount-icon">
-                <i class="fa-solid fa-gamepad"></i>
-                </div>
-                <div class="mini-discount-glow"></div>
-            </div>
-
-            </div>
-
-        </div>
         </section>
-    
+
         <!-- Sezione Contact Me -->
         <section id="contact" class="contact-section">
             <h2>Contattami</h2>
@@ -433,7 +490,7 @@
             </div>
             <a href="contact.html" class="contact-btn">Invia un'email</a>
         </section>
-    
+
         <!-- Footer -->
         <footer class="footer">
             <div class="container">
@@ -450,7 +507,6 @@
                             <i class="fas fa-envelope"></i> <a href="mailto:gio@giospezia.it">gio@giospezia.it</a>
                         </div>
                     </div>
-                    <!-- Privacy Policy Link -->
                     <div class="privacy-policy">
                         <a href="privacy.html" class="privacy-link">Informativa sulla privacy</a>
                     </div>
@@ -466,7 +522,7 @@
     <script src="script.js"></script>
 
     <script>
-        /* Script Anno di Nascita */
+        // Script Anno di Nascita
         const annoNascita = 2006;
         const oggi = new Date();
         const annoCorrente = oggi.getFullYear();
@@ -478,7 +534,6 @@
 
         let eta = annoCorrente - annoNascita;
 
-        // Se il compleanno non è ancora arrivato quest'anno, togli 1
         if (meseCorrente < meseNascita || (meseCorrente === meseNascita && giornoCorrente < giornoNascita)) {
             eta--;
         }

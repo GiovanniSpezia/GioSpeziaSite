@@ -10,6 +10,7 @@
     <link rel="icon" href="img/icon.png" type="image/png">
 </head>
 <body>
+    <!-- Fireworks Canvas -->
     <canvas id="fireworksCanvas"></canvas>
     
     <!-- Loader -->
@@ -18,48 +19,49 @@
     </div>
 
     <!-- Back to Top Button -->
-    <button id="back-to-top"><i class="fas fa-chevron-up"></i></button>
+    <button id="back-to-top" aria-label="Torna in alto"><i class="fas fa-chevron-up"></i></button>
 
     <!-- Cookie Banner -->
     <div id="cookieBox" class="cookie-banner" style="display: none;">
-        <button id="closeBanner"><i class="fa-solid fa-xmark"></i></button>
+        <button id="closeBanner" aria-label="Chiudi banner cookie"><i class="fa-solid fa-xmark"></i></button>
         <div class="cookie-content">
-        <h3>🍪 Questo sito utilizza i cookie</h3>
-        <p>Miglioriamo la tua esperienza. Puoi accettare tutti o personalizzare le preferenze.</p>
-        <div class="cookie-buttons">
-            <button id="acceptCookies">Accetta Tutto</button>
-            <button id="customizeCookies" class="outline">Personalizza</button>
-        </div>
-        <div id="cookieManage" class="cookie-manage">
-            <h4>🎛️ Gestisci Preferenze</h4>
-            <label><input type="checkbox" id="analytics"> Cookie Analitici</label><br>
-            <label><input type="checkbox" id="marketing"> Cookie Marketing</label><br>
-            <button id="savePreferences">Salva Preferenze</button>
-        </div>
+            <h3>🍪 Questo sito utilizza i cookie</h3>
+            <p>Miglioriamo la tua esperienza. Puoi accettare tutti o personalizzare le preferenze.</p>
+            <div class="cookie-buttons">
+                <button id="acceptCookies" class="btn-primary">Accetta Tutto</button>
+                <button id="customizeCookies" class="btn-outline">Personalizza</button>
+            </div>
+            <div id="cookieManage" class="cookie-manage">
+                <h4>🎛️ Gestisci Preferenze</h4>
+                <label><input type="checkbox" id="analytics"> Cookie Analitici</label>
+                <label><input type="checkbox" id="marketing"> Cookie Marketing</label>
+                <button id="savePreferences" class="btn-primary">Salva Preferenze</button>
+            </div>
         </div>
     </div>
     
-    <!-- Bottone per riaprire il banner -->
-    <button id="reopenButton" style="display: none; position: fixed; bottom: 20px; left: 20px; z-index: 9999;">
+    <!-- Cookie Reopen Button -->
+    <button id="reopenButton" style="display: none; position: fixed; bottom: 20px; left: 20px; z-index: 9999;" aria-label="Apri preferenze cookie">
         🍪 Cookie
     </button>
     
-    <!-- Contenuto principale -->
+    <!-- Main Content -->
     <div id="content" style="display: none;">
+        <!-- Header Navigation -->
         <header class="navbar">
             <div class="container">
                 <div class="logo">
                     <a href="https://giospezia.it">GioSpezia</a>
                 </div>
+                
                 <nav>
                     <ul class="nav-links">
                         <li><a href="index.html" class="nav-link">Home</a></li>
                         <li><a href="social.html" class="nav-link">Social</a></li>
                         <li><a href="staffexp.html" class="nav-link">Staff Experience</a></li>
                         <li><a href="eventi.html" class="nav-link active">Event</a></li>
-                        <li><a href="cali.html" class="nav-link">Calisthenics</a></li>
                         <li><a href="contact.html" class="nav-link">Contact Me</a></li>
-                        <!-- Nuovo elemento per il toggle tema solo su mobile -->
+                        <!-- Mobile Theme Toggle -->
                         <li class="mobile-theme-toggle">
                             <button class="theme-toggle" aria-label="Cambia tema" aria-pressed="false">
                                 <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -80,10 +82,15 @@
                         </li>
                     </ul>
                 </nav>
-                <div class="hamburger">
-                    <span></span><span></span><span></span>
+                
+                <!-- Hamburger Menu -->
+                <div class="hamburger" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
-                <!-- Theme Toggle Button per desktop -->
+                
+                <!-- Desktop Theme Toggle -->
                 <button class="theme-toggle" id="themeToggle" aria-label="Cambia tema" aria-pressed="false">
                     <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="12" cy="12" r="5"/>
@@ -103,67 +110,52 @@
             </div>
         </header>
 
-        <!-- EVENTI -->
+        <!-- Events Section -->
         <section id="events" class="events-section">
-        <div class="container">
-            <h2 class="section-title">Eventi</h2>
-            <p class="section-subtitle">Dalle fiere più importanti alle avventure di gioco di ruolo</p>
+            <div class="container">
+                <h2 class="section-title">Eventi</h2>
+                <p class="section-subtitle">Dalle fiere più importanti alle avventure di gioco di ruolo</p>
 
-            <div class="events-grid">
-                <!-- Card 1 -->
-                <div class="event-card">
-                    <div class="event-image">
-                    <img src="img/GW.png" alt="Evento 1">
-                    <span class="event-tag fiera">Fiera</span>
+                <div class="events-grid">
+                    <!-- Event Card 1: Milan Games Week -->
+                    <div class="event-card">
+                        <div class="event-image">
+                            <img src="img/GW.png" alt="Milan Games Week & Cartoomics">
+                            <span class="event-tag fiera">Fiera</span>
+                        </div>
+                        <div class="event-info">
+                            <span class="event-date"><i class="fa-solid fa-calendar-days"></i> 22-24 Nov 2024 • Milano</span>
+                            <h3>Milan Games Week & Cartoomics</h3>
+                            <p>Ho partecipato allo stand QLASH e KitKat per CoralMC, tra community, gaming e innovazione.</p>
+                            <a href="https://www.milangamesweek.it/" target="_blank" class="event-btn">Scopri di più</a>
+                        </div>
                     </div>
-                    <div class="event-info">
-                    <span class="event-date"><i class="fa-solid fa-calendar-days"></i> 22-24 Nov 2024 • Milano</span>
-                    <h3>Milan Games Week <br> & Cartoomics</h3>
-                    <p>Ho partecipato allo stand QLASH e KitKat per CoralMC, tra community, gaming e innovazione.</p>
-                    <a href="https://www.milangamesweek.it/" target="_blank" class="event-btn">Scopri di più</a>
-                    </div>
-                </div>
 
-                <!-- Card 2 -->
-                <div class="event-card">
-                    <div class="event-image">
-                    <img src="img/eventocoral.webp" alt="Evento 2">
-                    <span class="event-tag coralmc">CoralMC</span>
-                    </div>
-                    <div class="event-info">
-                    <span class="event-date"><i class="fa-solid fa-calendar-days"></i> 15 Luglio 2024 • CoralMC</span>
-                    <h3>Open-Lobby <br> Palco su Discord</h3>
-                    <p>
-                        ✅ Q&A - Iniziale <br>
-                        ✅ MINIGAMES - Sumo, TNTtag, Evolution, Hide and Seek, Murder Mistery, Spleef <br>
-                        ✅ MEGA BW <br>
-                        ✅ GIVE - Survival <br>
-                        ✅ Q&A - Finale
-                    </p>
-                    <a href="https://discord.com/channels/705161910370173033/838157410752397374/1394723785374171226" target="_blank" class="event-btn">Leggi di più</a>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="event-card">
-                    <div class="event-image">
-                    <img src="img/mythicmasterbanner.png" alt="Evento 3">
-                    <span class="event-tag gdr">GDR</span>
-                    </div>
-                    <div class="event-info">
-                    <span class="event-date"><i class="fa-solid fa-calendar-days"></i> 16 maggio 2025 • Draft Milano</span>
-                    <h3>Assalto a Scalpognola</h3>
-                    <p>
-                        Nel gelido borgo di Breiano, il crudele Re Grobnar comanda un villaggio di goblin agguerriti. I valorosi avventurieri dovranno liberare gli ostaggi e sventare la minaccia, siccome il prossimo obiettivo sarà proprio il villaggio di Breiano. Una missione rischiosa tra neve e pericoli!
-                    </p>
-                    <a href="https://mythicmaster.it/eventi.html" target="_blank" class="event-btn">Leggi di più</a>
+                    <!-- Event Card 2: CoralMC Open-Lobby -->
+                    <div class="event-card">
+                        <div class="event-image">
+                            <img src="img/eventocoral.webp" alt="Open-Lobby Palco su Discord">
+                            <span class="event-tag coralmc">CoralMC</span>
+                        </div>
+                        <div class="event-info">
+                            <span class="event-date"><i class="fa-solid fa-calendar-days"></i> 15 Luglio 2024 • CoralMC</span>
+                            <h3>Open-Lobby Palco su Discord</h3>
+                            <p>
+                                ✅ Q&A - Iniziale <br>
+                                ✅ MINIGAMES - Sumo, TNTtag, Evolution, Hide and Seek, Murder Mistery, Spleef <br>
+                                ✅ MEGA BW <br>
+                                ✅ GIVE - Survival <br>
+                                ✅ Q&A - Finale
+                            </p>
+                            <a href="https://discord.com/channels/705161910370173033/838157410752397374/1394723785374171226" target="_blank" class="event-btn">Leggi di più</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         </section>
 
-        <!-- TIMELINE FUTURA -->
+        <!-- Future Events Timeline -->
+        <!--
         <section class="future-events">
             <div class="container">
                 <h2 class="section-title">Prossimi Eventi</h2>
@@ -171,24 +163,24 @@
                     <li>
                         <div class="timeline-marker"></div>
                         <div class="timeline-content">
-                        <span class="timeline-date">7 Settembre 2025</span>
-                        <h3>La Spada di Excalibur</h3>
-                        <p>Un’antica profezia si avvera: la leggendaria Excalibur è stata spezzata e i suoi frammenti sono dispersi nel misterioso Santuario di Cristallo.</p>
+                            <span class="timeline-date">7 Settembre 2025</span>
+                            <h3>La Spada di Excalibur</h3>
+                            <p>Un'antica profezia si avvera: la leggendaria Excalibur è stata spezzata e i suoi frammenti sono dispersi nel misterioso Santuario di Cristallo.</p>
                         </div>
                     </li>
 
                     <li>
                         <div class="timeline-marker"></div>
                         <div class="timeline-content">
-                        <span class="timeline-date">21 Settembre 2025</span>
-                        <h3>Oltre le Onde</h3>
-                        <p>Salite a bordo della Vento di Smeraldo, una caravella che solca mari insidiosi sotto il comando del carismatico Capitano Marealto. Tra abbordaggi mozzafiato e il richiamo di leggende sepolte, il viaggio porterà gli avventurieri verso un destino inevitabile.</p>
+                            <span class="timeline-date">21 Settembre 2025</span>
+                            <h3>Oltre le Onde</h3>
+                            <p>Salite a bordo della Vento di Smeraldo, una caravella che solca mari insidiosi sotto il comando del carismatico Capitano Marealto. Tra abbordaggi mozzafiato e il richiamo di leggende sepolte, il viaggio porterà gli avventurieri verso un destino inevitabile.</p>
                         </div>
                     </li>
                 </ul>
             </div>
         </section>
-
+        -->
     </div>
 
     <!-- Footer -->
@@ -196,17 +188,19 @@
         <div class="container">
             <div class="footer-content">
                 <p>&copy; 2024 Giovanni Spezia. Tutti i diritti riservati.</p>
+                
                 <div class="social-icons">
-                    <a href="https://www.instagram.com/giospezia06/" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.youtube.com/@GioSpezia" target="_blank"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.linkedin.com/in/giovanni-spezia-71577124b/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://github.com/giovannispezia" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.instagram.com/giospezia06/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@GioSpezia" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.linkedin.com/in/giovanni-spezia-71577124b/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/giovannispezia" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
                 </div>
+                
                 <div class="quick-contact">
-                    <div>
-                        <i class="fas fa-envelope"></i> <a href="mailto:gio@giospezia.it">gio@giospezia.it</a>
-                    </div>
+                    <i class="fas fa-envelope"></i> 
+                    <a href="mailto:gio@giospezia.it">gio@giospezia.it</a>
                 </div>
+                
                 <!-- Privacy Policy Link -->
                 <div class="privacy-policy">
                     <a href="privacy.html" class="privacy-link">Informativa sulla privacy</a>

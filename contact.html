@@ -101,26 +101,86 @@
     
         <section id="contact" class="contact-section">
             <div class="container">
-                <h2>Contattami</h2>
-                <form id="contactForm" class="contact-form" novalidate>
-                <div class="form-group">
-                    <label for="nome">Nome</label>
-                    <input type="text" id="nome" name="nome" placeholder="Il tuo nome" required>
+                <div class="contact-page-shell">
+                    <div class="contact-intro-panel">
+                        <div class="contact-badge">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>Parliamo del tuo progetto</span>
+                        </div>
+                        <h2>Contattami</h2>
+                        <p>Se hai un progetto, una collaborazione o una proposta, scrivimi: rispondo il prima possibile con una soluzione concreta.</p>
+
+                        <div class="contact-highlight-list" aria-label="Dettagli contatto">
+                            <div class="contact-highlight-card">
+                                <i class="fa-solid fa-envelope"></i>
+                                <div>
+                                    <strong>Email diretta</strong>
+                                    <span>gio@giospezia.it</span>
+                                </div>
+                            </div>
+                            <div class="contact-highlight-card">
+                                <i class="fa-solid fa-clock"></i>
+                                <div>
+                                    <strong>Tempo di risposta</strong>
+                                    <span>Generalmente entro 24/48 ore</span>
+                                </div>
+                            </div>
+                            <div class="contact-highlight-card">
+                                <i class="fa-solid fa-briefcase"></i>
+                                <div>
+                                    <strong>Ambiti</strong>
+                                    <span>Web, Social, Eventi, Community</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="mailto:gio@giospezia.it?subject=Richiesta%20di%20contatto" class="contact-btn">Invia email diretta</a>
+                    </div>
+
+                    <form id="contactForm" class="contact-form" novalidate>
+                    <div class="form-header">
+                        <h3>Invia la tua richiesta</h3>
+                        <p>Compila il form: ti rispondero con una proposta o una risposta puntuale nel minor tempo possibile.</p>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group form-group-half">
+                            <label for="nome">Nome *</label>
+                            <input type="text" id="nome" name="nome" placeholder="Il tuo nome" required>
+                        </div>
+                        <div class="form-group form-group-half">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" placeholder="la tua email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tipoRichiesta">Tipologia richiesta</label>
+                        <select id="tipoRichiesta" name="tipoRichiesta">
+                            <option value="">Seleziona una categoria</option>
+                            <option value="Web Development">Web Development</option>
+                            <option value="Social Media">Social Media</option>
+                            <option value="Eventi / Community">Eventi / Community</option>
+                            <option value="Collaborazione">Collaborazione</option>
+                            <option value="Altro">Altro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="oggetto">Oggetto *</label>
+                        <input type="text" id="oggetto" name="oggetto" placeholder="Oggetto del messaggio" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="messaggio">Messaggio *</label>
+                        <textarea id="messaggio" name="messaggio" rows="6" placeholder="Scrivi qui il tuo messaggio..." required></textarea>
+                        <small class="form-help">Più dettagli inserisci, più precisa sara la risposta.</small>
+                    </div>
+
+                    <button type="submit" class="btn submit-btn">Invia Messaggio</button>
+                    <p class="form-footnote">* Campi obbligatori</p>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="la tua email" required>
-                </div>
-                <div class="form-group">
-                    <label for="oggetto">Oggetto</label>
-                    <input type="text" id="oggetto" name="oggetto" placeholder="Oggetto del messaggio" required>
-                </div>
-                <div class="form-group">
-                    <label for="messaggio">Messaggio</label>
-                    <textarea id="messaggio" name="messaggio" rows="6" placeholder="Scrivi qui il tuo messaggio…" required></textarea>
-                </div>
-                <button type="submit" class="btn submit-btn">Invia Messaggio</button>
-                </form>
             </div>
         </section>
         

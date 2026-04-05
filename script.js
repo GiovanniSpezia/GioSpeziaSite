@@ -1,29 +1,127 @@
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
+const body = document.body;
+
+function setNavOpen(isOpen) {
+  if (!hamburger || !navLinks) return;
+
+  navLinks.classList.toggle('open', isOpen);
+  hamburger.classList.toggle('toggle', isOpen);
+  body.classList.toggle('nav-open', isOpen);
+  hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+}
 
 // Loading
 document.addEventListener("DOMContentLoaded", function() {
-    setTimeout(function() {
-        const loaderWrapper = document.getElementById("loader-wrapper");
-        loaderWrapper.style.opacity = "0";
-        setTimeout(() => {
-            loaderWrapper.style.display = "none";
-        }, 1000);
+  const loaderWrapper = document.getElementById("loader-wrapper");
+  const loaderText = document.getElementById("loader-text");
+  const content = document.getElementById("content");
 
-        const content = document.getElementById("content");
-        content.style.display = "block";
-    }, 3000);
+  if (!loaderWrapper || !content) {
+    if (content) content.style.display = "block";
+    return;
+  }
+
+  content.style.display = "block";
+  content.style.visibility = "hidden";
+
+  const subtitle = document.createElement("p");
+  subtitle.id = "loader-subtitle";
+  loaderWrapper.appendChild(subtitle);
+
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const minDuration = reducedMotion ? 900 : 2400;
+  const stageTexts = [
+    "Inizializzazione",
+    "Caricamento asset",
+    "Ottimizzazione UI",
+    "Pronto"
+  ];
+
+  const baseLoaderText = loaderText ? loaderText.textContent.trim() : "GioSpezia";
+  if (loaderText) {
+    loaderText.textContent = baseLoaderText;
+    loaderText.setAttribute("data-text", baseLoaderText);
+  }
+
+  const startTime = performance.now();
+
+  const finishLoading = () => {
+    loaderWrapper.classList.add("is-finale");
+
+    const revealDelay = reducedMotion ? 0 : 140;
+    setTimeout(() => {
+      loaderWrapper.classList.add("is-loaded");
+    }, revealDelay);
+
+    content.style.visibility = "visible";
+    content.style.opacity = "0";
+    content.style.transform = "translateY(12px)";
+    content.style.transition = "opacity 0.55s ease, transform 0.55s ease";
+
+    requestAnimationFrame(() => {
+      content.style.opacity = "1";
+      content.style.transform = "translateY(0)";
+    });
+
+    setTimeout(() => {
+      loaderWrapper.style.display = "none";
+    }, reducedMotion ? 80 : 900);
+  };
+
+  const updateLoader = (now) => {
+    const elapsed = now - startTime;
+    const progress = Math.min(elapsed / minDuration, 1);
+    const easedProgress = 1 - Math.pow(1 - progress, 3);
+    const percentage = Math.round(easedProgress * 100);
+
+    loaderWrapper.style.setProperty("--loader-progress", `${percentage}%`);
+
+    const stageIndex = Math.min(
+      stageTexts.length - 1,
+      Math.floor(progress * stageTexts.length)
+    );
+    subtitle.textContent = stageTexts[stageIndex];
+
+    if (progress < 1) {
+      requestAnimationFrame(updateLoader);
+      return;
+    }
+
+    finishLoading();
+  };
+
+  requestAnimationFrame(updateLoader);
 });
 
-hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
-    hamburger.classList.toggle('toggle');
-});
+if (hamburger && navLinks) {
+  hamburger.setAttribute('aria-expanded', 'false');
+
+  hamburger.addEventListener('click', () => {
+    setNavOpen(!navLinks.classList.contains('open'));
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!navLinks.classList.contains('open')) return;
+
+    const clickedInsideNav = navLinks.contains(event.target);
+    const clickedHamburger = hamburger.contains(event.target);
+
+    if (!clickedInsideNav && !clickedHamburger) {
+      setNavOpen(false);
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      setNavOpen(false);
+    }
+  });
+}
 
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        hamburger.classList.remove('toggle');
+    setNavOpen(false);
     });
 });
 
@@ -272,39 +370,52 @@ document.addEventListener('DOMContentLoaded', function() {
 /* ================= MINI DISCOUNT (Instant Gaming) ================= */
 (function () {
 
-  const miniCard = document.getElementById("miniDiscountCard");
-  const copyBtn = document.getElementById("copyIgCode");
-  const codeEl = document.getElementById("igCode");
+  const miniCards = document.querySelectorAll(".mini-discount-card");
 
   // ---- COPY CODE ----
-  if (copyBtn && codeEl) {
+  miniCards.forEach((miniCard) => {
+    const copyBtn = miniCard.querySelector(".mini-discount-copy");
+    const codeEl = miniCard.querySelector(".mini-discount-code");
+
+    if (!copyBtn || !codeEl) return;
+
+    let resetTimer = null;
+
     copyBtn.addEventListener("click", async () => {
       const code = codeEl.textContent.trim();
 
-      try {
-        await navigator.clipboard.writeText(code);
+      const showCopiedState = () => {
         copyBtn.innerHTML = '<i class="fa-solid fa-check"></i> Copiato!';
         copyBtn.style.borderColor = "rgba(0,123,255,0.35)";
 
-        setTimeout(() => {
+        if (resetTimer) {
+          clearTimeout(resetTimer);
+        }
+
+        resetTimer = setTimeout(() => {
           copyBtn.innerHTML = '<i class="fa-regular fa-copy"></i> Copia';
           copyBtn.style.borderColor = "";
+          resetTimer = null;
         }, 1300);
+      };
 
+      try {
+        await navigator.clipboard.writeText(code);
+        showCopiedState();
       } catch {
-        // fallback
         const temp = document.createElement("textarea");
         temp.value = code;
         document.body.appendChild(temp);
         temp.select();
         document.execCommand("copy");
         document.body.removeChild(temp);
+        showCopiedState();
       }
     });
-  }
+  });
 
   // ---- GLOW FOLLOW CURSOR ----
-  if (miniCard) {
+  miniCards.forEach((miniCard) => {
     miniCard.addEventListener("mousemove", (e) => {
       const r = miniCard.getBoundingClientRect();
       const x = ((e.clientX - r.left) / r.width) * 100;
@@ -318,7 +429,7 @@ document.addEventListener('DOMContentLoaded', function() {
       miniCard.style.setProperty("--mx", "50%");
       miniCard.style.setProperty("--my", "50%");
     });
-  }
+  });
 
 })();
 

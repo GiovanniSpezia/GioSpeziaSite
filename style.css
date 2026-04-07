@@ -4288,20 +4288,29 @@ a {
 .form-group select {
     font-family: 'Roboto', sans-serif;
     padding: 15px 20px;
+    padding-right: 54px;
     border: 2px solid var(--border-light);
     border-radius: 12px;
-    background: var(--bg-secondary);
-    transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+    background:
+        linear-gradient(180deg, rgba(0, 123, 255, 0.08), rgba(0, 212, 255, 0.04)),
+        var(--bg-secondary);
+    transition: border-color 0.3s, box-shadow 0.3s, background 0.3s, transform 0.2s;
     font-size: 1.02rem;
     color: var(--text-primary);
     appearance: none;
+    cursor: pointer;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.38);
     background-image:
+        radial-gradient(circle at calc(100% - 17px) 50%, rgba(0, 123, 255, 0.12) 0 11px, transparent 12px),
         linear-gradient(45deg, transparent 50%, var(--text-muted) 50%),
-        linear-gradient(135deg, var(--text-muted) 50%, transparent 50%);
+        linear-gradient(135deg, var(--text-muted) 50%, transparent 50%),
+        linear-gradient(to right, rgba(0, 123, 255, 0.22), rgba(0, 212, 255, 0.12));
     background-position:
+        calc(100% - 18px) 50%,
         calc(100% - 20px) calc(50% - 3px),
-        calc(100% - 14px) calc(50% - 3px);
-    background-size: 6px 6px, 6px 6px;
+        calc(100% - 14px) calc(50% - 3px),
+        calc(100% - 40px) 50%;
+    background-size: 22px 22px, 6px 6px, 6px 6px, 1px 62%;
     background-repeat: no-repeat;
 }
 
@@ -4314,6 +4323,8 @@ a {
 .form-group select:hover {
     background: var(--bg-primary);
     border-color: var(--accent-primary);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.42);
 }
 
 .form-group input:focus,
@@ -4328,7 +4339,16 @@ a {
     outline: none;
     border-color: #3366ff;
     box-shadow: 0 0 0 4px rgba(51, 102, 255, 0.13);
-    background-color: rgba(26, 31, 46, 0.1);
+    background-color: var(--bg-secondary);
+}
+
+.form-group select option {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+.dark .form-group select {
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .form-group input::placeholder,

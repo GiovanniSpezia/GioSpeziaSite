@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="/">
+  <script>
+    if (location.protocol === "file:") document.querySelector("base").href = new URL(".", location.href).href;
+    const legacyPages = { "contact.html": "contact/", "eventi.html": "eventi/", "privacy.html": "privacy/", "social.html": "social/", "staffexp.html": "staffexp/" };
+    const oldPage = location.pathname.split("/").pop().toLowerCase();
+    if (legacyPages[oldPage]) {
+      const siteRoot = location.protocol === "file:" ? new URL(".", location.href) : new URL("/", location.href);
+      location.replace(new URL(legacyPages[oldPage], siteRoot).href);
+    }
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="theme-color" content="#060a08">
+  <meta name="robots" content="noindex, follow">
+  <title>404 — Percorso non trovato | GioSpezia</title>
+  <meta name="description" content="Il percorso richiesto non esiste. Torna al portfolio di Giovanni Spezia.">
+  <link rel="icon" href="/img/optimized/icon.webp" type="image/webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+</head>
+<body class="not-found-page">
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="/" data-route="home" aria-label="GioSpezia, torna alla home"><span class="brand-mark">GS</span><span>GioSpezia</span></a>
+      <div class="session"><i aria-hidden="true"></i><span>Portfolio online</span><b>·</b><span>route: not found</span></div>
+    </header>
+
+    <main>
+      <section aria-labelledby="error-title">
+        <div class="eyebrow">ERR_404 / TARGET NOT FOUND</div>
+        <div class="error-code" data-code="404" aria-label="Errore 404">404</div>
+        <h1 class="error-title" id="error-title">Questa pagina è uscita dal radar.</h1>
+        <p class="error-copy">Il percorso che cerchi non esiste o è stato spostato. Il resto del portfolio è ancora online: scegli una destinazione o usa il terminale per tornare in rotta.</p>
+        <div class="error-path"><span aria-hidden="true">path //</span><span id="requested-path">ricerca percorso…</span></div>
+        <div class="actions">
+          <a class="action action-primary" href="/" data-route="home"><span aria-hidden="true">↗</span> Torna alla home</a>
+          <button class="action" id="go-back" type="button"><span aria-hidden="true">←</span> Pagina precedente</button>
+        </div>
+      </section>
+
+      <section class="terminal" aria-label="Terminale di navigazione">
+        <div class="terminal-head"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span>gio@portfolio:~</span><span>SESSIONE SICURA</span></div>
+        <div class="terminal-body">
+          <div class="command-line"><span class="prompt">gio@portfolio:~$</span><span>route --scan</span><i class="cursor" aria-hidden="true"></i></div>
+          <div class="terminal-alert">
+            <span class="alert-icon" aria-hidden="true">◈</span>
+            <div><strong>Destinazione non rilevata</strong><p>Errore 404 · La richiesta è arrivata, ma questa route non è presente nell’indice del sito.</p></div>
+          </div>
+          <div class="command-line"><span class="prompt">gio@portfolio:~$</span><span>ls /pages</span></div>
+          <p class="route-label">Destinazioni disponibili</p>
+          <nav class="route-list" aria-label="Pagine disponibili">
+            <a class="route" href="/" data-route="home"><span>/home</span><b>↵</b></a>
+            <a class="route" href="/social/" data-route="social"><span>/social</span><b>↵</b></a>
+            <a class="route" href="/staffexp/" data-route="staffexp"><span>/staffexp</span><b>↵</b></a>
+            <a class="route" href="/eventi/" data-route="eventi"><span>/eventi</span><b>↵</b></a>
+            <a class="route" href="/contact/" data-route="contact"><span>/contact</span><b>↵</b></a>
+            <a class="route" href="/privacy/" data-route="privacy"><span>/privacy</span><b>↵</b></a>
+          </nav>
+        </div>
+        <form class="terminal-input" id="route-form">
+          <label for="route-command">gio@portfolio:~$</label>
+          <input id="route-command" name="command" type="text" autocomplete="off" spellcheck="false" placeholder="digita help per i comandi">
+        </form>
+        <p class="terminal-output" id="terminal-output" aria-live="polite"></p>
+      </section>
+    </main>
+
+    <footer><span>GIOSPEZIA.IT / DIGITAL PORTFOLIO</span><span>404 // ROUTE TERMINATED</span></footer>
+  </div>
+  <script>
+    const routes = { home: "", social: "social/", staffexp: "staffexp/", esperienza: "staffexp/", eventi: "eventi/", event: "eventi/", contact: "contact/", contatti: "contact/", privacy: "privacy/" };
+    const siteRoot = window.location.protocol === "file:" ? new URL(".", window.location.href) : new URL("/", window.location.href);
+    document.querySelectorAll("[data-route]").forEach((link) => {
+      const route = routes[link.dataset.route];
+      if (route !== undefined) link.href = new URL(route, siteRoot).href;
+    });
+    const requestedPath = document.getElementById("requested-path");
+    const output = document.getElementById("terminal-output");
+    requestedPath.textContent = window.location.pathname || "/unknown";
+    document.getElementById("go-back").addEventListener("click", () => {
+      if (window.history.length > 1) window.history.back();
+      else window.location.assign(new URL(routes.home, siteRoot).href);
+    });
+    document.getElementById("route-form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const command = document.getElementById("route-command").value.trim().toLowerCase().replace(/^\/+|\/+$/g, "");
+      if (command === "help") {
+        output.textContent = "comandi: home · social · staffexp · eventi · contact · privacy";
+        return;
+      }
+      if (routes[command]) {
+        output.textContent = `route trovata: /${command} — connessione…`;
+        window.setTimeout(() => window.location.assign(new URL(routes[command], siteRoot).href), 260);
+        return;
+      }
+      output.textContent = `route non trovata: ${command || "(vuota)"} — digita help`;
+    });
+  </script>
+</body>
+</html>

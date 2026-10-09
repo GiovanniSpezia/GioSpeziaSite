@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Experience | GioSpezia</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Montserrat:wght@600&family=Roboto:wght@400;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="../img/optimized/icon.webp" type="image/webp">
+</head>
+<body>
+    <canvas id="fireworksCanvas"></canvas>
+
+    <!-- Loader -->
+    <div id="loader-wrapper" class="loader-screen" role="status" aria-live="polite">
+        <div class="loader-grid" aria-hidden="true"></div>
+        <div class="loader-orbit loader-orbit-one" aria-hidden="true"></div>
+        <div class="loader-orbit loader-orbit-two" aria-hidden="true"></div>
+        <div class="loader-panel">
+            <div class="loader-brandbar">
+                <span class="loader-brand"><i>GS</i> GIOSPEZIA <b>/ SECURITY LAB</b></span>
+                <span class="loader-session"><i></i> SESSIONE LOCALE</span>
+            </div>
+            <div class="loader-titlebar">
+                <span class="loader-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span>BOOT_SEQUENCE</span>
+                <span>v.01</span>
+            </div>
+            <div class="loader-content">
+                <div class="loader-progress-label">
+                    <span>INIZIALIZZAZIONE SICURA</span>
+                    <span id="loader-percent">00%</span>
+                </div>
+                <div id="loader-text">GioSpezia</div>
+                <div class="loader-command" aria-hidden="true">
+                    <span class="loader-prompt">gio@portfolio:~$</span>
+                    <span>secure-session --init</span>
+                    <i class="loader-cursor"></i>
+                </div>
+                <p id="loader-subtitle">Inizializzazione</p>
+                <div class="loader-progress" role="progressbar" aria-label="Caricamento del sito" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                    <span id="loader-progress-fill"></span>
+                </div>
+                <div class="loader-statusline">
+                    <span id="loader-task">CONTROLLO AMBIENTE</span>
+                    <span><i class="loader-status-dot"></i> CONNESSIONE PROTETTA</span>
+                </div>
+            </div>
+        </div>
+        <div class="loader-footnote" aria-hidden="true"><span>GIOSPEZIA.IT</span><span>SECURITY · PRIVACY · CONTROL</span></div>
+    </div>
+
+    <!-- Cookie Banner -->
+    <div id="cookieBox" class="cookie-banner" role="dialog" aria-labelledby="cookieTitle" aria-describedby="cookieDescription" hidden>
+        <button id="closeBanner" class="cookie-close" type="button" aria-label="Chiudi il pannello cookie, potrai riaprirlo più tardi">
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+        <div class="cookie-content">
+            <div class="cookie-kicker"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> PRIVACY / PREFERENZE</div>
+            <h3 id="cookieTitle">La tua privacy, sotto il tuo controllo.</h3>
+            <p id="cookieDescription">Scegli quali categorie facoltative autorizzare. Puoi aggiornare la scelta in qualsiasi momento dal pulsante Cookie.</p>
+            <div class="cookie-note">
+                <span><i class="fa-solid fa-lock" aria-hidden="true"></i> Preferenze salvate su questo dispositivo</span>
+                <a href="../privacy/#privacy-cookie">Informativa</a>
+            </div>
+            <div id="cookieChoices" class="cookie-buttons">
+                <button id="rejectCookies" class="cookie-button-secondary" type="button">Solo necessari</button>
+                <button id="customizeCookies" class="cookie-button-tertiary" type="button" aria-expanded="false" aria-controls="cookieManage">Personalizza</button>
+                <button id="acceptCookies" class="cookie-button-primary" type="button">Accetta tutti</button>
+            </div>
+            <div id="cookieManage" class="cookie-manage" hidden>
+                <h4>Gestisci le categorie</h4>
+                <div class="cookie-preference cookie-preference-required">
+                    <span><strong>Cookie necessari</strong><small>Servono al funzionamento delle preferenze.</small></span>
+                    <span class="cookie-always-on">Sempre attivi</span>
+                </div>
+                <label class="cookie-preference" for="marketing">
+                    <span><strong>Contenuti di terze parti</strong><small>Caricano i video YouTube incorporati nel sito.</small></span>
+                    <input type="checkbox" id="marketing">
+                </label>
+                <div class="cookie-manage-actions">
+                    <button id="backCookieChoices" class="cookie-button-secondary" type="button">Indietro</button>
+                    <button id="savePreferences" class="cookie-button-primary" type="button">Salva preferenze</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button id="reopenButton" class="cookie-reopen" type="button" aria-label="Apri le preferenze cookie" hidden>
+        <i class="fa-solid fa-shield-halved" aria-hidden="true"></i><span>Cookie</span>
+    </button>
+    
+    <!-- Contenuto principale -->
+    <div id="content" style="display: none;">
+        <header class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <a href="../">GioSpezia</a>
+                </div>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="../" class="nav-link">Home</a></li>
+                        <li><a href="../social/" class="nav-link">Social</a></li>
+                        <li><a href="../staffexp/" class="nav-link active">Staff Experience</a></li>
+                        <li><a href="../eventi/" class="nav-link">Event</a></li>
+                        <li><a href="../contact/" class="nav-link">Contact Me</a></li>
+                        <!-- Nuovo elemento per il toggle tema solo su mobile -->
+                        <li class="mobile-theme-toggle">
+                            <button class="theme-toggle" aria-label="Cambia tema" aria-pressed="false">
+                                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="5"/>
+                                    <line x1="12" y1="1" x2="12" y2="3"/>
+                                    <line x1="12" y1="21" x2="12" y2="23"/>
+                                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                                    <line x1="1" y1="12" x2="3" y2="12"/>
+                                    <line x1="21" y1="12" x2="23" y2="12"/>
+                                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                                </svg>
+                                <svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                                </svg>
+                            </button>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="hamburger">
+                    <span></span><span></span><span></span>
+                </div>
+                <!-- Theme Toggle Button per desktop -->
+                <button class="theme-toggle" id="themeToggle" aria-label="Cambia tema" aria-pressed="false">
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"/>
+                        <line x1="12" y1="1" x2="12" y2="3"/>
+                        <line x1="12" y1="21" x2="12" y2="23"/>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                        <line x1="1" y1="12" x2="3" y2="12"/>
+                        <line x1="21" y1="12" x2="23" y2="12"/>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    </svg>
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Sezione Staff Experience -->
+        <section id="projects" class="projects-section staff-experience-section">
+            <div class="container">
+                <div class="staff-hero">
+                    <div class="staff-badge">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>Esperienze verificate</span>
+                    </div>
+                    <h2>Staff Experience</h2>
+                    <p>Una panoramica dei ruoli ricoperti nei server e nelle community in cui ho lavorato, con focus su moderazione, supporto, gestione e organizzazione.</p>
+                    <div class="staff-hero-actions">
+                        <a href="../contact/" class="btn-secondary">Collabora con me</a>
+                        <a href="#proofs" class="staff-link-secondary">Vai ai proof</a>
+                    </div>
+                    <div class="staff-stats" aria-label="Riepilogo esperienza">
+                        <div class="staff-stat">
+                            <strong>9+</strong>
+                            <span>esperienze staff</span>
+                        </div>
+                        <div class="staff-stat">
+                            <strong>4</strong>
+                            <span>ruoli principali</span>
+                        </div>
+                        <div class="staff-stat">
+                            <strong>5</strong>
+                            <span>proof pubblici</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="projects-grid" id="proofs">
+                    <div class="project-card staff-card">
+                        <img src="../img/optimized/nexuscraft.webp" width="500" height="500" loading="lazy" decoding="async">
+                        <div class="project-info">
+                            <h3>NexusCraft</h3>
+                            <p>Helper [SS Verified]</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card staff-card">
+                        <img src="../img/optimized/hemeraldnetwork.webp" alt="Progetto 2" width="378" height="386" loading="lazy" decoding="async">
+                        <div class="project-info">
+                            <h3>Hemerald Network</h3>
+                            <p>Helper [Supporter]</p>
+                            <a href="https://gyazo.com/727f151ffe758f83f9b7ccb528f08337" class="btn-secondary" target="_blank">Proofs</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card staff-card">
+                        <img src="../img/optimized/storaxmc.webp" alt="Progetto 2" width="640" height="640" loading="lazy" decoding="async">
+                        <div class="project-info">
+                            <h3>StoraxMC</h3>
+                            <p>SrMod [Supporter]</p>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card staff-card">
+                        <img src="../img/optimized/magicpvp.webp" alt="Progetto 2" width="416" height="309" loading="lazy" decoding="async">
+                        <div class="project-info">
+                            <h3>MagicPvP</h3>
+                            <p>Admin [Staff & Social Manager]</p>
+                            <a href="https://imgur.com/a/zNIrpHG" class="btn-secondary" target="_blank">Proofs</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card staff-card">
+                        <img src="../img/optimized/CARPYY's bunker.webp" alt="Progetto 2" loading="lazy" decoding="async">
+                        <div class="project-info">
+                            <h3>CARPYY's bunker</h3>
+                            <p>Helper</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card staff-card">
+                        <img src="../img/optimized/coralmc.webp" alt="Progetto 2" width="633" height="353" loading="lazy" decoding="async">
+                        <div class="project-info">
+                            <h3>CoralMC</h3>
+                            <p>SrMod [SS Verified, Community Manager, Social Media Manager, Survival Staff & Auth Staff]</p>
+                            <a href="https://imgur.com/a/QUGDW28" class="btn-secondary" target="_blank">Proofs</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card staff-card">
+                        <img src="../img/optimized/cosmoverse.webp" alt="Progetto 2" width="428" height="373" loading="lazy" decoding="async">
+                        <div class="project-info">
+                            <h3>CosmoVerse</h3>
+                            <p>Admin [Staff Manager, Social Media Manager & Discord Manager]</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card staff-card">
+                        <img src="../img/optimized/BuildProfit.webp" alt="Progetto 2" width="1080" height="1080" loading="lazy" decoding="async">
+                        <div class="project-info">
+                            <h3>BuildProfit</h3>
+                            <p>Social Media Manager, Community Manager & Developer</p>
+                            <a href="https://imgur.com/y7idbhP" class="btn-secondary" target="_blank">Proofs</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card staff-card">
+                        <img src="../img/optimized/zShowly.webp" alt="Progetto 2" width="640" height="640" loading="lazy" decoding="async">
+                        <div class="project-info">
+                            <h3>zShowly > Community</h3>
+                            <p>Management, Head Admin & Staff Manager</p>
+                            <a href="https://imgur.com/a/UAuVmd2" class="btn-secondary" target="_blank">Proofs</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card staff-card">
+                        <img src="../img/optimized/SkyPea.webp" alt="Progetto 2" width="640" height="640" loading="lazy" decoding="async">
+                        <div class="project-info">
+                            <h3>SkyPea</h3>
+                            <p>Helper [SS Verified]</p>
+                            <a href="https://imgur.com/a/7i5zE8V" class="btn-secondary" target="_blank">Proofs</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Giovanni Spezia. Tutti i diritti riservati.</p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/giospezia06/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@GioSpezia" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.linkedin.com/in/giovanni-spezia-71577124b/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/giovannispezia" target="_blank"><i class="fab fa-github"></i></a>
+                </div>
+                <div class="quick-contact">
+                    <div>
+                        <i class="fas fa-envelope"></i> <a href="mailto:gio@giospezia.it">gio@giospezia.it</a>
+                    </div>
+                </div>
+                <!-- Privacy Policy Link -->
+                <div class="privacy-policy">
+                    <a href="../privacy/" class="privacy-link">Informativa sulla privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top"><i class="fas fa-chevron-up"></i></button>
+
+    <!-- JavaScript -->
+    <script src="../js/script.js"></script>
+</body>
+</html>

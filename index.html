@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GioSpezia — Cybersecurity &amp; Web</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Montserrat:wght@600&family=Roboto:wght@400;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="img/optimized/icon.webp" type="image/webp">
+</head>
+<body>
+    <canvas id="fireworksCanvas"></canvas>
+    
+    <!-- Loader -->
+    <div id="loader-wrapper" class="loader-screen" role="status" aria-live="polite">
+        <div class="loader-grid" aria-hidden="true"></div>
+        <div class="loader-orbit loader-orbit-one" aria-hidden="true"></div>
+        <div class="loader-orbit loader-orbit-two" aria-hidden="true"></div>
+        <div class="loader-panel">
+            <div class="loader-brandbar">
+                <span class="loader-brand"><i>GS</i> GIOSPEZIA <b>/ SECURITY LAB</b></span>
+                <span class="loader-session"><i></i> SESSIONE LOCALE</span>
+            </div>
+            <div class="loader-titlebar">
+                <span class="loader-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span>BOOT_SEQUENCE</span>
+                <span>v.01</span>
+            </div>
+            <div class="loader-content">
+                <div class="loader-progress-label">
+                    <span>INIZIALIZZAZIONE SICURA</span>
+                    <span id="loader-percent">00%</span>
+                </div>
+                <div id="loader-text">GioSpezia</div>
+                <div class="loader-command" aria-hidden="true">
+                    <span class="loader-prompt">gio@portfolio:~$</span>
+                    <span>secure-session --init</span>
+                    <i class="loader-cursor"></i>
+                </div>
+                <p id="loader-subtitle">Inizializzazione</p>
+                <div class="loader-progress" role="progressbar" aria-label="Caricamento del sito" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                    <span id="loader-progress-fill"></span>
+                </div>
+                <div class="loader-statusline">
+                    <span id="loader-task">CONTROLLO AMBIENTE</span>
+                    <span><i class="loader-status-dot"></i> CONNESSIONE PROTETTA</span>
+                </div>
+            </div>
+        </div>
+        <div class="loader-footnote" aria-hidden="true"><span>GIOSPEZIA.IT</span><span>SECURITY · PRIVACY · CONTROL</span></div>
+    </div>
+
+    <!-- Cookie Banner -->
+    <div id="cookieBox" class="cookie-banner" role="dialog" aria-labelledby="cookieTitle" aria-describedby="cookieDescription" hidden>
+        <button id="closeBanner" class="cookie-close" type="button" aria-label="Chiudi il pannello cookie, potrai riaprirlo più tardi">
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+        <div class="cookie-content">
+            <div class="cookie-kicker"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> PRIVACY / PREFERENZE</div>
+            <h3 id="cookieTitle">La tua privacy, sotto il tuo controllo.</h3>
+            <p id="cookieDescription">Scegli quali categorie facoltative autorizzare. Puoi aggiornare la scelta in qualsiasi momento dal pulsante Cookie.</p>
+            <div class="cookie-note">
+                <span><i class="fa-solid fa-lock" aria-hidden="true"></i> Preferenze salvate su questo dispositivo</span>
+                <a href="privacy/#privacy-cookie">Informativa</a>
+            </div>
+            <div id="cookieChoices" class="cookie-buttons">
+                <button id="rejectCookies" class="cookie-button-secondary" type="button">Solo necessari</button>
+                <button id="customizeCookies" class="cookie-button-tertiary" type="button" aria-expanded="false" aria-controls="cookieManage">Personalizza</button>
+                <button id="acceptCookies" class="cookie-button-primary" type="button">Accetta tutti</button>
+            </div>
+            <div id="cookieManage" class="cookie-manage" hidden>
+                <h4>Gestisci le categorie</h4>
+                <div class="cookie-preference cookie-preference-required">
+                    <span><strong>Cookie necessari</strong><small>Servono al funzionamento delle preferenze.</small></span>
+                    <span class="cookie-always-on">Sempre attivi</span>
+                </div>
+                <label class="cookie-preference" for="marketing">
+                    <span><strong>Contenuti di terze parti</strong><small>Caricano i video YouTube incorporati nel sito.</small></span>
+                    <input type="checkbox" id="marketing">
+                </label>
+                <div class="cookie-manage-actions">
+                    <button id="backCookieChoices" class="cookie-button-secondary" type="button">Indietro</button>
+                    <button id="savePreferences" class="cookie-button-primary" type="button">Salva preferenze</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button id="reopenButton" class="cookie-reopen" type="button" aria-label="Apri le preferenze cookie" hidden>
+        <i class="fa-solid fa-shield-halved" aria-hidden="true"></i><span>Cookie</span>
+    </button>  
+
+    <!-- Contenuto principale -->
+    <div id="content" style="display: none;">
+        <!-- Header/Navbar -->
+        <header class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <a href="https://giospezia.it">GioSpezia</a>
+                </div>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="./" class="nav-link active">Home</a></li>
+                        <li><a href="social/" class="nav-link">Social</a></li>
+                        <li><a href="staffexp/" class="nav-link">Staff Experience</a></li>
+                        <li><a href="eventi/" class="nav-link">Event</a></li>
+                        <li><a href="contact/" class="nav-link">Contact Me</a></li>
+                        <li class="mobile-theme-toggle">
+                            <button class="theme-toggle" aria-label="Cambia tema" aria-pressed="false">
+                                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="5"/>
+                                    <line x1="12" y1="1" x2="12" y2="3"/>
+                                    <line x1="12" y1="21" x2="12" y2="23"/>
+                                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                                    <line x1="1" y1="12" x2="3" y2="12"/>
+                                    <line x1="21" y1="12" x2="23" y2="12"/>
+                                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                                </svg>
+                                <svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                                </svg>
+                            </button>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <button class="theme-toggle" id="themeToggle" aria-label="Cambia tema" aria-pressed="false">
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"/>
+                        <line x1="12" y1="1" x2="12" y2="3"/>
+                        <line x1="12" y1="21" x2="12" y2="23"/>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                        <line x1="1" y1="12" x2="3" y2="12"/>
+                        <line x1="21" y1="12" x2="23" y2="12"/>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    </svg>
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Sezione Benvenuto -->
+        <section id="home" class="home-section">
+            <div class="hero">
+                <div class="hero-badge">
+                    <i class="fa-solid fa-bolt"></i>
+                    <span>Cybersecurity · ethical hacking</span>
+                </div>
+                <h1>Benvenuto nel mio mondo.</h1>
+                <p>Sono Giovanni: qui condivido il mio percorso nella cybersecurity, i progetti a cui lavoro e le passioni che mi spingono a mettermi alla prova.</p>
+                <div class="hero-actions">
+                    <a href="#about" class="btn-primary">Scopri di più</a>
+                    <a href="#projects" class="btn-secondary hero-secondary">I miei progetti</a>
+                </div>
+                <div class="hero-terminal" aria-hidden="true">
+                    <div class="terminal-topbar">
+                        <span class="terminal-lights"><i></i><i></i><i></i></span>
+                        <span>gio@portfolio <b>~</b></span>
+                        <span class="terminal-lock"><i class="fa-solid fa-lock"></i> sessione locale</span>
+                    </div>
+                    <div class="terminal-body">
+                        <p><span class="terminal-prompt">gio@lab:~$</span> whoami</p>
+                        <h2>Giovanni Spezia</h2>
+                        <div class="terminal-rule"></div>
+                        <p><span class="terminal-key">percorso</span><span>cybersecurity</span></p>
+                        <p><span class="terminal-key">focus</span><span>ethical hacking</span></p>
+                        <p><span class="terminal-key">approccio</span><span>imparare · testare · proteggere</span></p>
+                        <div class="terminal-status"><i></i> In formazione continua <span>●</span></div>
+                    </div>
+                </div>
+                <div class="hero-pill-row" aria-label="Aree principali">
+                    <span class="hero-pill"><i class="fa-solid fa-shield-halved"></i> Cybersecurity</span>
+                    <span class="hero-pill"><i class="fa-solid fa-terminal"></i> Ethical hacking</span>
+                    <span class="hero-pill"><i class="fa-solid fa-code"></i> Web</span>
+                    <span class="hero-pill"><i class="fa-brands fa-instagram"></i> Social</span>
+                    <span class="hero-pill"><i class="fa-solid fa-video"></i> Video</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sezione About Me -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2 class="fade-in">Chi sono?</h2>
+                <div class="about-content">
+                    <div class="about-image fade-in">
+                        <div class="about-photo-card">
+                            <div class="about-photo-top"><span>PROFILE / 01</span><span class="about-online"><i></i> IN FORMAZIONE</span></div>
+                            <div class="about-photo-visual">
+                                <img src="img/optimized/avatar.webp" alt="Giovanni Spezia" width="1536" height="2048" loading="lazy" decoding="async">
+                            </div>
+                            <div class="about-photo-caption">
+                                <span class="about-photo-mark">GS</span>
+                                <span><strong>Giovanni Spezia</strong><small>Cybersecurity · Ethical Hacking</small></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-text fade-in">
+                        <div class="about-kicker"><span>01 / PROFILO</span><i></i> Piacere di conoscerti</div>
+                        <h3>Curioso per natura.<br><span>Attento alla sicurezza.</span></h3>
+                        <p>Ciao! Sono <span class="animated-text">Giovanni Spezia</span>, ho <span id="eta"></span> anni e le mie passioni principali sono la cybersecurity e il calisthenics.</p>
+                        <p>Mi sto specializzando in <span class="highlight">cybersecurity ed ethical hacking</span>: mi piace mettermi alla prova, capire come funzionano i sistemi e imparare a proteggerli.</p>
+                        <div class="about-tags"><span>Cybersecurity</span><span>Calisthenics</span><span>Crescita personale</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="security-focus" class="security-focus-section">
+            <div class="container">
+                <div class="section-kicker"><span>01 / IL MIO PERCORSO</span><i></i> Cosa sto approfondendo</div>
+                <div class="focus-heading-row">
+                    <div>
+                        <h2>Il mio percorso<br><span>nella cybersecurity.</span></h2>
+                    </div>
+                    <p>Sto costruendo le mie competenze passo dopo passo, studiando i sistemi e facendo pratica solo in laboratori e ambienti autorizzati.</p>
+                </div>
+                <div class="security-focus-grid">
+                    <article class="security-focus-card">
+                        <span class="focus-number">01</span>
+                        <i class="fa-solid fa-network-wired"></i>
+                        <h3>Sistemi &amp; reti</h3>
+                        <p>Sto approfondendo reti e servizi per capire come comunicano e quali accorgimenti li rendono più affidabili.</p>
+                        <span class="focus-tag">FONDAMENTI</span>
+                    </article>
+                    <article class="security-focus-card">
+                        <span class="focus-number">02</span>
+                        <i class="fa-solid fa-globe"></i>
+                        <h3>Web security</h3>
+                        <p>Studio le basi della sicurezza web e i principi che aiutano a realizzare applicazioni più sicure.</p>
+                        <span class="focus-tag">APPLICAZIONI</span>
+                    </article>
+                    <article class="security-focus-card">
+                        <span class="focus-number">03</span>
+                        <i class="fa-solid fa-terminal"></i>
+                        <h3>Ethical hacking</h3>
+                        <p>Mi alleno a riconoscere e documentare vulnerabilità esclusivamente in laboratori e ambienti autorizzati.</p>
+                        <span class="focus-tag">PRATICA RESPONSABILE</span>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="security-method" class="security-method-section">
+            <div class="container">
+                <div class="section-kicker"><span>02 / COME IMPARO</span><i></i> Il mio metodo</div>
+                <div class="method-heading">
+                    <h2>Ogni sfida parte<br><span>da un metodo.</span></h2>
+                    <p>Quando studio la sicurezza, procedo per passi: definisco il perimetro, analizzo, documento e uso ciò che imparo per crescere.</p>
+                </div>
+                <div class="method-layout">
+                    <div class="workflow-steps" aria-label="Fasi del mio metodo di studio">
+                        <button class="workflow-step is-active" type="button" aria-pressed="true" data-phase="01 / PERIMETRO" data-description="Definire l’obiettivo e verificare che l’ambiente di prova sia autorizzato." data-output="scope verificato">
+                            <span class="workflow-step-number">01</span><span><strong>Definire</strong><small>Obiettivo e perimetro</small></span><i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                        <button class="workflow-step" type="button" aria-pressed="false" data-phase="02 / ANALISI" data-description="Osservare sistemi e flussi con metodo, senza interferire con servizi reali." data-output="appunti strutturati">
+                            <span class="workflow-step-number">02</span><span><strong>Analizzare</strong><small>Sistemi e flussi</small></span><i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                        <button class="workflow-step" type="button" aria-pressed="false" data-phase="03 / DOCUMENTAZIONE" data-description="Raccogliere evidenze e spiegare i risultati in modo chiaro e verificabile." data-output="report chiaro">
+                            <span class="workflow-step-number">03</span><span><strong>Documentare</strong><small>Evidenze e priorità</small></span><i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                        <button class="workflow-step" type="button" aria-pressed="false" data-phase="04 / MIGLIORAMENTO" data-description="Usare ciò che ho imparato per consolidare le basi e migliorare le difese." data-output="apprendimento continuo">
+                            <span class="workflow-step-number">04</span><span><strong>Migliorare</strong><small>Imparare e proteggere</small></span><i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    <div class="workflow-window" aria-label="Riepilogo interattivo del metodo">
+                        <div class="workflow-titlebar"><span class="terminal-lights"><i></i><i></i><i></i></span><span>learning-process.sh</span><span class="workflow-live"><i></i> LIVE</span></div>
+                        <div class="workflow-console" aria-live="polite" aria-atomic="true">
+                            <p><span class="terminal-prompt">gio@lab:~$</span> study --method</p>
+                            <div class="workflow-output"><span>fase</span><strong id="workflow-phase">01 / PERIMETRO</strong></div>
+                            <div class="workflow-output"><span>ambiente</span><strong>laboratorio autorizzato</strong></div>
+                            <div class="workflow-output"><span>approccio</span><strong id="workflow-description">Definire l’obiettivo e verificare che l’ambiente di prova sia autorizzato.</strong></div>
+                            <div class="workflow-result"><span>risultato</span><strong id="workflow-result">scope verificato</strong></div>
+                        </div>
+                        <div class="workflow-footer"><span><i class="fa-solid fa-shield-halved"></i> USO RESPONSABILE</span><span>01 — 04</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sezione Servizi -->
+        <section id="services" class="services-section">
+            <div class="container">
+                <h2>Competenze e servizi</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <i class="fas fa-globe service-icon" aria-hidden="true"></i>
+                        <h3>Siti web</h3>
+                        <p>Realizzo siti web su misura, curando struttura, interfaccia e usabilità, con integrazioni e database quando servono.</p>
+                        <a href="contact/" class="btn-fancy">Contattami</a>
+                    </div>
+
+                    <div class="service-card">
+                        <i class="fa-solid fa-laptop-code service-icon" aria-hidden="true"></i>
+                        <h3>Programmi e applicazioni</h3>
+                        <p>Sviluppo programmi e applicazioni su misura, trasformando un’esigenza concreta in uno strumento semplice da usare.</p>
+                        <a href="contact/" class="btn-fancy">Parliamone</a>
+                    </div>
+
+                    <div class="service-card">
+                        <i class="fa-solid fa-cubes service-icon" aria-hidden="true"></i>
+                        <h3>Plugin custom per Minecraft</h3>
+                        <p>Creo plugin personalizzati per server Minecraft: meccaniche, strumenti e funzioni pensate per ogni progetto.</p>
+                        <a href="contact/" class="btn-fancy">Richiedi un plugin</a>
+                    </div>
+
+                    <div class="service-card">
+                        <i class="fab fa-instagram service-icon" aria-hidden="true"></i>
+                        <h3>Social Media Manager</h3>
+                        <p>Gestione e ottimizzazione di profili social, con particolare attenzione a Instagram e altre piattaforme.</p>
+                        <a href="contact/" class="btn-fancy">Contattami</a>
+                    </div>
+
+                    <div class="service-card">
+                        <i class="fas fa-video service-icon" aria-hidden="true"></i>
+                        <h3>Video Editing</h3>
+                        <p>Editing di video per YouTube o anche per altre piattaforme. Posso anche realizzare video brevi.</p>
+                        <a href="contact/" class="btn-fancy">Contattami</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sezione Founder -->
+        <section id="founder" class="founder-section">
+            <div class="container">
+                <div class="founder-header fade-in">
+                    <i class="fa-solid fa-code icon" aria-hidden="true"></i>
+                    <h2><span class="gradient-text">MythicMaster</span> / Il mio ruolo</h2>
+                </div>
+                <div class="founder-card fade-in">
+                    <div class="founder-image">
+                        <img src="img/optimized/MythicMaster.webp" alt="Logo MythicMaster" width="2444" height="2624" loading="lazy" decoding="async">
+                    </div>
+                    <div class="founder-info">
+                        <div class="founder-roles" aria-label="Ruoli in MythicMaster">
+                            <span>OWNER</span><span>SENIOR DEVELOPER</span><span>PRINCIPALE SVILUPPATORE</span>
+                        </div>
+                        <p>Sono Owner e Senior Developer di <span class="highlight">MythicMaster</span>, oltre a esserne il principale sviluppatore. Seguo lo sviluppo tecnico del progetto e contribuisco alla crescita della community dedicata a <em>Dungeons &amp; Dragons</em>.</p>
+                        <a href="https://www.mythicmaster.it/" target="_blank" rel="noopener noreferrer" class="founder-btn">Visita MythicMaster <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sezione Projects -->
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <h2 id="projects-title">I miei Progetti</h2>
+
+                <div class="toggle-container">
+                    <button id="toggle-projects" class="btn-toggle">Mostra Progetti &#x25BC;</button>
+                </div>
+
+                <div class="projects-grid" style="display: none;">
+                    <div class="project-card">
+                        <img src="img/optimized/mythicmasterbanner.webp" alt="MythicMaster" width="1536" height="1024" loading="lazy" decoding="async">
+                        <div class="project-info">
+                            <h3>MythicMaster</h3>
+                            <p>Una Community di Dungeons & Dragons</p>
+                            <a href="https://www.mythicmaster.it/" class="btn-secondary" target="_blank" rel="noopener noreferrer">Visualizza</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="img/optimized/SpicyQoL.webp" alt="SpicyQoL" width="1536" height="1024" loading="lazy" decoding="async">
+                        <div class="project-info">
+                            <h3>SpicyQoL</h3>
+                            <p>Un moderno e ottimizzato Quality of Life plugin per il proprio Server Minecraft.</p>
+                            <a href="https://github.com/GiovanniSpezia/SpicyQoL" class="btn-secondary" target="_blank">Visualizza</a>
+                            <a href="https://github.com/GiovanniSpezia/SpicyQoL/releases" class="btn-secondary" target="_blank">Download</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="img/optimized/BoomCraft.webp" width="1536" height="1024" loading="lazy" decoding="async">
+                        <div class="project-info">
+                            <h3>BoomCraft</h3>
+                            <p>Un plugin per le esplosioni moderno, potente e ottimizzato per i server di Minecraft.</p>
+                            <a href="https://github.com/GiovanniSpezia/BoomCraft" class="btn-secondary" target="_blank">Visualizza</a>
+                            <a href="File/BoomCraft.jar" class="btn-secondary" target="_blank">Download</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="img/immobili.png" alt="Crearredo" loading="lazy" decoding="async">
+                        <div class="project-info">
+                            <h3>Crearredo</h3>
+                            <p>Agenzia Immobiliare</p>
+                            <a href="https://www.crearredo.net/" class="btn-secondary" target="_blank">Visualizza</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="img/optimized/CPS-Test.webp" alt="CPS Test" width="1536" height="1024" loading="lazy" decoding="async">
+                        <div class="project-info">
+                            <h3>CPS Test</h3>
+                            <p>Applicazione web per provare i propri CPS e salvare tutti i propri progressi.</p>
+                            <a href="https://giovannispezia.github.io/CPS-Test/" class="btn-secondary" target="_blank">Visualizza</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="img/optimized/colorsmc.webp" alt="Minecraft Color" width="1536" height="1024" loading="lazy" decoding="async">
+                        <div class="project-info">
+                            <h3>Minecraft Color</h3>
+                            <p>Applicazione web per Sviluppatori, utile per scrivere i testi colorati per Minecraft.</p>
+                            <a href="https://giovannispezia.github.io/MinecraftColors/" class="btn-secondary" target="_blank">Visualizza</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="img/optimized/SnakeGame.webp" width="686" height="386" loading="lazy" decoding="async">
+                        <div class="project-info">
+                            <h3>SnakeGame</h3>
+                            <p>Minigioco del serpentino che ha l'obiettivo di mangiare la mela.</p>
+                            <a href="File/SnakeGame.jar" class="btn-secondary" target="_blank">Download Windows</a>
+                            <a href="File/SnakeGameMacOS.jar" class="btn-secondary" target="_blank">Download MacOS</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="img/optimized/RunnerGame.webp" alt="RunnerGame" width="1536" height="1024" loading="lazy" decoding="async">
+                        <div class="project-info">
+                            <h3>RunnerGame</h3>
+                            <p>Minigioco di una macchinina che deve saltare gli ostacoli (versione nuova simile al dinosauro di google).</p>
+                            <a href="File/RunnerGame.jar" class="btn-secondary" target="_blank">Download</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="img/optimized/tris.webp" alt="Tris" width="1536" height="1024" loading="lazy" decoding="async">
+                        <div class="project-info">
+                            <h3>Tris</h3>
+                            <p>Minigioco del Tris. E' possibile giocare in modalità multiplayer con altri utenti.</p>
+                            <a href="File/Tris.jar" class="btn-secondary" target="_blank">Download</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="img/optimized/coralmcbanner.webp" alt="CoralMC KitPvP" width="683" height="384" loading="lazy" decoding="async">
+                        <div class="project-info">
+                            <h3>CoralMC Short per il KitPvP</h3>
+                            <p>Ho realizzato un video short per il kitpvp di coralmc come editor.</p>
+                            <a href="https://www.youtube.com/shorts/QKxSr0NSR3A" class="btn-secondary" target="_blank">Visualizza</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="img/optimized/coralmcbanner.webp" alt="CoralMC Prison" width="683" height="384" loading="lazy" decoding="async">
+                        <div class="project-info">
+                            <h3>CoralMC Short per il Prison</h3>
+                            <p>Ho realizzato un video short per il Prison di coralmc come editor.</p>
+                            <a href="https://www.youtube.com/shorts/DQ2-fuRQqxM" class="btn-secondary" target="_blank">Visualizza</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="img/optimized/tiktok-bed.webp" alt="La parte più difficile? Alzarsi dal letto" width="1080" height="1920" loading="lazy" decoding="async">
+                        <div class="project-info">
+                            <h3>Alzarsi dal letto</h3>
+                            <p>La parte più difficile della giornata raccontata in uno short.</p>
+                            <a href="https://www.tiktok.com/@giospezia06/video/7658240551220727072" class="btn-secondary" target="_blank" rel="noopener noreferrer">Visualizza</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="img/optimized/tiktok-calisthenics.webp" alt="Consiglio per il primo giorno di calisthenics" width="1080" height="1920" loading="lazy" decoding="async">
+                        <div class="project-info">
+                            <h3>Il primo giorno di calisthenics</h3>
+                            <p>Il consiglio che avrei voluto ricevere quando ho iniziato calisthenics.</p>
+                            <a href="https://www.tiktok.com/@giospezia06/video/7656724370647239968" class="btn-secondary" target="_blank" rel="noopener noreferrer">Visualizza</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="img/optimized/tiktok-lat-machine.webp" alt="Ritorno alla lat machine dopo un anno e mezzo" width="1080" height="1920" loading="lazy" decoding="async">
+                        <div class="project-info">
+                            <h3>Ritorno alla lat machine</h3>
+                            <p>Il ritorno a un esercizio dopo un anno e mezzo di pausa.</p>
+                            <a href="https://www.tiktok.com/@giospezia06/video/7648948326599118112" class="btn-secondary" target="_blank" rel="noopener noreferrer">Visualizza</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="img/optimized/tiktok-fitness-products.webp" alt="Primo ordine di prodotti fitness" width="1014" height="1473" loading="lazy" decoding="async">
+                        <div class="project-info">
+                            <h3>Primo ordine fitness</h3>
+                            <p>Unboxing del primo ordine di prodotti dedicati a calisthenics e fitness.</p>
+                            <a href="https://www.tiktok.com/@giospezia06/video/7585234556383415574" class="btn-secondary" target="_blank" rel="noopener noreferrer">Visualizza</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <img src="img/optimized/tiktok-spiderman-ai.webp" alt="Spider-Man: The Era of a New Hero" width="1048" height="1518" loading="lazy" decoding="async">
+                        <div class="project-info">
+                            <h3>Spider-Man: The Era of a New Hero</h3>
+                            <p>Primo esperimento di utilizzo dell'intelligenza artificiale per creare un video.</p>
+                            <a href="https://www.tiktok.com/@giospezia06/video/7679362906156289313" class="btn-secondary" target="_blank" rel="noopener noreferrer">Visualizza</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="slider-dots"></div>
+            </div>
+        </section>
+
+        <!-- Sezione Clienti -->
+        <section id="clients" class="clients-section">
+            <div class="container">
+                <h2>I miei Clienti</h2>
+
+                <div class="clients-wrapper">
+                    <div class="clients-track" id="clientsTrack">
+                        <div class="client-card">
+                            <img src="img/immobili.png" alt="Crearredo" draggable="false" oncontextmenu="return false;" style="user-select: none;" loading="lazy" decoding="async">
+                            <p>Crearredo <br> Agenzia Immobiliare</p>
+                        </div>
+
+                        <div class="client-card">
+                            <img src="img/optimized/coralmc.webp" alt="CoralMC" draggable="false" oncontextmenu="return false;" style="user-select: none;" width="633" height="353" loading="lazy" decoding="async">
+                            <p>CoralMC Network <br> +1000 giocatori </p>
+                        </div>
+
+                        <div class="client-card">
+                            <img src="img/optimized/BuildProfit.webp" alt="BuildProfit" draggable="false" oncontextmenu="return false;" style="user-select: none;" width="1080" height="1080" loading="lazy" decoding="async">
+                            <p>BuildProfit <br> +400 utenti </p>
+                        </div>
+
+                        <div class="client-card">
+                            <img src="img/optimized/cosmoverse.webp" alt="CosmoVerse" draggable="false" oncontextmenu="return false;" style="user-select: none;" width="428" height="373" loading="lazy" decoding="async">
+                            <p>CosmoVerse Community <br> +50 utenti </p>
+                        </div>
+
+                        <div class="client-card">
+                            <img src="img/optimized/zShowly.webp" alt="zShowly" draggable="false" oncontextmenu="return false;" style="user-select: none;" width="640" height="640" loading="lazy" decoding="async">
+                            <p>zShowly YouTuber <br> +200 iscritti </p>
+                        </div>
+
+                        <div class="client-card">
+                            <img src="img/optimized/MythicMaster.webp" alt="MythicMaster" draggable="false" oncontextmenu="return false;" style="user-select: none;" width="2444" height="2624" loading="lazy" decoding="async">
+                            <p>MythicMaster <br> GDR Community</p>
+                        </div>
+                    </div>
+                    <div class="scroll-hint">⇆ Scorri</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sezione Mini Discount (Instant Gaming) -->
+        <section class="mini-discount">
+            <div class="container">
+                <div class="mini-discount-card">
+                    <!-- LEFT -->
+                    <div class="mini-discount-left">
+                        <div class="mini-discount-badge">
+                            <i class="fa-solid fa-tag"></i>
+                            <span>Codice Sconto</span>
+                        </div>
+
+                        <h3>Instant Gaming</h3>
+
+                        <p>Videogiochi, DLC e gift card scontati. Usa il mio codice al checkout:</p>
+
+                        <div class="mini-discount-code-wrap">
+                            <span class="mini-discount-code" id="igCode">Spicy</span>
+                            <button class="mini-discount-copy" id="copyIgCode" type="button">
+                                <i class="fa-regular fa-copy"></i>
+                                Copia
+                            </button>
+                        </div>
+
+                        <div class="mini-discount-actions">
+                            <a href="https://www.instant-gaming.com/?igr=giospicy" target="_blank" rel="noopener" class="mini-discount-btn">
+                                Vai su Instant Gaming
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+
+                        <small class="mini-discount-note">
+                            *Codice soggetto a disponibilità/promozioni del sito.
+                        </small>
+                    </div>
+
+                    <!-- RIGHT (decorativo) -->
+                    <div class="mini-discount-right" aria-hidden="true">
+                        <div class="mini-discount-icon">
+                            <i class="fa-solid fa-gamepad"></i>
+                        </div>
+                        <div class="mini-discount-glow"></div>
+                    </div>
+                </div>
+
+                <div class="mini-discount-card">
+                    <!-- LEFT -->
+                    <div class="mini-discount-left">
+                        <div class="mini-discount-badge">
+                            <i class="fa-solid fa-tag"></i>
+                            <span>Codice Sconto</span>
+                        </div>
+
+                        <h3>PushMore</h3>
+
+                        <p>Integratori e equipment sportivi. Usa il mio codice al checkout:</p>
+
+                        <div class="mini-discount-code-wrap">
+                            <span class="mini-discount-code" id="pmCode">Spicy -27%</span>
+                            <button class="mini-discount-copy" id="copyPmCode" type="button">
+                                <i class="fa-regular fa-copy"></i>
+                                Copia
+                            </button>
+                        </div>
+
+                        <div class="mini-discount-actions">
+                            <a href="https://www.pushmore.it/" target="_blank" rel="noopener" class="mini-discount-btn">
+                                Vai su PushMore
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+
+                        <small class="mini-discount-note">
+                            *Codice soggetto a disponibilità/promozioni del sito.
+                        </small>
+                    </div>
+
+                    <!-- RIGHT (decorativo) -->
+                    <div class="mini-discount-right" aria-hidden="true">
+                        <div class="mini-discount-icon">
+                            <i class="fa-solid fa-dumbbell"></i>
+                        </div>
+                        <div class="mini-discount-glow"></div>
+                    </div>
+                </div>
+
+                <div class="mini-discount-card">
+                    <!-- LEFT -->
+                    <div class="mini-discount-left">
+                        <div class="mini-discount-badge">
+                            <i class="fa-solid fa-tag"></i>
+                            <span>Codice Sconto</span>
+                        </div>
+
+                        <h3>VitaStrong</h3>
+
+                        <p>Integratori e nutrizione sportiva. Usa il mio codice al checkout:</p>
+
+                        <div class="mini-discount-code-wrap">
+                            <span class="mini-discount-code" id="vsCode">Spicy -20%</span>
+                            <button class="mini-discount-copy" id="copyVsCode" type="button">
+                                <i class="fa-regular fa-copy"></i>
+                                Copia
+                            </button>
+                        </div>
+
+                        <div class="mini-discount-actions">
+                            <a href="https://www.vitastrong.it/" target="_blank" rel="noopener" class="mini-discount-btn">
+                                Vai su VitaStrong
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+
+                        <small class="mini-discount-note">
+                            *Codice soggetto a disponibilità/promozioni del sito.
+                        </small>
+                    </div>
+
+                    <!-- RIGHT (decorativo) -->
+                    <div class="mini-discount-right" aria-hidden="true">
+                        <div class="mini-discount-icon">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                        </div>
+                        <div class="mini-discount-glow"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sezione Contact Me -->
+        <section id="contact" class="contact-section">
+            <h2>Contattami</h2>
+            <p>Hai domande o vuoi discutere una collaborazione? Contattami via email!</p>
+            <div class="contact-info">
+                <p><i class="fas fa-envelope contact-icon"></i> gio@giospezia.it</p>
+            </div>
+            <a href="contact/" class="contact-btn">Invia un'email</a>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <p>&copy; 2024 Giovanni Spezia. Tutti i diritti riservati.</p>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/giospezia06/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@GioSpezia" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.linkedin.com/in/giovanni-spezia-71577124b/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/giovannispezia" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                    <div class="quick-contact">
+                        <div>
+                            <i class="fas fa-envelope"></i> <a href="mailto:gio@giospezia.it">gio@giospezia.it</a>
+                        </div>
+                    </div>
+                    <div class="privacy-policy">
+                        <a href="privacy/" class="privacy-link">Informativa sulla privacy</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top"><i class="fas fa-chevron-up"></i></button>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+
+    <script>
+        // Script Anno di Nascita
+        const annoNascita = 2006;
+        const oggi = new Date();
+        const annoCorrente = oggi.getFullYear();
+        const meseCorrente = oggi.getMonth() + 1;
+        const giornoCorrente = oggi.getDate();
+
+        const meseNascita = 8;
+        const giornoNascita = 10;
+
+        let eta = annoCorrente - annoNascita;
+
+        if (meseCorrente < meseNascita || (meseCorrente === meseNascita && giornoCorrente < giornoNascita)) {
+            eta--;
+        }
+
+        document.getElementById("eta").textContent = eta;
+    </script>
+</body>
+</html>

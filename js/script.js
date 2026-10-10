@@ -592,39 +592,10 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 })();
 
-// Interactive, study-focused cybersecurity workflow.
-(function () {
-  const steps = document.querySelectorAll(".workflow-step");
-  const panel = document.querySelector(".workflow-window");
-  const phase = document.getElementById("workflow-phase");
-  const description = document.getElementById("workflow-description");
-  const result = document.getElementById("workflow-result");
-
-  if (!steps.length || !panel || !phase || !description || !result) return;
-
-  steps.forEach((step) => {
-    step.addEventListener("click", () => {
-      steps.forEach((item) => {
-        const isActive = item === step;
-        item.classList.toggle("is-active", isActive);
-        item.setAttribute("aria-pressed", isActive ? "true" : "false");
-      });
-
-      panel.classList.add("is-updating");
-      requestAnimationFrame(() => {
-        phase.textContent = step.dataset.phase;
-        description.textContent = step.dataset.description;
-        result.textContent = step.dataset.output;
-        window.setTimeout(() => panel.classList.remove("is-updating"), 170);
-      });
-    });
-  });
-})();
-
 // Light scroll reveals on portfolio cards; content remains visible without JS.
 (function () {
   const revealItems = document.querySelectorAll(
-    ".security-focus-card, .workflow-step, .service-card, .project-card, .staff-card, .event-card, .social-card, .client-card, .yt-card, .contact-highlight-card"
+    ".security-focus-card, .service-card, .project-card, .staff-card, .event-card, .social-card, .client-card, .yt-card, .contact-highlight-card"
   );
   if (!revealItems.length || !("IntersectionObserver" in window)) return;
 

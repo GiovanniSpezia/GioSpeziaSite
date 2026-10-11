@@ -2,6 +2,48 @@ const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
 const body = document.body;
 
+// Scroll-driven identity intro on the homepage.
+(function initIdentityIntro() {
+  const section = document.getElementById("identity-intro");
+  if (!section) return;
+
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reducedMotion) {
+    document.body.classList.add("identity-reduced-motion");
+    return;
+  }
+
+  document.body.classList.add("has-identity-scroll");
+  let framePending = false;
+
+  const updateIntro = () => {
+    const rect = section.getBoundingClientRect();
+    const scrollDistance = Math.max(section.offsetHeight - window.innerHeight, 1);
+    const progress = Math.max(0, Math.min(1, -rect.top / scrollDistance));
+    const firstReveal = Math.max(0, Math.min(1, progress * 1.6));
+    const lastReveal = Math.max(0, Math.min(1, (progress - 0.12) * 1.9));
+
+    section.style.setProperty("--identity-progress", progress.toFixed(3));
+    section.style.setProperty("--identity-angle", `${(progress * 250).toFixed(1)}deg`);
+    section.style.setProperty("--first-reveal", `${(firstReveal * 100).toFixed(1)}%`);
+    section.style.setProperty("--last-reveal", `${(lastReveal * 100).toFixed(1)}%`);
+    section.style.setProperty("--first-shift", `${((1 - firstReveal) * -7).toFixed(2)}vw`);
+    section.style.setProperty("--last-shift", `${((1 - lastReveal) * 7).toFixed(2)}vw`);
+    section.style.setProperty("--scroll-cue-opacity", String(Math.max(0, 1 - progress * 8)));
+    framePending = false;
+  };
+
+  const requestUpdate = () => {
+    if (framePending) return;
+    framePending = true;
+    window.requestAnimationFrame(updateIntro);
+  };
+
+  window.addEventListener("scroll", requestUpdate, { passive: true });
+  window.addEventListener("resize", requestUpdate, { passive: true });
+  requestUpdate();
+})();
+
 function setNavOpen(isOpen) {
   if (!hamburger || !navLinks) return;
 
@@ -34,13 +76,17 @@ document.addEventListener("DOMContentLoaded", function() {
   const progressFill = document.getElementById("loader-progress-fill");
 
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const minDuration = reducedMotion ? 1 : 1200;
+  const minDuration = reducedMotion ? 1 : 850;
   const stages = [
-    { subtitle: "Inizializzazione", task: "CONTROLLO AMBIENTE" },
-    { subtitle: "Caricamento asset", task: "PREPARAZIONE INTERFACCIA" },
-    { subtitle: "Ottimizzazione UI", task: "VERIFICA SICUREZZA" },
-    { subtitle: "Pronto", task: "ACCESSO AUTORIZZATO" }
+    { subtitle: "Preparazione dell’esperienza", task: "INTERFACCIA IN AVVIO" },
+    { subtitle: "Caricamento dei contenuti", task: "CONTENUTI IN CARICAMENTO" },
+    { subtitle: "Quasi pronto", task: "RIFINITURA GRAFICA" },
+    { subtitle: "Benvenuto", task: "PRONTO" }
   ];
+  stages.forEach((stage) => {
+    stage.subtitle = window.siteTranslate?.(stage.subtitle) || stage.subtitle;
+    stage.task = window.siteTranslate?.(stage.task) || stage.task;
+  });
 
   const baseLoaderText = loaderText ? loaderText.textContent.trim() : "GioSpezia";
   if (loaderText) {
@@ -61,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function() {
     content.style.visibility = "visible";
     content.style.opacity = "0";
     content.style.transform = "translateY(12px)";
-    content.style.transition = "opacity 0.55s ease, transform 0.55s ease";
+    content.style.transition = "opacity 0.48s ease, transform 0.48s ease";
 
     requestAnimationFrame(() => {
       content.style.opacity = "1";
@@ -165,14 +211,20 @@ document.addEventListener('DOMContentLoaded', function() {
     // Gestisci il click sul pulsante
     if (!toggleButton || !projectsGrid) return;
 
+    const updateToggleLabel = () => {
+        const isVisible = projectsGrid.style.display === 'grid';
+        toggleButton.textContent = window.siteTranslate?.(isVisible ? 'Nascondi ▲' : 'Mostra Progetti ▼') || (isVisible ? 'Nascondi ▲' : 'Mostra Progetti ▼');
+    };
+    window.addEventListener('site-language-change', updateToggleLabel);
+
     toggleButton.addEventListener('click', function() {
         // Verifica se i progetti sono visibili
         if (projectsGrid.style.display === 'none' || projectsGrid.style.display === '') {
             projectsGrid.style.display = 'grid'; // Mostra i progetti
-            toggleButton.innerHTML = 'Nascondi &#x25B2;'; // Cambia il testo del bottone
+            updateToggleLabel();
         } else {
             projectsGrid.style.display = 'none'; // Nascondi i progetti
-            toggleButton.innerHTML = 'Mostra Progetti &#x25BC;'; // Cambia il testo del bottone
+            updateToggleLabel();
         }
     });
 });
@@ -492,7 +544,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const code = codeEl.textContent.trim();
 
       const showCopiedState = () => {
-        copyBtn.innerHTML = '<i class="fa-solid fa-check"></i> Copiato!';
+        copyBtn.innerHTML = `<i class="fa-solid fa-check"></i> ${window.siteTranslate?.('Copiato!') || 'Copiato!'}`;
         copyBtn.style.borderColor = "rgba(163,255,18,0.35)";
 
         if (resetTimer) {
@@ -500,7 +552,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         resetTimer = setTimeout(() => {
-          copyBtn.innerHTML = '<i class="fa-regular fa-copy"></i> Copia';
+          copyBtn.innerHTML = `<i class="fa-regular fa-copy"></i> ${window.siteTranslate?.('Copia') || 'Copia'}`;
           copyBtn.style.borderColor = "";
           resetTimer = null;
         }, 1300);

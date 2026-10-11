@@ -16,39 +16,20 @@
     <canvas id="fireworksCanvas"></canvas>
     
     <!-- Loader -->
-    <div id="loader-wrapper" class="loader-screen" role="status" aria-live="polite">
+    <div id="loader-wrapper" class="loader-screen" role="status" aria-live="polite" aria-label="Caricamento del sito">
         <div class="loader-grid" aria-hidden="true"></div>
         <div class="loader-orbit loader-orbit-one" aria-hidden="true"></div>
         <div class="loader-orbit loader-orbit-two" aria-hidden="true"></div>
-        <div class="loader-panel">
-            <div class="loader-brandbar">
-                <span class="loader-brand"><i>GS</i> GIOSPEZIA <b>/ SECURITY LAB</b></span>
-                <span class="loader-session"><i></i> SESSIONE LOCALE</span>
+        <div class="loader-content">
+            <div class="loader-eyebrow"><i class="loader-status-dot"></i> DIGITAL SECURITY · PERSONAL PORTFOLIO</div>
+            <h1 id="loader-text" data-text="GIOSPEZIA">GIOSPEZIA</h1>
+            <p id="loader-subtitle">Preparazione dell’esperienza</p>
+            <div class="loader-progress" role="progressbar" aria-label="Caricamento del sito" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <span id="loader-progress-fill"></span>
             </div>
-            <div class="loader-titlebar">
-                <span class="loader-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-                <span>BOOT_SEQUENCE</span>
-                <span>v.01</span>
-            </div>
-            <div class="loader-content">
-                <div class="loader-progress-label">
-                    <span>INIZIALIZZAZIONE SICURA</span>
-                    <span id="loader-percent">00%</span>
-                </div>
-                <div id="loader-text">GioSpezia</div>
-                <div class="loader-command" aria-hidden="true">
-                    <span class="loader-prompt">gio@portfolio:~$</span>
-                    <span>secure-session --init</span>
-                    <i class="loader-cursor"></i>
-                </div>
-                <p id="loader-subtitle">Inizializzazione</p>
-                <div class="loader-progress" role="progressbar" aria-label="Caricamento del sito" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                    <span id="loader-progress-fill"></span>
-                </div>
-                <div class="loader-statusline">
-                    <span id="loader-task">CONTROLLO AMBIENTE</span>
-                    <span><i class="loader-status-dot"></i> CONNESSIONE PROTETTA</span>
-                </div>
+            <div class="loader-statusline">
+                <span id="loader-task">INTERFACCIA IN AVVIO</span>
+                <span id="loader-percent">00%</span>
             </div>
         </div>
         <div class="loader-footnote" aria-hidden="true"><span>GIOSPEZIA.IT</span><span>SECURITY · PRIVACY · CONTROL</span></div>
@@ -317,6 +298,7 @@
     </footer>
 
     <!-- JavaScript -->
+    <script src="../js/language.js"></script>
     <script src="../js/script.js"></script>
 </body>
 </html>

@@ -16,39 +16,20 @@
     <canvas id="fireworksCanvas"></canvas>
     
     <!-- Loader -->
-    <div id="loader-wrapper" class="loader-screen" role="status" aria-live="polite">
+    <div id="loader-wrapper" class="loader-screen" role="status" aria-live="polite" aria-label="Caricamento del sito">
         <div class="loader-grid" aria-hidden="true"></div>
         <div class="loader-orbit loader-orbit-one" aria-hidden="true"></div>
         <div class="loader-orbit loader-orbit-two" aria-hidden="true"></div>
-        <div class="loader-panel">
-            <div class="loader-brandbar">
-                <span class="loader-brand"><i>GS</i> GIOSPEZIA <b>/ SECURITY LAB</b></span>
-                <span class="loader-session"><i></i> SESSIONE LOCALE</span>
+        <div class="loader-content">
+            <div class="loader-eyebrow"><i class="loader-status-dot"></i> DIGITAL SECURITY · PERSONAL PORTFOLIO</div>
+            <h1 id="loader-text" data-text="GIOSPEZIA">GIOSPEZIA</h1>
+            <p id="loader-subtitle">Preparazione dell’esperienza</p>
+            <div class="loader-progress" role="progressbar" aria-label="Caricamento del sito" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <span id="loader-progress-fill"></span>
             </div>
-            <div class="loader-titlebar">
-                <span class="loader-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-                <span>BOOT_SEQUENCE</span>
-                <span>v.01</span>
-            </div>
-            <div class="loader-content">
-                <div class="loader-progress-label">
-                    <span>INIZIALIZZAZIONE SICURA</span>
-                    <span id="loader-percent">00%</span>
-                </div>
-                <div id="loader-text">GioSpezia</div>
-                <div class="loader-command" aria-hidden="true">
-                    <span class="loader-prompt">gio@portfolio:~$</span>
-                    <span>secure-session --init</span>
-                    <i class="loader-cursor"></i>
-                </div>
-                <p id="loader-subtitle">Inizializzazione</p>
-                <div class="loader-progress" role="progressbar" aria-label="Caricamento del sito" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                    <span id="loader-progress-fill"></span>
-                </div>
-                <div class="loader-statusline">
-                    <span id="loader-task">CONTROLLO AMBIENTE</span>
-                    <span><i class="loader-status-dot"></i> CONNESSIONE PROTETTA</span>
-                </div>
+            <div class="loader-statusline">
+                <span id="loader-task">INTERFACCIA IN AVVIO</span>
+                <span id="loader-percent">00%</span>
             </div>
         </div>
         <div class="loader-footnote" aria-hidden="true"><span>GIOSPEZIA.IT</span><span>SECURITY · PRIVACY · CONTROL</span></div>
@@ -151,6 +132,31 @@
                 </button>
             </div>
         </header>
+
+        <!-- Intro a scorrimento: il nome si rivela durante la discesa -->
+        <section class="identity-scroll" id="identity-intro" aria-label="Introduzione: Giovanni Spezia">
+            <div class="identity-stage">
+                <div class="identity-radar" aria-hidden="true"><span></span><i></i></div>
+                <div class="identity-meta" aria-hidden="true">
+                    <span>IDENTITÀ / 01</span>
+                    <span>GIOVANNI SPEZIA — PORTFOLIO</span>
+                </div>
+                <div class="identity-core">
+                    <p class="identity-kicker"><i></i> PERSONA · TECNOLOGIA · SICUREZZA</p>
+                    <h1 class="identity-name" aria-label="Giovanni Spezia">
+                        <span class="identity-name-line identity-first">GIOVANNI<span aria-hidden="true">GIOVANNI</span></span>
+                        <span class="identity-name-line identity-last">SPEZIA<span aria-hidden="true">SPEZIA</span></span>
+                    </h1>
+                    <div class="identity-signature"><span></span><p>Imparo. Metto alla prova. Proteggo.</p><span></span></div>
+                </div>
+                <div class="identity-scroll-cue" aria-hidden="true">
+                    <span>SCORRI PER ESPLORARE</span>
+                    <i><b></b></i>
+                </div>
+                <div class="identity-progress" aria-hidden="true"><span></span></div>
+                <div class="identity-coordinate" aria-hidden="true">GIOSPEZIA.IT&nbsp; // &nbsp;ONLINE</div>
+            </div>
+        </section>
 
         <!-- Sezione Benvenuto -->
         <section id="home" class="home-section">
@@ -740,6 +746,7 @@
     <button id="back-to-top"><i class="fas fa-chevron-up"></i></button>
 
     <!-- JavaScript -->
+    <script src="js/language.js"></script>
     <script src="js/script.js"></script>
 
     <script>

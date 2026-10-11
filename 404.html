@@ -95,12 +95,13 @@
         return;
       }
       if (routes[command]) {
-        output.textContent = `route trovata: /${command} — connessione…`;
+        output.textContent = window.siteLanguage?.() === "en" ? `Route found: /${command} — connecting…` : `route trovata: /${command} — connessione…`;
         window.setTimeout(() => window.location.assign(new URL(routes[command], siteRoot).href), 260);
         return;
       }
-      output.textContent = `route non trovata: ${command || "(vuota)"} — digita help`;
+      output.textContent = window.siteLanguage?.() === "en" ? `Route not found: ${command || "(empty)"} — type help` : `route non trovata: ${command || "(vuota)"} — digita help`;
     });
   </script>
+  <script src="js/language.js"></script>
 </body>
 </html>

@@ -195,19 +195,17 @@
             <div class="container">
                 <h2 class="section-title">Il mio Instagram</h2>
                 <p class="section-subtitle">
-                Uno sguardo esclusivo al mio mondo: momenti dietro le quinte, sneak peek dei progetti
-                e attimi che raccontano chi sono davvero.
+                    Scatti, ricordi e piccoli momenti dal mio profilo. Apri ogni post e scorri le foto dei caroselli.
                 </p>
 
-                <div class="insta-feed">
-                <div class="insta-item"><img src="../img/optimized/insta1.webp" alt="Post Instagram 1" width="1536" height="2048" loading="lazy" decoding="async"></div>
-                <div class="insta-item"><img src="../img/optimized/insta2.webp" alt="Post Instagram 2" width="1536" height="2048" loading="lazy" decoding="async"></div>
-                <div class="insta-item"><img src="../img/optimized/insta3.webp" alt="Post Instagram 3" width="1536" height="2048" loading="lazy" decoding="async"></div>
-                <div class="insta-item"><img src="../img/insta4.jpg" alt="Post Instagram 4" width="1536" height="2048" loading="lazy" decoding="async"></div>
+                <div class="insta-gallery-heading">
+                    <span><i class="fa-brands fa-instagram" aria-hidden="true"></i> @giospezia06</span>
+                    <span class="insta-gallery-note">POST SELEZIONATI</span>
                 </div>
+                <div class="insta-feed" data-instagram-feed aria-label="Galleria dei post Instagram"></div>
 
                 <div class="btn-wrapper">
-                <a href="https://www.instagram.com/giospezia06/" target="_blank" class="event-btn insta-btn">
+                <a href="https://www.instagram.com/giospezia06/" target="_blank" rel="noopener noreferrer" class="event-btn insta-btn">
                     <i class="fab fa-instagram"></i> Seguimi su Instagram
                 </a>
                 </div>
@@ -298,23 +296,23 @@
     <script>
     (() => {
         const channels = [
-            { id: "instagram", name: "Instagram", icon: "fa-instagram", url: "https://www.instagram.com/giospezia06/", avatar: "https://unavatar.io/instagram/giospezia06", description: "Dietro le quinte, momenti e aggiornamenti dal mio percorso.", handle: "@giospezia06" },
+            { id: "instagram", name: "Instagram", icon: "fa-instagram", url: "https://www.instagram.com/giospezia06/", avatar: "https://unavatar.io/instagram/giospezia06?ttl=1h", description: "Dietro le quinte, momenti e aggiornamenti dal mio percorso.", handle: "@giospezia06" },
             { id: "youtube", name: "YouTube", icon: "fa-youtube", url: "https://www.youtube.com/@GioSpezia", avatar: "https://unavatar.io/youtube/GioSpezia", description: "Video, progetti e contenuti approfonditi da guardare con calma.", handle: "@GioSpezia" },
             { id: "tiktok", name: "TikTok", icon: "fa-tiktok", url: "https://www.tiktok.com/@giospezia06", avatar: "https://unavatar.io/tiktok/giospezia06", description: "Clip veloci, esperimenti e frammenti della mia quotidianità.", handle: "@giospezia06" },
-            { id: "facebook", name: "Facebook", icon: "fa-facebook", url: "https://www.facebook.com/profile.php?id=61579622813173&sk=about", avatar: "https://unavatar.io/facebook/61579622813173", description: "Aggiornamenti e novità dalla mia pagina Facebook.", handle: "Giovanni Spezia" },
+            { id: "facebook", name: "Facebook", icon: "fa-facebook", url: "https://www.facebook.com/profile.php?id=61579622813173", avatar: "https://unavatar.io/facebook/61579622813173", description: "Aggiornamenti e novità dalla mia pagina Facebook.", handle: "Giovanni Spezia" },
             { id: "twitch", name: "Twitch", icon: "fa-twitch", url: "https://www.twitch.tv/giospezia", avatar: "https://unavatar.io/twitch/giospezia", description: "Dirette, sessioni live e momenti da condividere insieme.", handle: "giospezia" },
-            { id: "telegram", name: "Telegram", icon: "fa-telegram-plane", url: "https://telegram.org", description: "Un canale diretto per restare aggiornato sulle novità.", handle: "Canale Telegram" },
+            { id: "telegram", name: "Telegram", icon: "fa-telegram-plane", url: "https://t.me/GiovaSpezia", avatar: "https://unavatar.io/telegram/GiovaSpezia", description: "Un canale diretto per restare aggiornato sulle novità.", handle: "Canale Telegram" },
             { id: "github", name: "GitHub", icon: "fa-github", url: "https://github.com/giovannispezia", avatar: "https://unavatar.io/github/giovannispezia", description: "Codice, repository e progetti a cui sto lavorando.", handle: "@giovannispezia" },
             { id: "linkedin", name: "LinkedIn", icon: "fa-linkedin-in", url: "https://www.linkedin.com/in/giovanni-spezia-71577124b/", avatar: "https://unavatar.io/linkedin/user:giovanni-spezia-71577124b", description: "Il mio percorso professionale e le esperienze più recenti.", handle: "Giovanni Spezia" }
         ];
         const orbit = document.querySelector("[data-social-orbit]");
         const nodes = document.querySelector("[data-social-nodes]");
-        const cta = document.querySelector("[data-social-cta]");
+        const ctas = [...document.querySelectorAll("[data-social-cta]")];
         const selectors = [...document.querySelectorAll("[data-social-select]")];
         const feature = document.querySelector("[data-social-feature]");
         const previous = document.querySelector("[data-social-prev]");
         const next = document.querySelector("[data-social-next]");
-        if (!orbit || !nodes || !cta || !feature) return;
+        if (!orbit || !nodes || !ctas.length || !feature) return;
 
         const featureName = feature.querySelector("[data-social-feature-name]");
         const featureIcon = feature.querySelector("[data-social-feature-icon]");
@@ -382,8 +380,17 @@
             profileImage.alt = `Foto profilo di Giovanni Spezia su ${channel.name}`;
             setAvatar(orbitAvatar, channel);
             featureCount.textContent = String(selectedIndex + 1).padStart(2, "0");
-            cta.href = channel.url;
-            cta.setAttribute("aria-label", `${channel.name}: ${window.siteTranslate ? window.siteTranslate("Apri il canale") : "Apri il canale"}`);
+            ctas.forEach((link) => {
+                link.href = channel.url;
+                link.setAttribute("aria-label", `${channel.name}: ${window.siteTranslate ? window.siteTranslate("Apri il canale") : "Apri il canale"}`);
+                const icon = link.querySelector("i");
+                if (icon) icon.className = `fa-brands ${channel.icon}`;
+                const label = link.querySelector("span");
+                if (label && !label.hasAttribute("data-social-cta-label")) {
+                    const text = `Vai su ${channel.name}`;
+                    label.textContent = window.siteTranslate ? window.siteTranslate(text) : text;
+                }
+            });
             ctaLabel.textContent = window.siteTranslate ? window.siteTranslate("Apri il canale") : "Apri il canale";
             nodeButtons.forEach((button, buttonIndex) => {
                 const active = buttonIndex === selectedIndex;
@@ -443,5 +450,6 @@
         selectChannel(0);
     })();
     </script>
+    <script src="../js/instagram-gallery.js"></script>
 </body>
 </html>

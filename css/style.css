@@ -6307,6 +6307,46 @@ body:not(.dark) .social-orbit-step { color: #176b43; background: rgba(25,130,72,
 body:not(.dark) .social-feature-title h2 { color: #202c24; }
 body:not(.dark) .social-profile-handle { color: #176b43; }
 body:not(.dark) .social-feature p { color: #536257; }
+
+/* Light theme: carry the palette through the home intro and its terminal card. */
+body:not(.dark) .identity-scroll { color: #202c24; background: #f4f7f3; }
+body:not(.dark) .identity-scroll::before {
+    background: radial-gradient(ellipse at 50% 47%, rgba(25,130,72,.09), transparent 41%),
+        linear-gradient(rgba(35,70,48,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(35,70,48,.045) 1px, transparent 1px);
+}
+body:not(.dark) .identity-radar { border-color: rgba(25,130,72,.15); }
+body:not(.dark) .identity-radar::before { border-color: rgba(25,130,72,.1); }
+body:not(.dark) .identity-radar::after { border-color: rgba(25,130,72,.12); }
+body:not(.dark) .identity-meta { color: #718174; }
+body:not(.dark) .identity-meta span:first-child { color: #176b43; }
+body:not(.dark) .identity-kicker,
+body:not(.dark) .identity-signature { color: #536257; }
+body:not(.dark) .identity-name { color: #202c24; }
+body:not(.dark) .identity-name-line { -webkit-text-stroke-color: rgba(35,70,48,.28); }
+body:not(.dark) .identity-name-line > span { background: linear-gradient(180deg, #236f48 12%, #548949 100%); background-clip: text; -webkit-background-clip: text; }
+body:not(.dark) .identity-signature span { background: linear-gradient(90deg, transparent, rgba(25,130,72,.55)); }
+body:not(.dark) .identity-scroll-cue { color: #536257; }
+body:not(.dark) .identity-scroll-cue i { border-color: rgba(25,130,72,.5); }
+body:not(.dark) .identity-scroll-cue i b { background: #176b43; }
+body:not(.dark) .identity-coordinate { color: #718174; }
+body:not(.dark) .identity-progress { background: rgba(25,130,72,.1); }
+
+body:not(.dark) .hero-terminal { color-scheme: light; border-color: rgba(25,130,72,.2); background: linear-gradient(145deg, #fff, #f4f9f4); box-shadow: 0 24px 70px rgba(35,70,48,.14); }
+body:not(.dark) .terminal-topbar { color: #536257; border-color: rgba(35,70,48,.12); }
+body:not(.dark) .terminal-body p { color: #425b4b; }
+body:not(.dark) .terminal-body h2 { color: #202c24; }
+body:not(.dark) .terminal-key,
+body:not(.dark) .terminal-lock,
+body:not(.dark) .terminal-status { color: #718174; }
+body:not(.dark) .terminal-body p:last-of-type span:last-child { color: #287641; }
+body:not(.dark) .terminal-status { border-color: rgba(35,70,48,.12); }
+body:not(.dark) .terminal-status span { color: #287641; }
+body:not(.dark) .terminal-rule { background: linear-gradient(90deg, rgba(25,130,72,.24), transparent); }
+
+/* Light theme: the discount copy controls need the same readable treatment as their cards. */
+body:not(.dark) .mini-discount-copy { color: #245b3b; border-color: rgba(25,130,72,.2); background: #f4f8f4; }
+body:not(.dark) .mini-discount-copy:hover { color: #173b27; border-color: rgba(25,130,72,.4); background: #eaf5ec; }
 @media (prefers-reduced-motion: reduce) {
     #loader-wrapper.loader-screen .loader-content,
     #loader-wrapper.loader-screen .loader-orbit,

@@ -144,53 +144,48 @@
                     </div>
                     <h1>I miei Social</h1>
                     <p>Seguimi nei miei canali per vedere progetti, contenuti extra, dietro le quinte e aggiornamenti in tempo reale.</p>
-                    <div class="social-pills" aria-label="Punti salienti social">
-                        <span class="social-pill"><i class="fa-brands fa-instagram"></i> Instagram</span>
-                        <span class="social-pill"><i class="fa-brands fa-youtube"></i> YouTube</span>
-                        <span class="social-pill"><i class="fa-brands fa-tiktok"></i> TikTok</span>
+                    <div class="social-pills" role="group" aria-label="Scegli un canale social">
+                        <button class="social-pill is-active" type="button" data-social-select="instagram" aria-pressed="true"><i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram</button>
+                        <button class="social-pill" type="button" data-social-select="youtube" aria-pressed="false"><i class="fa-brands fa-youtube" aria-hidden="true"></i> YouTube</button>
+                        <button class="social-pill" type="button" data-social-select="tiktok" aria-pressed="false"><i class="fa-brands fa-tiktok" aria-hidden="true"></i> TikTok</button>
                     </div>
                     <div class="social-actions">
-                        <a href="https://www.instagram.com/giospezia06/" class="event-btn social-cta" target="_blank" rel="noopener">
-                            <i class="fab fa-instagram"></i> Vai su Instagram
-                        </a>
-                        <a href="https://www.youtube.com/@GioSpezia" class="social-link-secondary" target="_blank" rel="noopener">
-                            Scopri YouTube
+                        <a href="https://www.instagram.com/giospezia06/" class="event-btn social-cta" data-social-cta target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-instagram" aria-hidden="true"></i><span>Vai su Instagram</span>
                         </a>
                     </div>
                 </div>
-                <div class="social-grid">
-                    <a href="https://www.instagram.com/giospezia06/" class="social-card instagram" target="_blank">
-                        <i class="fab fa-instagram"></i>
-                        <span>Instagram</span>
-                    </a>
-                    <a href="https://www.tiktok.com/@giospezia06" class="social-card tiktok" target="_blank">
-                        <i class="fab fa-tiktok"></i>
-                        <span>TikTok</span>
-                    </a>
-                    <a href="https://www.facebook.com/profile.php?id=61579622813173&sk=about" class="social-card facebook" target="_blank">
-                        <i class="fab fa-facebook"></i>
-                        <span>FaceBook</span>
-                    </a>
-                    <a href="https://www.youtube.com/@GioSpezia" class="social-card youtube" target="_blank">
-                        <i class="fab fa-youtube"></i>
-                        <span>YouTube</span>
-                    </a>
-                    <a href="https://www.twitch.tv/giospezia" class="social-card twitch" target="_blank">
-                        <i class="fab fa-twitch"></i>
-                        <span>Twitch</span>
-                    </a>
-                    <a href="https://telegram.org" class="social-card telegram" target="_blank">
-                        <i class="fab fa-telegram-plane"></i>
-                        <span>Telegram</span>
-                    </a>
-                    <a href="https://github.com/giovannispezia" class="social-card github" target="_blank">
-                        <i class="fab fa-github"></i>
-                        <span>Github</span>
-                    </a>
-                    <a href="https://linkedin.com" class="social-card linkedin" target="_blank">
-                        <i class="fab fa-linkedin-in"></i>
-                        <span>LinkedIn</span>
-                    </a>
+                <div class="social-explorer" aria-label="Esplora i miei canali social">
+                    <div class="social-orbit" data-social-orbit>
+                        <div class="social-orbit-track" aria-hidden="true"></div>
+                        <div class="social-orbit-glow" aria-hidden="true"></div>
+                        <div class="social-orbit-nodes" data-social-nodes role="group" aria-label="Seleziona una piattaforma"></div>
+                        <div class="social-orbit-core" aria-hidden="true">
+                            <img data-orbit-avatar src="../img/optimized/avatar.webp" alt="" loading="lazy" decoding="async">
+                            <span>GIO</span>
+                            <small>ONLINE</small>
+                        </div>
+                        <span class="social-orbit-hint"><i class="fa-solid fa-arrows-left-right" aria-hidden="true"></i> Trascina per esplorare</span>
+                    </div>
+                    <article class="social-feature" data-social-feature aria-live="polite">
+                        <div class="social-feature-controls">
+                            <button class="social-orbit-step" type="button" data-social-prev aria-label="Canale precedente"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+                            <span class="social-feature-kicker"><i class="fa-solid fa-satellite-dish" aria-hidden="true"></i> CANALE SELEZIONATO</span>
+                            <button class="social-orbit-step" type="button" data-social-next aria-label="Canale successivo"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+                        </div>
+                        <div class="social-profile-row">
+                            <img data-social-profile src="../img/optimized/avatar.webp" alt="Foto profilo di Giovanni Spezia" loading="lazy" decoding="async">
+                            <div>
+                                <div class="social-feature-title"><i data-social-feature-icon class="fa-brands fa-instagram" aria-hidden="true"></i><h2 data-social-feature-name>Instagram</h2></div>
+                                <span class="social-profile-handle" data-social-handle>@giospezia06</span>
+                            </div>
+                        </div>
+                        <p data-social-feature-description>Dietro le quinte, momenti e aggiornamenti dal mio percorso.</p>
+                        <a href="https://www.instagram.com/giospezia06/" class="event-btn social-cta" data-social-cta target="_blank" rel="noopener noreferrer">
+                            <span data-social-cta-label>Apri il canale</span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                        </a>
+                        <span class="social-feature-count"><strong data-social-count>01</strong> / 08 CANALI</span>
+                    </article>
                 </div>
             </div>
         </section>    
@@ -300,5 +295,145 @@
     <!-- JavaScript -->
     <script src="../js/language.js"></script>
     <script src="../js/script.js"></script>
+    <script>
+    (() => {
+        const channels = [
+            { id: "instagram", name: "Instagram", icon: "fa-instagram", url: "https://www.instagram.com/giospezia06/", description: "Dietro le quinte, momenti e aggiornamenti dal mio percorso.", handle: "@giospezia06" },
+            { id: "youtube", name: "YouTube", icon: "fa-youtube", url: "https://www.youtube.com/@GioSpezia", description: "Video, progetti e contenuti approfonditi da guardare con calma.", handle: "@GioSpezia" },
+            { id: "tiktok", name: "TikTok", icon: "fa-tiktok", url: "https://www.tiktok.com/@giospezia06", description: "Clip veloci, esperimenti e frammenti della mia quotidianità.", handle: "@giospezia06" },
+            { id: "facebook", name: "Facebook", icon: "fa-facebook", url: "https://www.facebook.com/profile.php?id=61579622813173&sk=about", description: "Aggiornamenti e novità dalla mia pagina Facebook.", handle: "Giovanni Spezia" },
+            { id: "twitch", name: "Twitch", icon: "fa-twitch", url: "https://www.twitch.tv/giospezia", description: "Dirette, sessioni live e momenti da condividere insieme.", handle: "giospezia" },
+            { id: "telegram", name: "Telegram", icon: "fa-telegram-plane", url: "https://telegram.org", description: "Un canale diretto per restare aggiornato sulle novità.", handle: "Canale Telegram" },
+            { id: "github", name: "GitHub", icon: "fa-github", url: "https://github.com/giovannispezia", description: "Codice, repository e progetti a cui sto lavorando.", handle: "@giovannispezia" },
+            { id: "linkedin", name: "LinkedIn", icon: "fa-linkedin-in", url: "https://www.linkedin.com/in/giovanni-spezia-71577124b/", description: "Il mio percorso professionale e le esperienze più recenti.", handle: "Giovanni Spezia" }
+        ];
+        const orbit = document.querySelector("[data-social-orbit]");
+        const nodes = document.querySelector("[data-social-nodes]");
+        const cta = document.querySelector("[data-social-cta]");
+        const selectors = [...document.querySelectorAll("[data-social-select]")];
+        const feature = document.querySelector("[data-social-feature]");
+        const previous = document.querySelector("[data-social-prev]");
+        const next = document.querySelector("[data-social-next]");
+        if (!orbit || !nodes || !cta || !feature) return;
+
+        const featureName = feature.querySelector("[data-social-feature-name]");
+        const featureIcon = feature.querySelector("[data-social-feature-icon]");
+        const featureDescription = feature.querySelector("[data-social-feature-description]");
+        const featureHandle = feature.querySelector("[data-social-handle]");
+        const featureCount = feature.querySelector("[data-social-count]");
+        const ctaLabel = feature.querySelector("[data-social-cta-label]");
+        const profileImage = feature.querySelector("[data-social-profile]");
+        const orbitAvatar = orbit.querySelector("[data-orbit-avatar]");
+        let selectedIndex = 0;
+        let rotation = -Math.PI / 2;
+        let dragStart = null;
+        let hasDragged = false;
+        const nodeButtons = channels.map((channel, index) => {
+            const button = document.createElement("button");
+            button.type = "button";
+            button.className = "social-orbit-node";
+            button.dataset.channel = channel.id;
+            button.setAttribute("aria-label", channel.name);
+            button.setAttribute("aria-pressed", "false");
+            button.innerHTML = `<i class="fa-brands ${channel.icon}" aria-hidden="true"></i><span>${channel.name}</span>`;
+            button.addEventListener("click", () => { if (!hasDragged) selectChannel(index); });
+            button.addEventListener("keydown", (event) => {
+                if (!["ArrowRight", "ArrowDown", "ArrowLeft", "ArrowUp"].includes(event.key)) return;
+                event.preventDefault();
+                const step = event.key === "ArrowRight" || event.key === "ArrowDown" ? 1 : -1;
+                const next = (index + step + channels.length) % channels.length;
+                selectChannel(next);
+                nodeButtons[next].focus();
+            });
+            nodes.append(button);
+            return button;
+        });
+
+        const positionNodes = () => {
+            const size = orbit.clientWidth;
+            if (!size) return;
+            const radius = size * .39;
+            nodeButtons.forEach((button, index) => {
+                const angle = rotation + index * (Math.PI * 2 / channels.length);
+                button.style.setProperty("--node-x", `${50 + Math.cos(angle) * radius / size * 100}%`);
+                button.style.setProperty("--node-y", `${50 + Math.sin(angle) * radius / size * 100}%`);
+            });
+        };
+
+        const selectChannel = (index) => {
+            selectedIndex = (index + channels.length) % channels.length;
+            const channel = channels[selectedIndex];
+            feature.classList.remove("is-changing");
+            void feature.offsetWidth;
+            feature.classList.add("is-changing");
+            featureName.textContent = channel.name;
+            featureIcon.className = `fa-brands ${channel.icon}`;
+            featureDescription.textContent = window.siteTranslate ? window.siteTranslate(channel.description) : channel.description;
+            featureHandle.textContent = channel.handle;
+            profileImage.src = "../img/optimized/avatar.webp";
+            profileImage.alt = `Foto profilo di Giovanni Spezia su ${channel.name}`;
+            orbitAvatar.src = profileImage.src;
+            featureCount.textContent = String(selectedIndex + 1).padStart(2, "0");
+            cta.href = channel.url;
+            cta.setAttribute("aria-label", `${channel.name}: ${window.siteTranslate ? window.siteTranslate("Apri il canale") : "Apri il canale"}`);
+            ctaLabel.textContent = window.siteTranslate ? window.siteTranslate("Apri il canale") : "Apri il canale";
+            nodeButtons.forEach((button, buttonIndex) => {
+                const active = buttonIndex === selectedIndex;
+                button.classList.toggle("is-active", active);
+                button.setAttribute("aria-pressed", String(active));
+            });
+            selectors.forEach((button) => {
+                const active = button.dataset.socialSelect === channel.id;
+                button.classList.toggle("is-active", active);
+                button.setAttribute("aria-pressed", String(active));
+            });
+        };
+
+        selectors.forEach((button) => button.addEventListener("click", () => selectChannel(channels.findIndex((channel) => channel.id === button.dataset.socialSelect))));
+        orbit.addEventListener("pointerdown", (event) => {
+            if (event.target.closest("button")) return;
+            const rect = orbit.getBoundingClientRect();
+            dragStart = { x: event.clientX, y: event.clientY, angle: Math.atan2(event.clientY - rect.top - rect.height / 2, event.clientX - rect.left - rect.width / 2), rotation };
+            hasDragged = false;
+            orbit.classList.add("is-dragging");
+            try { orbit.setPointerCapture(event.pointerId); } catch { /* Pointer capture is optional. */ }
+        });
+        orbit.addEventListener("pointermove", (event) => {
+            if (!dragStart) return;
+            const rect = orbit.getBoundingClientRect();
+            const angle = Math.atan2(event.clientY - rect.top - rect.height / 2, event.clientX - rect.left - rect.width / 2);
+            const rawDelta = angle - dragStart.angle;
+            const delta = Math.atan2(Math.sin(rawDelta), Math.cos(rawDelta));
+            if (Math.hypot(event.clientX - dragStart.x, event.clientY - dragStart.y) > 5) hasDragged = true;
+            rotation = dragStart.rotation + delta;
+            positionNodes();
+        });
+        const endDrag = () => {
+            if (!dragStart) return;
+            dragStart = null;
+            if (hasDragged) {
+                const angleStep = Math.PI * 2 / channels.length;
+                const nearest = Math.round((rotation - (-Math.PI / 2)) / angleStep);
+                rotation = -Math.PI / 2 + nearest * angleStep;
+                const activeIndex = ((-nearest % channels.length) + channels.length) % channels.length;
+                positionNodes();
+                selectChannel(activeIndex);
+                window.setTimeout(() => { hasDragged = false; }, 0);
+            }
+            orbit.classList.remove("is-dragging");
+        };
+        orbit.addEventListener("pointerup", endDrag);
+        orbit.addEventListener("pointercancel", endDrag);
+        orbit.addEventListener("pointermove", (event) => { if (dragStart) orbit.classList.add("is-dragging"); });
+        previous?.addEventListener("click", () => selectChannel(selectedIndex - 1));
+        next?.addEventListener("click", () => selectChannel(selectedIndex + 1));
+        window.addEventListener("resize", positionNodes, { passive: true });
+        if ("ResizeObserver" in window) new ResizeObserver(positionNodes).observe(orbit);
+        window.addEventListener("load", positionNodes, { once: true });
+        window.addEventListener("site-language-change", () => selectChannel(selectedIndex));
+        positionNodes();
+        selectChannel(0);
+    })();
+    </script>
 </body>
 </html>

@@ -6273,9 +6273,12 @@ body:not(.dark) #loader-wrapper.loader-screen .loader-footnote { color: #718174;
 #loader-wrapper.loader-screen .loader-footnote { z-index: 1; max-width: 680px; }
 #loader-wrapper.loader-screen.is-loaded { opacity: 0; visibility: hidden; }
 #loader-wrapper.loader-screen.is-finale #loader-text { animation: loader-title-glow 3.8s ease-in-out infinite, loader-finale-flash .38s ease-out 1; }
-body:not(.dark) #loader-wrapper.loader-screen { color: #eff6f0; background: radial-gradient(ellipse at 50% 48%, #0d1710 0%, #070b08 61%, #050706 100%); }
-body:not(.dark) #loader-wrapper.loader-screen #loader-text { color: #edf8ef; -webkit-text-fill-color: currentColor; }
-body:not(.dark) #loader-wrapper.loader-screen #loader-subtitle { color: #a8b8aa; }
+body:not(.dark) #loader-wrapper.loader-screen { color: #202c24; background: radial-gradient(ellipse at 50% 48%, #fff 0%, #f3f8f3 68%, #eaf2eb 100%); }
+body:not(.dark) #loader-wrapper.loader-screen #loader-text { color: #176b43; -webkit-text-fill-color: currentColor; }
+body:not(.dark) #loader-wrapper.loader-screen #loader-subtitle { color: #536257; }
+body:not(.dark) #loader-wrapper.loader-screen .loader-progress { background: rgba(25,105,60,.12); }
+body:not(.dark) #loader-wrapper.loader-screen .loader-statusline,
+body:not(.dark) #loader-wrapper.loader-screen .loader-footnote { color: #718174; }
 @keyframes loader-word-arrive { from { opacity: 0; transform: translateY(16px) scale(.985); filter: blur(8px); } to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); } }
 @keyframes loader-orbit-center { to { transform: translate(-50%, -50%) rotate(1turn); } }
 @keyframes loader-title-glow { 50% { text-shadow: 0 0 42px rgba(73,209,125,.25), 0 0 110px rgba(73,209,125,.12); } }
@@ -6288,6 +6291,22 @@ body:not(.dark) #loader-wrapper.loader-screen #loader-subtitle { color: #a8b8aa;
     .loader-eyebrow { font-size: .52rem; letter-spacing: .13em; }
     #loader-wrapper.loader-screen .loader-footnote { font-size: .45rem; }
 }
+
+/* Light theme: keep the social orbit readable against its light explorer panel. */
+body:not(.dark) .social-orbit-node { color: #425b4b; border-color: rgba(35,70,48,.18); background: rgba(255,255,255,.96); box-shadow: 0 5px 18px rgba(35,70,48,.09); }
+body:not(.dark) .social-orbit-node i { color: #176b43; }
+body:not(.dark) .social-orbit-node:hover,
+body:not(.dark) .social-orbit-node:focus-visible { color: #202c24; border-color: rgba(25,130,72,.45); background: #fff; }
+body:not(.dark) .social-orbit-node.is-active { color: #202c24; border-color: #176b43; background: #eaf5ec; box-shadow: 0 0 0 4px rgba(25,130,72,.09), 0 8px 24px rgba(35,70,48,.12); }
+body:not(.dark) .social-orbit-core { border-color: rgba(25,130,72,.24); background: radial-gradient(circle at 50% 25%, #fff, #edf6ef 74%); box-shadow: 0 0 45px rgba(25,130,72,.1), inset 0 0 22px rgba(25,130,72,.04); }
+body:not(.dark) .social-orbit-core > span { color: #202c24; }
+body:not(.dark) .social-orbit-core small,
+body:not(.dark) .social-feature-kicker,
+body:not(.dark) .social-feature-count { color: #536257; }
+body:not(.dark) .social-orbit-step { color: #176b43; background: rgba(25,130,72,.05); }
+body:not(.dark) .social-feature-title h2 { color: #202c24; }
+body:not(.dark) .social-profile-handle { color: #176b43; }
+body:not(.dark) .social-feature p { color: #536257; }
 @media (prefers-reduced-motion: reduce) {
     #loader-wrapper.loader-screen .loader-content,
     #loader-wrapper.loader-screen .loader-orbit,

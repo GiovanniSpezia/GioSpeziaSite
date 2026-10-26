@@ -237,18 +237,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const portfolio = document.querySelector('.portfolio-grid');
   if (portfolio) {
-    const cards = [...portfolio.querySelectorAll('[data-category]')].sort((a, b) => Number(a.dataset.featuredOrder || 99) - Number(b.dataset.featuredOrder || 99));
-    portfolio.append(...cards);
-    const filters = [...document.querySelectorAll('[data-filter]')];
-    const more = document.querySelector('.portfolio-more');
+    const categories = [
+      { key: 'sites', label: 'Siti web' },
+      { key: 'plugins', label: 'Plugin' },
+      { key: 'apps', label: 'Applicazioni' },
+      { key: 'video', label: 'Video' }
+    ];
+    const cards = [...portfolio.querySelectorAll('.project-card[data-category]')];
+    const filters = [...document.querySelectorAll('.portfolio-filter[data-filter]')];
     const count = document.querySelector('.portfolio-count');
+    const headings = new Map();
+    categories.forEach(({ key, label }, index) => {
+      const heading = document.createElement('div');
+      heading.className = 'portfolio-group-heading';
+      heading.dataset.portfolioGroup = key;
+      heading.innerHTML = `<span class="portfolio-group-index">${String(index + 1).padStart(2, '0')} / 04</span><h3></h3><span class="portfolio-group-total"></span>`;
+      headings.set(key, { element: heading, label });
+      portfolio.append(heading);
+      cards.filter((card) => card.dataset.category === key)
+        .sort((a, b) => Number(a.dataset.featuredOrder || 99) - Number(b.dataset.featuredOrder || 99))
+        .forEach((card) => portfolio.append(card));
+    });
     let active = 'all';
-    let expanded = false;
     const render = () => {
       const matching = cards.filter((card) => active === 'all' || card.dataset.category === active);
-      cards.forEach((card) => {
-        const position = matching.indexOf(card);
-        card.hidden = position < 0 || (!expanded && position >= 6);
+      cards.forEach((card) => { card.hidden = active !== 'all' && card.dataset.category !== active; });
+      headings.forEach(({ element, label }, key) => {
+        const total = cards.filter((card) => card.dataset.category === key).length;
+        element.hidden = active !== 'all' && active !== key;
+        element.querySelector('h3').textContent = translate(label);
+        element.querySelector('.portfolio-group-total').textContent = `${String(total).padStart(2, '0')} ${translate(total === 1 ? 'progetto' : 'progetti')}`;
       });
       filters.forEach((button) => {
         const selected = button.dataset.filter === active;
@@ -256,18 +274,11 @@ document.addEventListener('DOMContentLoaded', () => {
         button.setAttribute('aria-pressed', String(selected));
       });
       if (count) count.textContent = `${matching.length} ${translate(matching.length === 1 ? 'risultato' : 'risultati')}`;
-      if (more) {
-        more.hidden = matching.length <= 6;
-        more.setAttribute('aria-expanded', String(expanded));
-        more.innerHTML = `${translate(expanded ? 'Mostra meno' : 'Mostra tutti i progetti')} <i class="fa-solid fa-arrow-${expanded ? 'up' : 'down'}" aria-hidden="true"></i>`;
-      }
     };
     filters.forEach((button) => button.addEventListener('click', () => {
       active = button.dataset.filter;
-      expanded = false;
       render();
     }));
-    more?.addEventListener('click', () => { expanded = !expanded; render(); });
     window.addEventListener('site-language-change', render);
     render();
   }

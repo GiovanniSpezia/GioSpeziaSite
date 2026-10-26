@@ -684,3 +684,33 @@ body:not(.dark) .footer.site-footer {
     #security-focus .world-panel:not([hidden]) { animation: none; }
     #home .hero-poster, #clients .clients-track { transition: none; scroll-behavior: auto; }
 }
+
+/* Portfolio categories and project labels. */
+#projects .portfolio-toolbar { border-radius: 18px; gap: 8px; }
+#projects .portfolio-filter { white-space: nowrap; }
+#projects .portfolio-filter:focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; }
+#projects .portfolio-count { padding-inline: 10px; white-space: nowrap; }
+#content #projects .portfolio-grid { row-gap: 20px; }
+#projects .portfolio-group-heading {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: baseline;
+    gap: clamp(12px, 2vw, 28px);
+    margin-top: 28px;
+    padding: 16px 2px 0;
+    border-top: 1px solid var(--line);
+}
+#projects .portfolio-group-heading:first-child { margin-top: 0; }
+#projects .portfolio-group-heading[hidden] { display: none; }
+#projects .portfolio-group-index { color: var(--signal); font: 700 .75rem/1.3 var(--street-body); letter-spacing: .08em; white-space: nowrap; }
+#projects .portfolio-group-heading h3 { margin: 0; color: var(--paper); font: 700 clamp(1.45rem, 2.5vw, 2.1rem)/1.15 var(--street-body); letter-spacing: -.035em; }
+#projects .portfolio-group-total { margin-left: auto; color: var(--muted); font: 650 .7rem/1.4 var(--street-body); letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
+#projects .project-kind { align-self: flex-start; margin-bottom: 11px; color: var(--signal); font: 700 .68rem/1.25 var(--street-body); letter-spacing: .1em; text-transform: uppercase; }
+@media (max-width: 650px) {
+    #projects .portfolio-toolbar { position: static; padding: 9px; }
+    #projects .portfolio-filter { flex: 1 1 auto; text-align: center; }
+    #projects .portfolio-count { width: 100%; padding: 2px 6px; }
+    #projects .portfolio-group-heading { flex-wrap: wrap; gap: 6px 12px; margin-top: 20px; }
+    #projects .portfolio-group-heading h3 { flex: 1 1 auto; }
+    #projects .portfolio-group-total { width: 100%; margin-left: 0; }
+}

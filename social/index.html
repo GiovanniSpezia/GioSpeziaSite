@@ -3,40 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>document.documentElement.classList.add('js-loading'); setTimeout(() => document.documentElement.classList.remove('js-loading'), 3500);</script>
     <title>Social | GioSpezia</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <meta name="description" content="I canali di GioSpezia: video, progetti, allenamento e un diario visivo tra creatività e tecnologia.">
+    <link rel="stylesheet" href="../css/style.css?v=brand-icon-fix-2">
+    <link rel="stylesheet" href="../css/street.css?v=brand-icon-fix-2">
+    <link rel="stylesheet" href="../css/polish.css?v=brand-icon-fix-2">
+    <link rel="stylesheet" href="../css/social-polish.css?v=5">
+    <link rel="stylesheet" href="../css/yellow-glow.css?v=loader-2">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Montserrat:wght@600&family=Roboto:wght@400;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="../img/optimized/icon.svg" type="image/svg+xml">
+    <link rel="icon" href="../img/optimized/street-icon.png" type="image/png">
 </head>
-<body>
+<body class="dark social-page">
+    <script>try { if (localStorage.getItem('theme') === 'light') document.body.classList.remove('dark'); } catch (_) {}</script>
     <canvas id="fireworksCanvas"></canvas>
     
     <!-- Loader -->
     <div id="loader-wrapper" class="loader-screen" role="status" aria-live="polite" aria-label="Caricamento del sito">
         <div class="loader-grid" aria-hidden="true"></div>
-        <div class="loader-orbit loader-orbit-one" aria-hidden="true"></div>
-        <div class="loader-orbit loader-orbit-two" aria-hidden="true"></div>
         <div class="loader-content">
-            <div class="loader-eyebrow"><i class="loader-status-dot"></i> DIGITAL SECURITY · PERSONAL PORTFOLIO</div>
-            <h1 id="loader-text" data-text="GIOSPEZIA">GIOSPEZIA</h1>
-            <p id="loader-subtitle">Preparazione dell’esperienza</p>
-            <div class="loader-progress" role="progressbar" aria-label="Caricamento del sito" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                <span id="loader-progress-fill"></span>
-            </div>
-            <div class="loader-statusline">
-                <span id="loader-task">INTERFACCIA IN AVVIO</span>
-                <span id="loader-percent">00%</span>
-            </div>
+            <div class="loader-eyebrow"><i class="loader-status-dot" aria-hidden="true"></i> GIOSPEZIA · PERSONAL PORTFOLIO</div>
+            <h1 id="loader-text">GIOSPEZIA</h1>
+            <p id="loader-subtitle">Uno spazio per idee, progetti e movimento.</p>
+            <div class="loader-progress" role="progressbar" aria-label="Caricamento del sito" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="loader-progress-fill"></span></div>
+            <div class="loader-statusline"><span id="loader-task">CARICAMENTO</span><span id="loader-percent">00%</span></div>
         </div>
-        <div class="loader-footnote" aria-hidden="true"><span>GIOSPEZIA.IT</span><span>SECURITY · PRIVACY · CONTROL</span></div>
+        <div class="loader-footnote" aria-hidden="true"><span>GIOSPEZIA.IT</span><span>CREATE · MOVE · REPEAT</span></div>
     </div>
-
-    <!-- Back to Top Button -->
-    <button id="back-to-top"><i class="fas fa-chevron-up"></i></button>
 
     <!-- Cookie Banner -->
     <div id="cookieBox" class="cookie-banner" role="dialog" aria-labelledby="cookieTitle" aria-describedby="cookieDescription" hidden>
@@ -78,19 +75,19 @@
     </button>
     
     <!-- Contenuto principale -->
-    <div id="content" style="display: none;">
+    <div id="content">
         <header class="navbar">
             <div class="container">
                 <div class="logo">
-                    <a href="../">GioSpezia</a>
+                    <a href="../"><img class="brand-icon" src="../img/optimized/icon.png" alt="" width="48" height="48" decoding="async">GioSpezia</a>
                 </div>
                 <nav>
-                    <ul class="nav-links">
+                    <ul class="nav-links" id="primary-navigation">
                         <li><a href="../" class="nav-link">Home</a></li>
                         <li><a href="../social/" class="nav-link active">Social</a></li>
                         <li><a href="../staffexp/" class="nav-link">Staff Experience</a></li>
-                        <li><a href="../eventi/" class="nav-link">Event</a></li>
-                        <li><a href="../contact/" class="nav-link">Contact Me</a></li>
+                        <li><a href="../eventi/" class="nav-link">Eventi</a></li>
+                        <li><a href="../contact/" class="nav-link">Contatti</a></li>
                         <!-- Nuovo elemento per il toggle tema solo su mobile -->
                         <li class="mobile-theme-toggle">
                             <button class="theme-toggle" aria-label="Cambia tema" aria-pressed="false">
@@ -112,9 +109,9 @@
                         </li>
                     </ul>
                 </nav>
-                <div class="hamburger">
+                <button class="hamburger" type="button" aria-label="Apri il menu" aria-controls="primary-navigation" aria-expanded="false">
                     <span></span><span></span><span></span>
-                </div>
+                </button>
                 <!-- Theme Toggle Button per desktop -->
                 <button class="theme-toggle" id="themeToggle" aria-label="Cambia tema" aria-pressed="false">
                     <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -135,46 +132,52 @@
             </div>
         </header>
 
-        <section class="social-section">
+        <section class="social-section" aria-labelledby="social-page-title">
             <div class="container">
                 <div class="social-hero">
-                    <div class="social-badge">
-                        <i class="fa-solid fa-share-nodes"></i>
-                        <span>Social hub</span>
+                    <div class="social-hero-copy">
+                        <div class="social-badge">
+                            <i class="fa-solid fa-share-nodes" aria-hidden="true"></i>
+                            <span>Social hub / 01</span>
+                        </div>
+                        <h1 id="social-page-title">Fuori dal feed.<br><span>Dentro le idee.</span></h1>
+                        <p>Progetti, video e allenamento. Qui condivido idee, esperimenti e momenti del mio percorso.</p>
+                        <div class="social-pills" role="group" aria-label="Scegli un canale social">
+                            <button class="social-pill is-active" type="button" data-social-select="instagram" aria-pressed="true"><i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram</button>
+                            <button class="social-pill" type="button" data-social-select="youtube" aria-pressed="false"><i class="fa-brands fa-youtube" aria-hidden="true"></i> YouTube</button>
+                            <button class="social-pill" type="button" data-social-select="tiktok" aria-pressed="false"><i class="fa-brands fa-tiktok" aria-hidden="true"></i> TikTok</button>
+                        </div>
+                        <div class="social-actions">
+                            <a href="https://www.instagram.com/giospezia06/" class="event-btn social-cta" data-social-cta target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-instagram" aria-hidden="true"></i><span>Vai su Instagram</span>
+                            </a>
+                            <a href="#social-channels" class="social-explore-link">Esplora tutti i canali <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></a>
+                        </div>
                     </div>
-                    <h1>I miei Social</h1>
-                    <p>Seguimi nei miei canali per vedere progetti, contenuti extra, dietro le quinte e aggiornamenti in tempo reale.</p>
-                    <div class="social-pills" role="group" aria-label="Scegli un canale social">
-                        <button class="social-pill is-active" type="button" data-social-select="instagram" aria-pressed="true"><i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram</button>
-                        <button class="social-pill" type="button" data-social-select="youtube" aria-pressed="false"><i class="fa-brands fa-youtube" aria-hidden="true"></i> YouTube</button>
-                        <button class="social-pill" type="button" data-social-select="tiktok" aria-pressed="false"><i class="fa-brands fa-tiktok" aria-hidden="true"></i> TikTok</button>
+                    <div class="social-hero-art" aria-hidden="true">
+                        <div class="social-hero-art-frame"><img src="../img/optimized/avatar2.jpg" alt="" fetchpriority="high" decoding="async"></div>
+                        <span class="social-hero-art-index">GIO / 06</span>
+                        <span class="social-hero-art-note">CREATE<br>MOVE<br>REPEAT<span class="social-hero-art-dot">.</span></span>
+                        <span class="social-hero-art-mark"><i class="fa-solid fa-asterisk"></i></span>
                     </div>
-                    <div class="social-actions">
-                        <a href="https://www.instagram.com/giospezia06/" class="event-btn social-cta" data-social-cta target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-instagram" aria-hidden="true"></i><span>Vai su Instagram</span>
-                        </a>
-                    </div>
+                </div>
+                <div class="social-section-heading" id="social-channels">
+                    <span class="social-section-index">01 / I CANALI</span>
+                    <div><h2>Una voce, più linguaggi.</h2><p>Scegli un canale per scoprire dove ci troviamo.</p></div>
                 </div>
                 <div class="social-explorer" aria-label="Esplora i miei canali social">
                     <div class="social-orbit" data-social-orbit>
-                        <div class="social-orbit-track" aria-hidden="true"></div>
-                        <div class="social-orbit-glow" aria-hidden="true"></div>
                         <div class="social-orbit-nodes" data-social-nodes role="group" aria-label="Seleziona una piattaforma"></div>
-                        <div class="social-orbit-core" aria-hidden="true">
-                            <img data-orbit-avatar src="../img/optimized/avatar.webp" alt="" loading="lazy" decoding="async">
-                            <span>GIO</span>
-                            <small>ONLINE</small>
-                        </div>
-                        <span class="social-orbit-hint"><i class="fa-solid fa-arrows-left-right" aria-hidden="true"></i> Trascina per esplorare</span>
                     </div>
-                    <article class="social-feature" data-social-feature aria-live="polite">
+                    <article class="social-feature" id="social-channel-feature" data-social-feature>
+                        <span class="social-visually-hidden" data-social-announcement aria-live="polite" aria-atomic="true"></span>
                         <div class="social-feature-controls">
                             <button class="social-orbit-step" type="button" data-social-prev aria-label="Canale precedente"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
-                            <span class="social-feature-kicker"><i class="fa-solid fa-satellite-dish" aria-hidden="true"></i> CANALE SELEZIONATO</span>
+                            <span class="social-feature-kicker"><i class="fa-solid fa-location-arrow" aria-hidden="true"></i> CANALE SELEZIONATO</span>
                             <button class="social-orbit-step" type="button" data-social-next aria-label="Canale successivo"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
                         </div>
                         <div class="social-profile-row">
-                            <img data-social-profile src="../img/optimized/avatar.webp" alt="Foto profilo di Giovanni Spezia" loading="lazy" decoding="async">
+                            <span class="social-avatar-wrap"><img data-social-profile src="../img/social-avatars/instagram.jpg" alt="Foto profilo di Giovanni Spezia su Instagram" width="72" height="72" loading="lazy" decoding="async"><span class="social-avatar-badge" aria-hidden="true"><i data-social-avatar-badge class="fa-brands fa-instagram"></i></span></span>
                             <div>
                                 <div class="social-feature-title"><i data-social-feature-icon class="fa-brands fa-instagram" aria-hidden="true"></i><h2 data-social-feature-name>Instagram</h2></div>
                                 <span class="social-profile-handle" data-social-handle>@giospezia06</span>
@@ -184,126 +187,159 @@
                         <a href="https://www.instagram.com/giospezia06/" class="event-btn social-cta" data-social-cta target="_blank" rel="noopener noreferrer">
                             <span data-social-cta-label>Apri il canale</span><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
                         </a>
-                        <span class="social-feature-count"><strong data-social-count>01</strong> / 08 CANALI</span>
+                        <span class="social-feature-count"><strong data-social-count>01</strong> / <span>08 CANALI</span></span>
                     </article>
+                </div>
+                <div class="social-channel-strip" role="group" aria-label="Tutti i canali social">
+                    <button type="button" data-social-select="instagram" aria-pressed="true"><i class="fa-brands fa-instagram" aria-hidden="true"></i><span>Instagram</span></button>
+                    <button type="button" data-social-select="youtube" aria-pressed="false"><i class="fa-brands fa-youtube" aria-hidden="true"></i><span>YouTube</span></button>
+                    <button type="button" data-social-select="tiktok" aria-pressed="false"><i class="fa-brands fa-tiktok" aria-hidden="true"></i><span>TikTok</span></button>
+                    <button type="button" data-social-select="facebook" aria-pressed="false"><i class="fa-brands fa-facebook" aria-hidden="true"></i><span>Facebook</span></button>
+                    <button type="button" data-social-select="twitch" aria-pressed="false"><i class="fa-brands fa-twitch" aria-hidden="true"></i><span>Twitch</span></button>
+                    <button type="button" data-social-select="telegram" aria-pressed="false"><i class="fa-brands fa-telegram" aria-hidden="true"></i><span>Telegram</span></button>
+                    <button type="button" data-social-select="github" aria-pressed="false"><i class="fa-brands fa-github" aria-hidden="true"></i><span>GitHub</span></button>
+                    <button type="button" data-social-select="linkedin" aria-pressed="false"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i><span>LinkedIn</span></button>
                 </div>
             </div>
         </section>    
 
-        <!-- Sezione Instagram -->
-        <section class="instagram-showcase">
+        <!-- Le immagini sono asset locali del sito, presentati come diario visivo. -->
+        <section class="instagram-showcase" aria-labelledby="social-journal-title">
             <div class="container">
-                <h2 class="section-title">Il mio Instagram</h2>
-                <p class="section-subtitle">
-                    Scatti, ricordi e piccoli momenti dal mio profilo. Apri ogni post e scorri le foto dei caroselli.
-                </p>
-
-                <div class="insta-gallery-heading">
-                    <span><i class="fa-brands fa-instagram" aria-hidden="true"></i> @giospezia06</span>
-                    <span class="insta-gallery-note">POST SELEZIONATI</span>
+                <div class="social-section-heading social-journal-heading">
+                    <span class="social-section-index">02 / VISUAL DIARY</span>
+                    <div><h2 class="section-title" id="social-journal-title">Frame dal mio percorso.</h2><p>Identità, allenamento e progressi: tre frammenti del percorso che condivido online.</p></div>
                 </div>
-                <div class="insta-feed" data-instagram-feed aria-label="Galleria dei post Instagram"></div>
-
-                <div class="btn-wrapper">
-                <a href="https://www.instagram.com/giospezia06/" target="_blank" rel="noopener noreferrer" class="event-btn insta-btn">
-                    <i class="fab fa-instagram"></i> Seguimi su Instagram
-                </a>
+                <div class="social-journal-grid" aria-label="Galleria visiva">
+                    <a class="social-journal-card social-journal-card-portrait" href="https://www.instagram.com/giospezia06/" target="_blank" rel="noopener noreferrer" data-journal-open="0">
+                        <img src="../img/optimized/avatar.webp" alt="Ritratto di Giovanni Spezia" loading="lazy" decoding="async">
+                        <span class="social-journal-number">01 / 03</span>
+                        <span class="social-journal-caption"><small>IDENTITÀ</small><strong>Dietro il profilo</strong><i class="fa-solid fa-expand" aria-hidden="true"></i></span>
+                    </a>
+                    <a class="social-journal-card" href="https://www.instagram.com/giospezia06/" target="_blank" rel="noopener noreferrer" data-journal-open="1">
+                        <img src="../img/optimized/tiktok-lat-machine.webp" alt="Un frame di un video di allenamento" loading="lazy" decoding="async">
+                        <span class="social-journal-number">02 / 03</span>
+                        <span class="social-journal-caption"><small>MOVIMENTO</small><strong>In allenamento</strong><i class="fa-solid fa-expand" aria-hidden="true"></i></span>
+                    </a>
+                    <a class="social-journal-card" href="../img/avatar3.png.jpg" target="_blank" rel="noopener noreferrer" data-journal-open="2">
+                        <img src="../img/avatar3.png.jpg" alt="Giovanni allena una progressione del front lever alle parallele con un elastico: forza, controllo e costanza in ogni allenamento." width="960" height="1280" loading="lazy" decoding="async">
+                        <span class="social-journal-number">03 / 03</span>
+                        <span class="social-journal-caption"><small>SKILL / CALISTHENICS</small><strong>Verso il front lever</strong><i class="fa-solid fa-expand" aria-hidden="true"></i></span>
+                    </a>
                 </div>
+                <div class="social-section-bottom"><span>Una selezione dall’archivio del sito</span><a href="https://www.instagram.com/giospezia06/" target="_blank" rel="noopener noreferrer">Seguimi su Instagram <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
             </div>
         </section>
 
+        <dialog class="social-lightbox" aria-labelledby="social-lightbox-title" data-social-lightbox>
+            <button class="social-lightbox-close" type="button" data-lightbox-close aria-label="Chiudi la galleria"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+            <div class="social-lightbox-media" data-lightbox-swipe><img data-lightbox-image alt=""></div>
+            <div class="social-lightbox-info">
+                <div class="social-lightbox-topline"><span>GIO / ARCHIVIO</span><span data-lightbox-count>01 / 03</span></div>
+                <div class="social-lightbox-copy" aria-live="polite" aria-atomic="true"><span class="social-lightbox-eyebrow">VISUAL DIARY / 02</span><h2 id="social-lightbox-title" data-lightbox-title>Dietro il profilo</h2><p data-lightbox-description></p></div>
+                <div class="social-lightbox-bottom">
+                    <div class="social-lightbox-thumbnails" role="group" aria-label="Scegli un’immagine" data-lightbox-thumbnails></div>
+                    <div class="social-lightbox-progress" aria-hidden="true"><span></span></div>
+                    <div class="social-lightbox-controls"><button type="button" data-lightbox-prev aria-label="Immagine precedente"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i><span>Indietro</span></button><button type="button" data-lightbox-next aria-label="Immagine successiva"><span>Avanti</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div>
+                </div>
+            </div>
+        </dialog>
+
         <!-- Sezione YouTube -->
-        <section class="youtube-showcase">
+        <section class="youtube-showcase" aria-labelledby="social-youtube-title">
             <div class="container">
-                <h2 class="section-title">Ultimi Video su YouTube</h2>
-                <p class="section-subtitle">
-                scopri i miei ultimi video e unisciti alla community!
-                </p>
+                <div class="social-section-heading social-youtube-heading">
+                    <span class="social-section-index">03 / VIDEO</span>
+                    <div><h2 class="section-title" id="social-youtube-title">Video da guardare con calma.</h2><p>Approfondimenti, prove e un po’ di me. Scegli da dove iniziare.</p></div>
+                </div>
 
                 <div class="youtube-cards">
-                    <div class="yt-card">
+                    <article class="yt-card">
+                        <div class="social-video-meta"><span>01 / TECH</span><span><i class="fa-brands fa-youtube" aria-hidden="true"></i> YOUTUBE</span></div>
                         <div class="cookie-embed" data-cookie-category="marketing">
                             <iframe title="Video YouTube: software per la produttività" loading="lazy" data-cookie-src="https://www.youtube-nocookie.com/embed/ov125Ex1j-k?rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                             <div class="cookie-embed-placeholder">
-                                <i class="fa-brands fa-youtube" aria-hidden="true"></i>
-                                <p>Video incorporato da YouTube</p>
-                                <button class="cookie-embed-enable" type="button">Gestisci preferenze cookie</button>
+                                <img src="../img/optimized/youtube-software-thumb.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
+                                <button class="cookie-embed-enable" type="button" aria-label="Attiva il video e apri le preferenze cookie"><i class="fa-solid fa-play" aria-hidden="true"></i> Attiva il video</button>
                             </div>
                         </div>
-                        <h3>10 Software Gratuiti che Aumenteranno la Tua Produttività al PC! (2024 Edition)</h3>
-                        <p>Stai cercando software gratuiti per migliorare la tua produttività al PC? In questo video ti mostro 10 strumenti essenziali che aumenteranno la tua efficienza nel 2024! Dalla gestione delle attività alla sicurezza delle password, troverai soluzioni perfette per studenti, professionisti e appassionati di tecnologia. Scopri come ottimizzare il tuo lavoro e organizzarti meglio grazie a queste app indispensabili.</p>
-                    </div>
-                    <div class="yt-card">
+                        <div class="social-video-copy"><h3>10 software gratuiti per lavorare meglio al PC</h3><p>Una selezione pratica di strumenti per organizzarsi, creare e proteggere il proprio lavoro digitale.</p><a href="https://www.youtube.com/watch?v=ov125Ex1j-k" target="_blank" rel="noopener noreferrer">Apri su YouTube <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+                    </article>
+                    <article class="yt-card">
+                        <div class="social-video-meta"><span>02 / PERSONALE</span><span><i class="fa-brands fa-youtube" aria-hidden="true"></i> YOUTUBE</span></div>
                         <div class="cookie-embed" data-cookie-category="marketing">
                             <iframe title="Video YouTube: presentazione di Giovanni Spezia" loading="lazy" data-cookie-src="https://www.youtube-nocookie.com/embed/vaCyNgExl0g?rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                             <div class="cookie-embed-placeholder">
-                                <i class="fa-brands fa-youtube" aria-hidden="true"></i>
-                                <p>Video incorporato da YouTube</p>
-                                <button class="cookie-embed-enable" type="button">Gestisci preferenze cookie</button>
+                                <img src="../img/optimized/youtube-intro-thumb.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
+                                <button class="cookie-embed-enable" type="button" aria-label="Attiva il video e apri le preferenze cookie"><i class="fa-solid fa-play" aria-hidden="true"></i> Attiva il video</button>
                             </div>
                         </div>
-                        <h3>PRESENTAZIONE</h3>
-                        <p>Ciao! Sono Giovanni Spezia. Mi piace mettermi alla prova, scoprire nuove abilità e crescere costantemente. Le mie passioni principali sono la cybersecurity e il calisthenics.</p>
-                    </div>
+                        <div class="social-video-copy"><h3>Piacere, sono Giovanni.</h3><p>Da dove nascono le mie passioni, tra tecnologia, crescita personale e calisthenics.</p><a href="https://www.youtube.com/watch?v=vaCyNgExl0g" target="_blank" rel="noopener noreferrer">Apri su YouTube <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+                    </article>
                 </div>
 
-                <div class="btn-wrapper">
-                <a href="https://www.youtube.com/@GioSpezia" target="_blank" class="event-btn yt-btn">
-                    <i class="fab fa-youtube"></i> Visita il mio Canale
-                </a>
-                </div>
+                <div class="social-section-bottom"><span>Altri video sul canale</span><a href="https://www.youtube.com/@GioSpezia" target="_blank" rel="noopener noreferrer">Visita il mio canale <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
             </div>
         </section>
 
         <!-- Sezione Contact Me -->
         <section id="contact" class="contact-section">
-            <h2>Contattami</h2>
-            <p>Hai domande o vuoi discutere una collaborazione? Contattami via email!</p>
-            <div class="contact-info">
-                <p><i class="fas fa-envelope contact-icon"></i> gio@giospezia.it</p>
+            <div class="social-contact-inner">
+                <span class="social-section-index">04 / CONTATTO</span>
+                <div class="social-contact-grid">
+                    <div><h2>Le idee migliori iniziano parlando.</h2><p>Hai in mente un progetto, una collaborazione o vuoi semplicemente fare due chiacchiere? Scrivimi.</p></div>
+                    <div class="social-contact-actions"><a href="mailto:gio@giospezia.it?subject=Richiesta%20di%20contatto" class="contact-btn">Scrivimi un’email <span aria-hidden="true">↗</span></a><a href="../contact/" class="social-contact-secondary">Vai alla pagina contatti <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a><span>gio@giospezia.it</span></div>
+                </div>
             </div>
-            <a href="mailto:gio@giospezia.it?subject=Richiesta%20di%20contatto" class="contact-btn">Invia un'email</a>
         </section>
     </div>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2024 Giovanni Spezia. Tutti i diritti riservati.</p>
-                <div class="social-icons">
-                    <a href="https://www.instagram.com/giospezia06/" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.youtube.com/@GioSpezia" target="_blank"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.linkedin.com/in/giovanni-spezia-71577124b/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://github.com/giovannispezia" target="_blank"><i class="fab fa-github"></i></a>
-                </div>
-                <div class="quick-contact">
-                    <div>
-                        <i class="fas fa-envelope"></i> <a href="mailto:gio@giospezia.it">gio@giospezia.it</a>
+    <footer class="footer site-footer">
+            <div class="footer-shell">
+                <div class="footer-top">
+                    <div class="footer-identity">
+                        <a class="footer-brand" href="../">Gio<span>Spezia.</span></a>
+                        <p class="footer-statement">Progetti, persone e idee in movimento.</p>
+                    </div>
+                    <nav class="footer-col" aria-label="Esplora il sito">
+                        <span class="footer-col-label">ESPLORA</span>
+                        <a href="../">Home</a>
+                        <a href="../social/">Social</a>
+                        <a href="../staffexp/">Staff Experience</a>
+                        <a href="../eventi/">Eventi</a>
+                        <a href="../contact/">Contatti</a>
+                    </nav>
+                    <div class="footer-col">
+                        <span class="footer-col-label">SEGUIMI</span>
+                        <a href="https://www.instagram.com/giospezia06/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+                        <a href="https://www.youtube.com/@GioSpezia" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
+                        <a href="https://www.linkedin.com/in/giovanni-spezia-71577124b/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+                        <a href="https://github.com/giovannispezia" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
                     </div>
                 </div>
-                <!-- Privacy Policy Link -->
-                <div class="privacy-policy">
-                    <a href="../privacy/" class="privacy-link">Informativa sulla privacy</a>
+                <div class="footer-bottom">
+                    <small>© <span data-site-year>2026</span> Giovanni Spezia. Tutti i diritti riservati.</small>
+                    <a href="mailto:gio@giospezia.it">gio@giospezia.it</a>
+                    <a href="../privacy/">Informativa sulla privacy</a>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 
     <!-- JavaScript -->
-    <script src="../js/language.js"></script>
-    <script src="../js/script.js"></script>
+    <script src="../js/language.js?v=loader-1"></script>
+    <script src="../js/script.js?v=loader-2"></script>
     <script>
     (() => {
         const channels = [
-            { id: "instagram", name: "Instagram", icon: "fa-instagram", url: "https://www.instagram.com/giospezia06/", avatar: "https://unavatar.io/instagram/giospezia06?ttl=1h", description: "Dietro le quinte, momenti e aggiornamenti dal mio percorso.", handle: "@giospezia06" },
-            { id: "youtube", name: "YouTube", icon: "fa-youtube", url: "https://www.youtube.com/@GioSpezia", avatar: "https://unavatar.io/youtube/GioSpezia", description: "Video, progetti e contenuti approfonditi da guardare con calma.", handle: "@GioSpezia" },
-            { id: "tiktok", name: "TikTok", icon: "fa-tiktok", url: "https://www.tiktok.com/@giospezia06", avatar: "https://unavatar.io/tiktok/giospezia06", description: "Clip veloci, esperimenti e frammenti della mia quotidianità.", handle: "@giospezia06" },
-            { id: "facebook", name: "Facebook", icon: "fa-facebook", url: "https://www.facebook.com/profile.php?id=61579622813173", avatar: "https://unavatar.io/facebook/61579622813173", description: "Aggiornamenti e novità dalla mia pagina Facebook.", handle: "Giovanni Spezia" },
-            { id: "twitch", name: "Twitch", icon: "fa-twitch", url: "https://www.twitch.tv/giospezia", avatar: "https://unavatar.io/twitch/giospezia", description: "Dirette, sessioni live e momenti da condividere insieme.", handle: "giospezia" },
-            { id: "telegram", name: "Telegram", icon: "fa-telegram-plane", url: "https://t.me/GiovaSpezia", avatar: "https://unavatar.io/telegram/GiovaSpezia", description: "Un canale diretto per restare aggiornato sulle novità.", handle: "Canale Telegram" },
-            { id: "github", name: "GitHub", icon: "fa-github", url: "https://github.com/giovannispezia", avatar: "https://unavatar.io/github/giovannispezia", description: "Codice, repository e progetti a cui sto lavorando.", handle: "@giovannispezia" },
-            { id: "linkedin", name: "LinkedIn", icon: "fa-linkedin-in", url: "https://www.linkedin.com/in/giovanni-spezia-71577124b/", avatar: "https://unavatar.io/linkedin/user:giovanni-spezia-71577124b", description: "Il mio percorso professionale e le esperienze più recenti.", handle: "Giovanni Spezia" }
+            { id: "instagram", name: "Instagram", icon: "fa-instagram", avatar: "../img/social-avatars/instagram.jpg", accent: "#db6899", url: "https://www.instagram.com/giospezia06/", description: "Dietro le quinte, momenti e aggiornamenti dal mio percorso.", handle: "@giospezia06" },
+            { id: "youtube", name: "YouTube", icon: "fa-youtube", avatar: "../img/optimized/avatar2.jpg", accent: "#e75a58", url: "https://www.youtube.com/@GioSpezia", description: "Video, progetti e contenuti approfonditi da guardare con calma.", handle: "@GioSpezia" },
+            { id: "tiktok", name: "TikTok", icon: "fa-tiktok", avatar: "../img/social-avatars/tiktok.jpg", accent: "#51c6c7", url: "https://www.tiktok.com/@giospezia06", description: "Clip veloci, esperimenti e frammenti della mia quotidianità.", handle: "@giospezia06" },
+            { id: "facebook", name: "Facebook", icon: "fa-facebook", avatar: "../img/social-avatars/facebook.jpg", accent: "#648ce9", url: "https://www.facebook.com/profile.php?id=61579622813173", description: "Aggiornamenti e novità dalla mia pagina Facebook.", handle: "Giovanni Spezia" },
+            { id: "twitch", name: "Twitch", icon: "fa-twitch", avatar: "../img/social-avatars/twitch.png", accent: "#a87aef", url: "https://www.twitch.tv/giospezia", description: "Dirette, sessioni live e momenti da condividere insieme.", handle: "giospezia" },
+            { id: "telegram", name: "Telegram", icon: "fa-telegram-plane", avatar: "../img/social-avatars/telegram.jpg", accent: "#5aa8d9", url: "https://t.me/GiovaSpezia", description: "Un canale diretto per restare aggiornato sulle novità.", handle: "Canale Telegram" },
+            { id: "github", name: "GitHub", icon: "fa-github", avatar: "../img/social-avatars/github.jpg", accent: "#899dbd", url: "https://github.com/giovannispezia", description: "Codice, repository e progetti a cui sto lavorando.", handle: "@giovannispezia" },
+            { id: "linkedin", name: "LinkedIn", icon: "fa-linkedin-in", avatar: "../img/social-avatars/linkedin.jpg", accent: "#579bca", url: "https://www.linkedin.com/in/giovanni-spezia-71577124b/", description: "Il mio percorso professionale e le esperienze più recenti.", handle: "Giovanni Spezia" }
         ];
         const orbit = document.querySelector("[data-social-orbit]");
         const nodes = document.querySelector("[data-social-nodes]");
@@ -319,21 +355,11 @@
         const featureDescription = feature.querySelector("[data-social-feature-description]");
         const featureHandle = feature.querySelector("[data-social-handle]");
         const featureCount = feature.querySelector("[data-social-count]");
+        const announcement = feature.querySelector("[data-social-announcement]");
         const ctaLabel = feature.querySelector("[data-social-cta-label]");
         const profileImage = feature.querySelector("[data-social-profile]");
-        const orbitAvatar = orbit.querySelector("[data-orbit-avatar]");
-        const defaultAvatar = "../img/optimized/avatar.webp";
-        const setAvatar = (image, channel) => {
-            image.onerror = () => {
-                image.onerror = null;
-                image.src = defaultAvatar;
-            };
-            image.src = channel.avatar || defaultAvatar;
-        };
+        const avatarBadge = feature.querySelector("[data-social-avatar-badge]");
         let selectedIndex = 0;
-        let rotation = -Math.PI / 2;
-        let dragStart = null;
-        let hasDragged = false;
         const nodeButtons = channels.map((channel, index) => {
             const button = document.createElement("button");
             button.type = "button";
@@ -341,12 +367,14 @@
             button.dataset.channel = channel.id;
             button.setAttribute("aria-label", channel.name);
             button.setAttribute("aria-pressed", "false");
+            button.setAttribute("aria-controls", "social-channel-feature");
+            button.tabIndex = index === selectedIndex ? 0 : -1;
             button.innerHTML = `<i class="fa-brands ${channel.icon}" aria-hidden="true"></i><span>${channel.name}</span>`;
-            button.addEventListener("click", () => { if (!hasDragged) selectChannel(index); });
+            button.addEventListener("click", () => selectChannel(index));
             button.addEventListener("keydown", (event) => {
                 if (!["ArrowRight", "ArrowDown", "ArrowLeft", "ArrowUp"].includes(event.key)) return;
                 event.preventDefault();
-                const step = event.key === "ArrowRight" || event.key === "ArrowDown" ? 1 : -1;
+                const step = event.key === "ArrowDown" ? 2 : event.key === "ArrowUp" ? -2 : event.key === "ArrowRight" ? 1 : -1;
                 const next = (index + step + channels.length) % channels.length;
                 selectChannel(next);
                 nodeButtons[next].focus();
@@ -355,31 +383,27 @@
             return button;
         });
 
-        const positionNodes = () => {
-            const size = orbit.clientWidth;
-            if (!size) return;
-            const radius = size * .39;
-            nodeButtons.forEach((button, index) => {
-                const angle = rotation + index * (Math.PI * 2 / channels.length);
-                button.style.setProperty("--node-x", `${50 + Math.cos(angle) * radius / size * 100}%`);
-                button.style.setProperty("--node-y", `${50 + Math.sin(angle) * radius / size * 100}%`);
-            });
-        };
-
         const selectChannel = (index) => {
+            const changed = selectedIndex !== (index + channels.length) % channels.length;
             selectedIndex = (index + channels.length) % channels.length;
             const channel = channels[selectedIndex];
-            feature.classList.remove("is-changing");
-            void feature.offsetWidth;
-            feature.classList.add("is-changing");
+            if (changed) {
+                feature.classList.remove("is-changing");
+                void feature.offsetWidth;
+                feature.classList.add("is-changing");
+            }
             featureName.textContent = channel.name;
             featureIcon.className = `fa-brands ${channel.icon}`;
             featureDescription.textContent = window.siteTranslate ? window.siteTranslate(channel.description) : channel.description;
             featureHandle.textContent = channel.handle;
-            setAvatar(profileImage, channel);
-            profileImage.alt = `Foto profilo di Giovanni Spezia su ${channel.name}`;
-            setAvatar(orbitAvatar, channel);
+            feature.style.setProperty("--social-channel-accent", channel.accent);
+            if (profileImage.getAttribute("src") !== channel.avatar) profileImage.src = channel.avatar;
+            if (avatarBadge) avatarBadge.className = `fa-brands ${channel.icon}`;
+            profileImage.alt = window.siteLanguage?.() === "en"
+                ? `Profile picture of Giovanni Spezia on ${channel.name}`
+                : `Foto profilo di Giovanni Spezia su ${channel.name}`;
             featureCount.textContent = String(selectedIndex + 1).padStart(2, "0");
+            if (changed && announcement) announcement.textContent = `${channel.name}. ${featureDescription.textContent}`;
             ctas.forEach((link) => {
                 link.href = channel.url;
                 link.setAttribute("aria-label", `${channel.name}: ${window.siteTranslate ? window.siteTranslate("Apri il canale") : "Apri il canale"}`);
@@ -396,6 +420,7 @@
                 const active = buttonIndex === selectedIndex;
                 button.classList.toggle("is-active", active);
                 button.setAttribute("aria-pressed", String(active));
+                button.tabIndex = active ? 0 : -1;
             });
             selectors.forEach((button) => {
                 const active = button.dataset.socialSelect === channel.id;
@@ -404,52 +429,19 @@
             });
         };
 
-        selectors.forEach((button) => button.addEventListener("click", () => selectChannel(channels.findIndex((channel) => channel.id === button.dataset.socialSelect))));
-        orbit.addEventListener("pointerdown", (event) => {
-            if (event.target.closest("button")) return;
-            const rect = orbit.getBoundingClientRect();
-            dragStart = { x: event.clientX, y: event.clientY, angle: Math.atan2(event.clientY - rect.top - rect.height / 2, event.clientX - rect.left - rect.width / 2), rotation };
-            hasDragged = false;
-            orbit.classList.add("is-dragging");
-            try { orbit.setPointerCapture(event.pointerId); } catch { /* Pointer capture is optional. */ }
+        selectors.forEach((button) => {
+            button.setAttribute("aria-controls", "social-channel-feature");
+            button.addEventListener("click", () => selectChannel(channels.findIndex((channel) => channel.id === button.dataset.socialSelect)));
         });
-        orbit.addEventListener("pointermove", (event) => {
-            if (!dragStart) return;
-            const rect = orbit.getBoundingClientRect();
-            const angle = Math.atan2(event.clientY - rect.top - rect.height / 2, event.clientX - rect.left - rect.width / 2);
-            const rawDelta = angle - dragStart.angle;
-            const delta = Math.atan2(Math.sin(rawDelta), Math.cos(rawDelta));
-            if (Math.hypot(event.clientX - dragStart.x, event.clientY - dragStart.y) > 5) hasDragged = true;
-            rotation = dragStart.rotation + delta;
-            positionNodes();
-        });
-        const endDrag = () => {
-            if (!dragStart) return;
-            dragStart = null;
-            if (hasDragged) {
-                const angleStep = Math.PI * 2 / channels.length;
-                const nearest = Math.round((rotation - (-Math.PI / 2)) / angleStep);
-                rotation = -Math.PI / 2 + nearest * angleStep;
-                const activeIndex = ((-nearest % channels.length) + channels.length) % channels.length;
-                positionNodes();
-                selectChannel(activeIndex);
-                window.setTimeout(() => { hasDragged = false; }, 0);
-            }
-            orbit.classList.remove("is-dragging");
-        };
-        orbit.addEventListener("pointerup", endDrag);
-        orbit.addEventListener("pointercancel", endDrag);
-        orbit.addEventListener("pointermove", (event) => { if (dragStart) orbit.classList.add("is-dragging"); });
         previous?.addEventListener("click", () => selectChannel(selectedIndex - 1));
         next?.addEventListener("click", () => selectChannel(selectedIndex + 1));
-        window.addEventListener("resize", positionNodes, { passive: true });
-        if ("ResizeObserver" in window) new ResizeObserver(positionNodes).observe(orbit);
-        window.addEventListener("load", positionNodes, { once: true });
         window.addEventListener("site-language-change", () => selectChannel(selectedIndex));
-        positionNodes();
+        profileImage.addEventListener("error", () => {
+            if (!profileImage.src.endsWith("/avatar.webp")) profileImage.src = "../img/optimized/avatar.webp";
+        });
         selectChannel(0);
     })();
     </script>
-    <script src="../js/instagram-gallery.js"></script>
+    <script src="../js/social-polish.js?v=cali-1"></script>
 </body>
 </html>

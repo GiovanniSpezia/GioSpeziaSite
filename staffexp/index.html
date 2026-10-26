@@ -3,36 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>document.documentElement.classList.add('js-loading'); setTimeout(() => document.documentElement.classList.remove('js-loading'), 3500);</script>
     <title>Esperienza Staff | GioSpezia</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css?v=brand-icon-fix-2">
+    <link rel="stylesheet" href="../css/street.css?v=brand-icon-fix-2">
+    <link rel="stylesheet" href="../css/polish.css?v=brand-icon-fix-2">
+    <link rel="stylesheet" href="../css/staff-events-polish.css?v=staff-events-3">
+    <link rel="stylesheet" href="../css/yellow-glow.css?v=loader-2">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Montserrat:wght@600&family=Roboto:wght@400;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="../img/optimized/icon.svg" type="image/svg+xml">
+    <link rel="icon" href="../img/optimized/street-icon.png" type="image/png">
 </head>
-<body>
+<body class="dark">
+    <script>try { if (localStorage.getItem('theme') === 'light') document.body.classList.remove('dark'); } catch (_) {}</script>
     <canvas id="fireworksCanvas"></canvas>
 
     <!-- Loader -->
     <div id="loader-wrapper" class="loader-screen" role="status" aria-live="polite" aria-label="Caricamento del sito">
         <div class="loader-grid" aria-hidden="true"></div>
-        <div class="loader-orbit loader-orbit-one" aria-hidden="true"></div>
-        <div class="loader-orbit loader-orbit-two" aria-hidden="true"></div>
         <div class="loader-content">
-            <div class="loader-eyebrow"><i class="loader-status-dot"></i> DIGITAL SECURITY · PERSONAL PORTFOLIO</div>
-            <h1 id="loader-text" data-text="GIOSPEZIA">GIOSPEZIA</h1>
-            <p id="loader-subtitle">Preparazione dell’esperienza</p>
-            <div class="loader-progress" role="progressbar" aria-label="Caricamento del sito" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                <span id="loader-progress-fill"></span>
-            </div>
-            <div class="loader-statusline">
-                <span id="loader-task">INTERFACCIA IN AVVIO</span>
-                <span id="loader-percent">00%</span>
-            </div>
+            <div class="loader-eyebrow"><i class="loader-status-dot" aria-hidden="true"></i> GIOSPEZIA · PERSONAL PORTFOLIO</div>
+            <h1 id="loader-text">GIOSPEZIA</h1>
+            <p id="loader-subtitle">Uno spazio per idee, progetti e movimento.</p>
+            <div class="loader-progress" role="progressbar" aria-label="Caricamento del sito" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="loader-progress-fill"></span></div>
+            <div class="loader-statusline"><span id="loader-task">CARICAMENTO</span><span id="loader-percent">00%</span></div>
         </div>
-        <div class="loader-footnote" aria-hidden="true"><span>GIOSPEZIA.IT</span><span>SECURITY · PRIVACY · CONTROL</span></div>
+        <div class="loader-footnote" aria-hidden="true"><span>GIOSPEZIA.IT</span><span>CREATE · MOVE · REPEAT</span></div>
     </div>
 
     <!-- Cookie Banner -->
@@ -75,19 +74,19 @@
     </button>
     
     <!-- Contenuto principale -->
-    <div id="content" style="display: none;">
+    <div id="content">
         <header class="navbar">
             <div class="container">
                 <div class="logo">
-                    <a href="../">GioSpezia</a>
+                    <a href="../"><img class="brand-icon" src="../img/optimized/icon.png" alt="" width="48" height="48" decoding="async">GioSpezia</a>
                 </div>
                 <nav>
-                    <ul class="nav-links">
+                    <ul class="nav-links" id="primary-navigation">
                         <li><a href="../" class="nav-link">Home</a></li>
                         <li><a href="../social/" class="nav-link">Social</a></li>
                         <li><a href="../staffexp/" class="nav-link active">Staff Experience</a></li>
-                        <li><a href="../eventi/" class="nav-link">Event</a></li>
-                        <li><a href="../contact/" class="nav-link">Contact Me</a></li>
+                        <li><a href="../eventi/" class="nav-link">Eventi</a></li>
+                        <li><a href="../contact/" class="nav-link">Contatti</a></li>
                         <!-- Nuovo elemento per il toggle tema solo su mobile -->
                         <li class="mobile-theme-toggle">
                             <button class="theme-toggle" aria-label="Cambia tema" aria-pressed="false">
@@ -109,9 +108,9 @@
                         </li>
                     </ul>
                 </nav>
-                <div class="hamburger">
+                <button class="hamburger" type="button" aria-label="Apri il menu" aria-controls="primary-navigation" aria-expanded="false">
                     <span></span><span></span><span></span>
-                </div>
+                </button>
                 <!-- Theme Toggle Button per desktop -->
                 <button class="theme-toggle" id="themeToggle" aria-label="Cambia tema" aria-pressed="false">
                     <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -132,155 +131,134 @@
             </div>
         </header>
 
-        <!-- Sezione Staff Experience -->
         <section id="projects" class="projects-section staff-experience-section">
             <div class="container">
                 <div class="staff-hero">
-                    <div class="staff-badge">
-                        <i class="fa-solid fa-shield-halved"></i>
-                        <span>Esperienze verificate</span>
+                    <div class="staff-hero-copy">
+                        <div class="staff-badge"><i class="fa-solid fa-people-group" aria-hidden="true"></i><span>Staff Experience</span></div>
+                        <span class="staff-edition">COMMUNITY / ESPERIENZE SUL CAMPO</span>
+                        <h1>Dietro ogni community c’è un lavoro di squadra<span>.</span></h1>
+                        <p>Moderazione, supporto, gestione e comunicazione: i ruoli che ho ricoperto nei server e nelle community con cui ho collaborato.</p>
+                        <div class="staff-hero-actions">
+                            <a href="#proofs" class="btn-secondary">Esplora le esperienze <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></a>
+                            <a href="../contact/" class="staff-link-secondary">Collaboriamo <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                        </div>
                     </div>
-                    <h2>Staff Experience</h2>
-                    <p>Una panoramica dei ruoli ricoperti nei server e nelle community in cui ho lavorato, con focus su moderazione, supporto, gestione e organizzazione.</p>
-                    <div class="staff-hero-actions">
-                        <a href="../contact/" class="btn-secondary">Collabora con me</a>
-                        <a href="#proofs" class="staff-link-secondary">Vai ai proof</a>
-                    </div>
-                    <div class="staff-stats" aria-label="Riepilogo esperienza">
-                        <div class="staff-stat">
-                            <strong>9+</strong>
-                            <span>esperienze staff</span>
-                        </div>
-                        <div class="staff-stat">
-                            <strong>4</strong>
-                            <span>ruoli principali</span>
-                        </div>
-                        <div class="staff-stat">
-                            <strong>5</strong>
-                            <span>proof pubblici</span>
-                        </div>
+                    <div class="staff-hero-art" aria-label="Loghi di alcune community del portfolio">
+                        <div class="staff-art-main"><img src="../img/optimized/coralmc.webp" alt="CoralMC" width="633" height="353" decoding="async"><span>01 / COMMUNITY</span></div>
+                        <div class="staff-art-small staff-art-small-one"><img src="../img/optimized/nexuscraft.webp" alt="NexusCraft" width="500" height="500" decoding="async"></div>
+                        <div class="staff-art-small staff-art-small-two"><img src="../img/optimized/BuildProfit.webp" alt="BuildProfit" width="1080" height="1080" decoding="async"></div>
                     </div>
                 </div>
-                <div class="projects-grid" id="proofs">
-                    <div class="project-card staff-card">
-                        <img src="../img/optimized/nexuscraft.webp" width="500" height="500" loading="lazy" decoding="async">
-                        <div class="project-info">
-                            <h3>NexusCraft</h3>
-                            <p>Helper [SS Verified]</p>
-                        </div>
-                    </div>
 
-                    <div class="project-card staff-card">
-                        <img src="../img/optimized/hemeraldnetwork.webp" alt="Progetto 2" width="378" height="386" loading="lazy" decoding="async">
-                        <div class="project-info">
-                            <h3>Hemerald Network</h3>
-                            <p>Helper [Supporter]</p>
-                            <a href="https://gyazo.com/727f151ffe758f83f9b7ccb528f08337" class="btn-secondary" target="_blank">Proofs</a>
-                        </div>
-                    </div>
-
-                    <div class="project-card staff-card">
-                        <img src="../img/optimized/storaxmc.webp" alt="Progetto 2" width="640" height="640" loading="lazy" decoding="async">
-                        <div class="project-info">
-                            <h3>StoraxMC</h3>
-                            <p>SrMod [Supporter]</p>
-                        </div>
-                    </div>
-                    
-                    <div class="project-card staff-card">
-                        <img src="../img/optimized/magicpvp.webp" alt="Progetto 2" width="416" height="309" loading="lazy" decoding="async">
-                        <div class="project-info">
-                            <h3>MagicPvP</h3>
-                            <p>Admin [Staff & Social Manager]</p>
-                            <a href="https://imgur.com/a/zNIrpHG" class="btn-secondary" target="_blank">Proofs</a>
-                        </div>
-                    </div>
-
-                    <div class="project-card staff-card">
-                        <img src="../img/optimized/CARPYY's bunker.webp" alt="Progetto 2" loading="lazy" decoding="async">
-                        <div class="project-info">
-                            <h3>CARPYY's bunker</h3>
-                            <p>Helper</p>
-                        </div>
-                    </div>
-
-                    <div class="project-card staff-card">
-                        <img src="../img/optimized/coralmc.webp" alt="Progetto 2" width="633" height="353" loading="lazy" decoding="async">
-                        <div class="project-info">
-                            <h3>CoralMC</h3>
-                            <p>SrMod [SS Verified, Community Manager, Social Media Manager, Survival Staff & Auth Staff]</p>
-                            <a href="https://imgur.com/a/QUGDW28" class="btn-secondary" target="_blank">Proofs</a>
-                        </div>
-                    </div>
-
-                    <div class="project-card staff-card">
-                        <img src="../img/optimized/cosmoverse.webp" alt="Progetto 2" width="428" height="373" loading="lazy" decoding="async">
-                        <div class="project-info">
-                            <h3>CosmoVerse</h3>
-                            <p>Admin [Staff Manager, Social Media Manager & Discord Manager]</p>
-                        </div>
-                    </div>
-
-                    <div class="project-card staff-card">
-                        <img src="../img/optimized/BuildProfit.webp" alt="Progetto 2" width="1080" height="1080" loading="lazy" decoding="async">
-                        <div class="project-info">
-                            <h3>BuildProfit</h3>
-                            <p>Social Media Manager, Community Manager & Developer</p>
-                            <a href="https://imgur.com/y7idbhP" class="btn-secondary" target="_blank">Proofs</a>
-                        </div>
-                    </div>
-
-                    <div class="project-card staff-card">
-                        <img src="../img/optimized/zShowly.webp" alt="Progetto 2" width="640" height="640" loading="lazy" decoding="async">
-                        <div class="project-info">
-                            <h3>zShowly > Community</h3>
-                            <p>Management, Head Admin & Staff Manager</p>
-                            <a href="https://imgur.com/a/UAuVmd2" class="btn-secondary" target="_blank">Proofs</a>
-                        </div>
-                    </div>
-
-                    <div class="project-card staff-card">
-                        <img src="../img/optimized/SkyPea.webp" alt="Progetto 2" width="640" height="640" loading="lazy" decoding="async">
-                        <div class="project-info">
-                            <h3>SkyPea</h3>
-                            <p>Helper [SS Verified]</p>
-                            <a href="https://imgur.com/a/7i5zE8V" class="btn-secondary" target="_blank">Proofs</a>
-                        </div>
-                    </div>
-
+                <div class="staff-stats" aria-label="Riepilogo del portfolio">
+                    <div class="staff-stat"><strong>10</strong><span>community e progetti</span></div>
+                    <div class="staff-stat"><strong>03</strong><span>aree di esperienza</span></div>
+                    <div class="staff-stat"><strong>06</strong><span>collegamenti ai proof</span></div>
                 </div>
+
+                <div class="staff-archive">
+                    <div class="staff-archive-heading">
+                        <div><span class="staff-edition">L'ARCHIVIO / 01—10</span><h2>Esperienze e ruoli</h2></div>
+                        <p>Ogni progetto è una sfida diversa. Filtra le esperienze per scoprire dove ho lavorato e con quale responsabilità.</p>
+                    </div>
+                    <div class="staff-toolbar" role="group" aria-label="Filtra le esperienze">
+                        <button class="staff-filter is-active" type="button" data-staff-filter="all" aria-pressed="true">Tutte</button>
+                        <button class="staff-filter" type="button" data-staff-filter="support" aria-pressed="false">Supporto</button>
+                        <button class="staff-filter" type="button" data-staff-filter="management" aria-pressed="false">Gestione</button>
+                        <button class="staff-filter" type="button" data-staff-filter="social" aria-pressed="false">Social</button>
+                        <span class="staff-count" aria-live="polite"></span>
+                    </div>
+                    <div class="projects-grid" id="proofs">
+                        <article class="project-card staff-card staff-card-featured" data-staff-category="support management social">
+                            <div class="staff-card-media"><img src="../img/optimized/coralmc.webp" alt="Logo CoralMC" width="633" height="353" loading="lazy" decoding="async"><span>01 / 10</span></div>
+                            <div class="project-info"><span class="staff-card-type">Supporto · Gestione · Social</span><h3>CoralMC</h3><p>SrMod · SS Verified · Community Manager · Social Media Manager · Survival Staff · Auth Staff</p><a href="https://imgur.com/a/QUGDW28" class="staff-proof-link" target="_blank" rel="noopener noreferrer">Vedi i proof <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+                        </article>
+                        <article class="project-card staff-card" data-staff-category="support">
+                            <div class="staff-card-media"><img src="../img/optimized/nexuscraft.webp" alt="Logo NexusCraft" width="500" height="500" loading="lazy" decoding="async"><span>02 / 10</span></div>
+                            <div class="project-info"><span class="staff-card-type">Supporto</span><h3>NexusCraft</h3><p>Helper · SS Verified</p></div>
+                        </article>
+                        <article class="project-card staff-card" data-staff-category="support">
+                            <div class="staff-card-media"><img src="../img/optimized/hemeraldnetwork.webp" alt="Logo Hemerald Network" width="378" height="386" loading="lazy" decoding="async"><span>03 / 10</span></div>
+                            <div class="project-info"><span class="staff-card-type">Supporto</span><h3>Hemerald Network</h3><p>Helper · Supporter</p><a href="https://gyazo.com/727f151ffe758f83f9b7ccb528f08337" class="staff-proof-link" target="_blank" rel="noopener noreferrer">Vedi i proof <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+                        </article>
+                        <article class="project-card staff-card" data-staff-category="support">
+                            <div class="staff-card-media"><img src="../img/optimized/storaxmc.webp" alt="Logo StoraxMC" width="640" height="640" loading="lazy" decoding="async"><span>04 / 10</span></div>
+                            <div class="project-info"><span class="staff-card-type">Supporto</span><h3>StoraxMC</h3><p>SrMod · Supporter</p></div>
+                        </article>
+                        <article class="project-card staff-card" data-staff-category="management social">
+                            <div class="staff-card-media"><img src="../img/optimized/magicpvp.webp" alt="Logo MagicPvP" width="416" height="309" loading="lazy" decoding="async"><span>05 / 10</span></div>
+                            <div class="project-info"><span class="staff-card-type">Gestione · Social</span><h3>MagicPvP</h3><p>Admin · Staff Manager · Social Manager</p><a href="https://imgur.com/a/zNIrpHG" class="staff-proof-link" target="_blank" rel="noopener noreferrer">Vedi i proof <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+                        </article>
+                        <article class="project-card staff-card" data-staff-category="support">
+                            <div class="staff-card-media"><img src="../img/optimized/CARPYY's bunker.webp" alt="Logo CARPYY's bunker" loading="lazy" decoding="async"><span>06 / 10</span></div>
+                            <div class="project-info"><span class="staff-card-type">Supporto</span><h3>CARPYY's bunker</h3><p>Helper</p></div>
+                        </article>
+                        <article class="project-card staff-card" data-staff-category="management social">
+                            <div class="staff-card-media"><img src="../img/optimized/cosmoverse.webp" alt="Logo CosmoVerse" width="428" height="373" loading="lazy" decoding="async"><span>07 / 10</span></div>
+                            <div class="project-info"><span class="staff-card-type">Gestione · Social</span><h3>CosmoVerse</h3><p>Admin · Staff Manager · Social Media Manager · Discord Manager</p></div>
+                        </article>
+                        <article class="project-card staff-card" data-staff-category="management social">
+                            <div class="staff-card-media"><img src="../img/optimized/BuildProfit.webp" alt="Logo BuildProfit" width="1080" height="1080" loading="lazy" decoding="async"><span>08 / 10</span></div>
+                            <div class="project-info"><span class="staff-card-type">Gestione · Social</span><h3>BuildProfit</h3><p>Social Media Manager · Community Manager · Developer</p><a href="https://imgur.com/y7idbhP" class="staff-proof-link" target="_blank" rel="noopener noreferrer">Vedi i proof <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+                        </article>
+                        <article class="project-card staff-card" data-staff-category="management">
+                            <div class="staff-card-media"><img src="../img/optimized/zShowly.webp" alt="Logo zShowly Community" width="640" height="640" loading="lazy" decoding="async"><span>09 / 10</span></div>
+                            <div class="project-info"><span class="staff-card-type">Gestione</span><h3>zShowly Community</h3><p>Management · Head Admin · Staff Manager</p><a href="https://imgur.com/a/UAuVmd2" class="staff-proof-link" target="_blank" rel="noopener noreferrer">Vedi i proof <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+                        </article>
+                        <article class="project-card staff-card" data-staff-category="support">
+                            <div class="staff-card-media"><img src="../img/optimized/SkyPea.webp" alt="Logo SkyPea" width="640" height="640" loading="lazy" decoding="async"><span>10 / 10</span></div>
+                            <div class="project-info"><span class="staff-card-type">Supporto</span><h3>SkyPea</h3><p>Helper · SS Verified</p><a href="https://imgur.com/a/7i5zE8V" class="staff-proof-link" target="_blank" rel="noopener noreferrer">Vedi i proof <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+                        </article>
+                    </div>
+                </div>
+                <aside class="staff-outro">
+                    <span class="staff-edition">LAVORIAMO INSIEME / NEXT STEP</span>
+                    <h2>Hai una community da far crescere?</h2>
+                    <p>Raccontami il progetto e troviamo il modo giusto per collaborare.</p>
+                    <a href="../contact/" class="btn-secondary">Parliamone <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                </aside>
             </div>
         </section>
     </div>
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2024 Giovanni Spezia. Tutti i diritti riservati.</p>
-                <div class="social-icons">
-                    <a href="https://www.instagram.com/giospezia06/" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.youtube.com/@GioSpezia" target="_blank"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.linkedin.com/in/giovanni-spezia-71577124b/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://github.com/giovannispezia" target="_blank"><i class="fab fa-github"></i></a>
-                </div>
-                <div class="quick-contact">
-                    <div>
-                        <i class="fas fa-envelope"></i> <a href="mailto:gio@giospezia.it">gio@giospezia.it</a>
+    <footer class="footer site-footer">
+            <div class="footer-shell">
+                <div class="footer-top">
+                    <div class="footer-identity">
+                        <a class="footer-brand" href="../">Gio<span>Spezia.</span></a>
+                        <p class="footer-statement">Progetti, persone e idee in movimento.</p>
+                    </div>
+                    <nav class="footer-col" aria-label="Esplora il sito">
+                        <span class="footer-col-label">ESPLORA</span>
+                        <a href="../">Home</a>
+                        <a href="../social/">Social</a>
+                        <a href="../staffexp/">Staff Experience</a>
+                        <a href="../eventi/">Eventi</a>
+                        <a href="../contact/">Contatti</a>
+                    </nav>
+                    <div class="footer-col">
+                        <span class="footer-col-label">SEGUIMI</span>
+                        <a href="https://www.instagram.com/giospezia06/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+                        <a href="https://www.youtube.com/@GioSpezia" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
+                        <a href="https://www.linkedin.com/in/giovanni-spezia-71577124b/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+                        <a href="https://github.com/giovannispezia" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
                     </div>
                 </div>
-                <!-- Privacy Policy Link -->
-                <div class="privacy-policy">
-                    <a href="../privacy/" class="privacy-link">Informativa sulla privacy</a>
+                <div class="footer-bottom">
+                    <small>© <span data-site-year>2026</span> Giovanni Spezia. Tutti i diritti riservati.</small>
+                    <a href="mailto:gio@giospezia.it">gio@giospezia.it</a>
+                    <a href="../privacy/">Informativa sulla privacy</a>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 
     <!-- Back to Top Button -->
     <button id="back-to-top"><i class="fas fa-chevron-up"></i></button>
 
     <!-- JavaScript -->
-    <script src="../js/language.js"></script>
-    <script src="../js/script.js"></script>
+    <script src="../js/language.js?v=loader-1"></script>
+    <script src="../js/script.js?v=loader-2"></script>
+    <script src="../js/staff-events-polish.js?v=staff-events-2"></script>
 </body>
 </html>

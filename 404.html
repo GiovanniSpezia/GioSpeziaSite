@@ -5,103 +5,88 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <base href="/">
   <script>
-    if (location.protocol === "file:") document.querySelector("base").href = new URL(".", location.href).href;
-    const legacyPages = { "contact.html": "contact/", "eventi.html": "eventi/", "privacy.html": "privacy/", "social.html": "social/", "staffexp.html": "staffexp/" };
-    const oldPage = location.pathname.split("/").pop().toLowerCase();
+    if (location.protocol === 'file:') document.querySelector('base').href = new URL('.', location.href).href;
+    const legacyPages = { 'contact.html': 'contact/', 'eventi.html': 'eventi/', 'privacy.html': 'privacy/', 'social.html': 'social/', 'staffexp.html': 'staffexp/' };
+    const oldPage = location.pathname.split('/').pop().toLowerCase();
     if (legacyPages[oldPage]) {
-      const siteRoot = location.protocol === "file:" ? new URL(".", location.href) : new URL("/", location.href);
-      location.replace(new URL(legacyPages[oldPage], siteRoot).href);
+      const root = location.protocol === 'file:' ? new URL('.', location.href) : new URL('/', location.href);
+      location.replace(new URL(legacyPages[oldPage], root).href);
     }
+    try { if (localStorage.getItem('theme') !== 'light') document.documentElement.classList.add('preferred-dark'); } catch (_) { document.documentElement.classList.add('preferred-dark'); }
   </script>
-  <link rel="stylesheet" href="css/style.css">
-  <meta name="theme-color" content="#060a08">
+  <title>404 — Pagina non trovata | GioSpezia</title>
+  <meta name="description" content="La pagina che cerchi non è qui. Esplora il portfolio di GioSpezia.">
   <meta name="robots" content="noindex, follow">
-  <title>404 — Percorso non trovato | GioSpezia</title>
-  <meta name="description" content="Il percorso richiesto non esiste. Torna al portfolio di Giovanni Spezia.">
-  <link rel="icon" href="/img/optimized/icon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
+  <meta name="theme-color" content="#f5cf3d">
+  <link rel="icon" href="img/optimized/street-icon.png" type="image/png">
+  <link rel="stylesheet" href="css/style.css?v=brand-icon-fix-2">
+  <link rel="stylesheet" href="css/street.css?v=brand-icon-fix-2">
+  <link rel="stylesheet" href="css/utility-polish.css?v=utility-4">
+  <link rel="stylesheet" href="css/yellow-glow.css?v=loader-2">
 </head>
-<body class="not-found-page">
-  <div class="shell">
-    <header class="topbar">
-      <a class="brand" href="/" data-route="home" aria-label="GioSpezia, torna alla home"><span class="brand-mark">GS</span><span>GioSpezia</span></a>
-      <div class="session"><i aria-hidden="true"></i><span>Portfolio online</span><b>·</b><span>route: not found</span></div>
+<body class="street-404">
+  <div class="error-shell">
+    <header class="error-topbar">
+      <a class="error-brand" href="/" data-route="home" aria-label="GioSpezia, torna alla home"><img class="brand-icon" src="img/optimized/icon.png" alt="" width="48" height="48"> GIOSPEZIA</a>
+      <div class="error-header-actions">
+        <div class="error-language" role="group" aria-label="Language / Lingua"><button type="button" data-error-language="it" aria-label="Italiano">IT</button><button type="button" data-error-language="en" aria-label="English">EN</button></div>
+        <button class="error-theme" type="button" aria-label="Cambia tema" aria-pressed="false">◐ <span>Cambia tema</span></button>
+      </div>
     </header>
 
-    <main>
-      <section aria-labelledby="error-title">
-        <div class="eyebrow">ERR_404 / TARGET NOT FOUND</div>
-        <div class="error-code" data-code="404" aria-label="Errore 404">404</div>
-        <h1 class="error-title" id="error-title">Questa pagina è uscita dal radar.</h1>
-        <p class="error-copy">Il percorso che cerchi non esiste o è stato spostato. Il resto del portfolio è ancora online: scegli una destinazione o usa il terminale per tornare in rotta.</p>
-        <div class="error-path"><span aria-hidden="true">path //</span><span id="requested-path">ricerca percorso…</span></div>
-        <div class="actions">
-          <a class="action action-primary" href="/" data-route="home"><span aria-hidden="true">↗</span> Torna alla home</a>
-          <button class="action" id="go-back" type="button"><span aria-hidden="true">←</span> Pagina precedente</button>
+    <main class="error-main">
+      <div class="error-visual" aria-hidden="true">
+        <div class="error-map-top"><span>GS / SITE MAP</span><span>ROUTE / UNKNOWN</span></div>
+        <svg class="error-map-route" viewBox="0 0 600 600" preserveAspectRatio="none" focusable="false"><path d="M-15 468 C80 458 82 338 190 361 S293 499 346 359 S467 171 625 166" /></svg>
+        <div class="error-map-start"></div><div class="error-map-end"></div>
+        <span class="error-visual-code">404</span>
+        <div class="error-map-bottom"><span>STRADA INTERROTTA</span><span>RICALCOLO ROTTA ↗</span></div>
+      </div>
+      <div class="error-content">
+        <p class="error-kicker">PAGINA NON TROVATA / 404</p>
+        <h1>Hai preso<br><em>un'altra strada.</em></h1>
+        <p>Il link che cerchi non porta da nessuna parte. Riparti dalla home o scegli una sezione del sito.</p>
+        <p class="error-requested-path"><span>INDIRIZZO RICHIESTO</span><code id="error-path"></code></p>
+        <div class="error-actions">
+          <a class="error-home" href="/" data-route="home">Torna alla home <span aria-hidden="true">↗</span></a>
+          <button class="error-back" id="go-back" type="button">Pagina precedente <span aria-hidden="true">←</span></button>
         </div>
-      </section>
-
-      <section class="terminal" aria-label="Terminale di navigazione">
-        <div class="terminal-head"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span>gio@portfolio:~</span><span>SESSIONE SICURA</span></div>
-        <div class="terminal-body">
-          <div class="command-line"><span class="prompt">gio@portfolio:~$</span><span>route --scan</span><i class="cursor" aria-hidden="true"></i></div>
-          <div class="terminal-alert">
-            <span class="alert-icon" aria-hidden="true">◈</span>
-            <div><strong>Destinazione non rilevata</strong><p>Errore 404 · La richiesta è arrivata, ma questa route non è presente nell’indice del sito.</p></div>
-          </div>
-          <div class="command-line"><span class="prompt">gio@portfolio:~$</span><span>ls /pages</span></div>
-          <p class="route-label">Destinazioni disponibili</p>
-          <nav class="route-list" aria-label="Pagine disponibili">
-            <a class="route" href="/" data-route="home"><span>/home</span><b>↵</b></a>
-            <a class="route" href="/social/" data-route="social"><span>/social</span><b>↵</b></a>
-            <a class="route" href="/staffexp/" data-route="staffexp"><span>/staffexp</span><b>↵</b></a>
-            <a class="route" href="/eventi/" data-route="eventi"><span>/eventi</span><b>↵</b></a>
-            <a class="route" href="/contact/" data-route="contact"><span>/contact</span><b>↵</b></a>
-            <a class="route" href="/privacy/" data-route="privacy"><span>/privacy</span><b>↵</b></a>
-          </nav>
-        </div>
-        <form class="terminal-input" id="route-form">
-          <label for="route-command">gio@portfolio:~$</label>
-          <input id="route-command" name="command" type="text" autocomplete="off" spellcheck="false" placeholder="digita help per i comandi">
-        </form>
-        <p class="terminal-output" id="terminal-output" aria-live="polite"></p>
-      </section>
+        <div class="error-routes-label"><span>ESPLORA IL SITO</span><span aria-hidden="true">↓</span></div>
+        <nav class="error-routes" aria-label="Pagine disponibili">
+          <a href="/social/" data-route="social"><span class="error-route-num">01</span><span class="error-route-copy"><strong>Social</strong><small>Video e contenuti</small></span><span class="error-route-arrow" aria-hidden="true">↗</span></a>
+          <a href="/staffexp/" data-route="staffexp"><span class="error-route-num">02</span><span class="error-route-copy"><strong>Staff experience</strong><small>Ruoli e community</small></span><span class="error-route-arrow" aria-hidden="true">↗</span></a>
+          <a href="/eventi/" data-route="eventi"><span class="error-route-num">03</span><span class="error-route-copy"><strong>Eventi</strong><small>Esperienze dal vivo</small></span><span class="error-route-arrow" aria-hidden="true">↗</span></a>
+          <a href="/contact/" data-route="contact"><span class="error-route-num">04</span><span class="error-route-copy"><strong>Contatti</strong><small>Parliamo di idee</small></span><span class="error-route-arrow" aria-hidden="true">↗</span></a>
+          <a href="/privacy/" data-route="privacy"><span class="error-route-num">05</span><span class="error-route-copy"><strong>Privacy</strong><small>Dati e preferenze</small></span><span class="error-route-arrow" aria-hidden="true">↗</span></a>
+        </nav>
+      </div>
     </main>
 
-    <footer><span>GIOSPEZIA.IT / DIGITAL PORTFOLIO</span><span>404 // ROUTE TERMINATED</span></footer>
+    <footer class="error-footer"><span>GIOSPEZIA.IT / CREATE · MOVE · REPEAT</span><span>TORNA IN PISTA ↗</span></footer>
   </div>
   <script>
-    const routes = { home: "", social: "social/", staffexp: "staffexp/", esperienza: "staffexp/", eventi: "eventi/", event: "eventi/", contact: "contact/", contatti: "contact/", privacy: "privacy/" };
-    const siteRoot = window.location.protocol === "file:" ? new URL(".", window.location.href) : new URL("/", window.location.href);
-    document.querySelectorAll("[data-route]").forEach((link) => {
-      const route = routes[link.dataset.route];
-      if (route !== undefined) link.href = new URL(route, siteRoot).href;
-    });
-    const requestedPath = document.getElementById("requested-path");
-    const output = document.getElementById("terminal-output");
-    requestedPath.textContent = window.location.pathname || "/unknown";
-    document.getElementById("go-back").addEventListener("click", () => {
-      if (window.history.length > 1) window.history.back();
-      else window.location.assign(new URL(routes.home, siteRoot).href);
-    });
-    document.getElementById("route-form").addEventListener("submit", (event) => {
-      event.preventDefault();
-      const command = document.getElementById("route-command").value.trim().toLowerCase().replace(/^\/+|\/+$/g, "");
-      if (command === "help") {
-        output.textContent = "comandi: home · social · staffexp · eventi · contact · privacy";
-        return;
-      }
-      if (routes[command]) {
-        output.textContent = window.siteLanguage?.() === "en" ? `Route found: /${command} — connecting…` : `route trovata: /${command} — connessione…`;
-        window.setTimeout(() => window.location.assign(new URL(routes[command], siteRoot).href), 260);
-        return;
-      }
-      output.textContent = window.siteLanguage?.() === "en" ? `Route not found: ${command || "(empty)"} — type help` : `route non trovata: ${command || "(vuota)"} — digita help`;
-    });
+    const routes = { home: '', social: 'social/', staffexp: 'staffexp/', eventi: 'eventi/', contact: 'contact/', privacy: 'privacy/' };
+    const siteRoot = location.protocol === 'file:' ? new URL('.', location.href) : new URL('/', location.href);
+    document.querySelectorAll('[data-route]').forEach(link => { link.href = new URL(routes[link.dataset.route], siteRoot).href; });
+    const backButton = document.getElementById('go-back');
+    let hasPreviousSitePage = false;
+    try {
+      const previousPage = document.referrer ? new URL(document.referrer) : null;
+      hasPreviousSitePage = history.length > 1 && previousPage?.origin === location.origin && previousPage.href !== location.href;
+    } catch (_) { /* Direct visit: the home link remains available. */ }
+    backButton.hidden = !hasPreviousSitePage;
+    backButton.addEventListener('click', () => history.back());
+    const themeButton = document.querySelector('.error-theme');
+    const setTheme = dark => {
+      document.body.classList.toggle('dark', dark);
+      document.documentElement.classList.toggle('preferred-dark', dark);
+      themeButton.setAttribute('aria-pressed', String(dark));
+      try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch (_) {}
+    };
+    setTheme(document.documentElement.classList.contains('preferred-dark'));
+    themeButton.addEventListener('click', () => setTheme(!document.body.classList.contains('dark')));
   </script>
-  <script src="js/language.js"></script>
+  <script src="js/language.js?v=loader-1"></script>
+  <script src="js/utility-polish.js?v=utility-3"></script>
 </body>
 </html>

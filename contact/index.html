@@ -3,36 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>document.documentElement.classList.add('js-loading'); setTimeout(() => document.documentElement.classList.remove('js-loading'), 3500);</script>
     <title>Contatti | GioSpezia</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css?v=brand-icon-fix-2">
+    <link rel="stylesheet" href="../css/street.css?v=brand-icon-fix-2">
+    <link rel="stylesheet" href="../css/polish.css?v=brand-icon-fix-2">
+    <link rel="stylesheet" href="../css/utility-polish.css?v=utility-4">
+    <link rel="stylesheet" href="../css/yellow-glow.css?v=loader-2">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Montserrat:wght@600&family=Roboto:wght@400;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="../img/optimized/icon.svg" type="image/svg+xml">
+    <link rel="icon" href="../img/optimized/street-icon.png" type="image/png">
 </head>
-<body>
+<body class="dark">
+    <script>try { if (localStorage.getItem('theme') === 'light') document.body.classList.remove('dark'); } catch (_) {}</script>
     <canvas id="fireworksCanvas"></canvas>
     
     <!-- Loader -->
     <div id="loader-wrapper" class="loader-screen" role="status" aria-live="polite" aria-label="Caricamento del sito">
         <div class="loader-grid" aria-hidden="true"></div>
-        <div class="loader-orbit loader-orbit-one" aria-hidden="true"></div>
-        <div class="loader-orbit loader-orbit-two" aria-hidden="true"></div>
         <div class="loader-content">
-            <div class="loader-eyebrow"><i class="loader-status-dot"></i> DIGITAL SECURITY · PERSONAL PORTFOLIO</div>
-            <h1 id="loader-text" data-text="GIOSPEZIA">GIOSPEZIA</h1>
-            <p id="loader-subtitle">Preparazione dell’esperienza</p>
-            <div class="loader-progress" role="progressbar" aria-label="Caricamento del sito" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                <span id="loader-progress-fill"></span>
-            </div>
-            <div class="loader-statusline">
-                <span id="loader-task">INTERFACCIA IN AVVIO</span>
-                <span id="loader-percent">00%</span>
-            </div>
+            <div class="loader-eyebrow"><i class="loader-status-dot" aria-hidden="true"></i> GIOSPEZIA · PERSONAL PORTFOLIO</div>
+            <h1 id="loader-text">GIOSPEZIA</h1>
+            <p id="loader-subtitle">Uno spazio per idee, progetti e movimento.</p>
+            <div class="loader-progress" role="progressbar" aria-label="Caricamento del sito" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="loader-progress-fill"></span></div>
+            <div class="loader-statusline"><span id="loader-task">CARICAMENTO</span><span id="loader-percent">00%</span></div>
         </div>
-        <div class="loader-footnote" aria-hidden="true"><span>GIOSPEZIA.IT</span><span>SECURITY · PRIVACY · CONTROL</span></div>
+        <div class="loader-footnote" aria-hidden="true"><span>GIOSPEZIA.IT</span><span>CREATE · MOVE · REPEAT</span></div>
     </div>
 
     <!-- Cookie Banner -->
@@ -75,19 +74,19 @@
     </button>  
 
     <!-- Contenuto principale -->
-    <div id="content" style="display: none;">
+    <div id="content">
         <header class="navbar">
             <div class="container">
                 <div class="logo">
-                    <a href="../">GioSpezia</a>
+                    <a href="../"><img class="brand-icon" src="../img/optimized/icon.png" alt="" width="48" height="48" decoding="async">GioSpezia</a>
                 </div>
                 <nav>
-                    <ul class="nav-links">
+                    <ul class="nav-links" id="primary-navigation">
                         <li><a href="../" class="nav-link">Home</a></li>
                         <li><a href="../social/" class="nav-link">Social</a></li>
                         <li><a href="../staffexp/" class="nav-link">Staff Experience</a></li>
-                        <li><a href="../eventi/" class="nav-link">Event</a></li>
-                        <li><a href="../contact/" class="nav-link active">Contact Me</a></li>
+                        <li><a href="../eventi/" class="nav-link">Eventi</a></li>
+                        <li><a href="../contact/" class="nav-link active">Contatti</a></li>
                         <!-- Nuovo elemento per il toggle tema solo su mobile -->
                         <li class="mobile-theme-toggle">
                             <button class="theme-toggle" aria-label="Cambia tema" aria-pressed="false">
@@ -109,9 +108,9 @@
                         </li>
                     </ul>
                 </nav>
-                <div class="hamburger">
+                <button class="hamburger" type="button" aria-label="Apri il menu" aria-controls="primary-navigation" aria-expanded="false">
                     <span></span><span></span><span></span>
-                </div>
+                </button>
                 <!-- Theme Toggle Button per desktop -->
                 <button class="theme-toggle" id="themeToggle" aria-label="Cambia tema" aria-pressed="false">
                     <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -132,15 +131,23 @@
             </div>
         </header>
     
-        <section id="contact" class="contact-section">
+        <main id="contact" class="contact-section">
             <div class="container">
+                <div class="contact-page-head">
+                    <span class="utility-eyebrow">05 / CONTATTI</span>
+                    <span>Progetti <i aria-hidden="true"></i> Collaborazioni <i aria-hidden="true"></i> Idee</span>
+                </div>
                 <div class="contact-page-shell">
                     <div class="contact-intro-panel">
+                        <div class="contact-portrait">
+                            <img src="../img/optimized/avatar.webp" alt="Giovanni Spezia" width="919" height="1225" loading="eager">
+                            <div class="contact-portrait-caption" aria-hidden="true"><span>GIOSPEZIA</span><span>LET'S CONNECT ↗</span></div>
+                        </div>
                         <div class="contact-badge">
-                            <i class="fa-solid fa-paper-plane"></i>
+                            <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
                             <span>Parliamo del tuo progetto</span>
                         </div>
-                        <h2>Contattami</h2>
+                        <h1>Facciamo spazio<br><em>alla tua idea.</em></h1>
                         <p>Se hai un progetto, una collaborazione o una proposta, scrivimi: rispondo il prima possibile con una soluzione concreta.</p>
 
                         <div class="contact-highlight-list" aria-label="Dettagli contatto">
@@ -167,23 +174,33 @@
                             </div>
                         </div>
 
-                        <a href="mailto:gio@giospezia.it?subject=Richiesta%20di%20contatto" class="contact-btn">Invia email diretta</a>
+                        <div class="contact-direct-actions">
+                            <a href="mailto:gio@giospezia.it?subject=Richiesta%20di%20contatto" class="contact-btn">Invia email diretta <span aria-hidden="true">↗</span></a>
+                            <button class="contact-copy-email" type="button" aria-label="Copia indirizzo email" data-email="gio@giospezia.it"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Copia indirizzo</span></button>
+                        </div>
+                        <p class="contact-copy-feedback" role="status" aria-live="polite"></p>
                     </div>
 
                     <form id="contactForm" class="contact-form" novalidate>
+                    <div class="form-step-tag"><span aria-hidden="true">01</span> Scrivimi due righe</div>
                     <div class="form-header">
                         <h3>Invia la tua richiesta</h3>
-                        <p>Compila il form: ti rispondero con una proposta o una risposta puntuale nel minor tempo possibile.</p>
+                        <p>Compila il modulo e apri l’email già pronta da inviare. Risponderò appena possibile.</p>
+                    </div>
+
+                    <div class="form-progress" aria-label="Avanzamento del modulo">
+                        <div class="form-progress-label"><span>La tua richiesta</span><span id="form-progress-text">0 di 4 campi essenziali</span></div>
+                        <div class="form-progress-track" role="progressbar" aria-label="Campi essenziali compilati" aria-valuemin="0" aria-valuemax="4" aria-valuenow="0"><span id="form-progress-fill"></span></div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group form-group-half">
                             <label for="nome">Nome *</label>
-                            <input type="text" id="nome" name="nome" placeholder="Il tuo nome" required>
+                            <input type="text" id="nome" name="nome" placeholder="Il tuo nome" autocomplete="name" required>
                         </div>
                         <div class="form-group form-group-half">
                             <label for="email">Email *</label>
-                            <input type="email" id="email" name="email" placeholder="la tua email" required>
+                            <input type="email" id="email" name="email" placeholder="la tua email" autocomplete="email" required>
                         </div>
                     </div>
 
@@ -207,37 +224,53 @@
                     <div class="form-group">
                         <label for="messaggio">Messaggio *</label>
                         <textarea id="messaggio" name="messaggio" rows="6" placeholder="Scrivi qui il tuo messaggio..." required></textarea>
-                        <small class="form-help">Più dettagli inserisci, più precisa sara la risposta.</small>
+                        <div class="message-meta"><small class="form-help">Più dettagli inserisci, più precisa sarà la risposta.</small><small id="message-count">0 caratteri</small></div>
                     </div>
 
-                    <button type="submit" class="btn submit-btn">Apri il programma email</button>
+                    <div class="contact-form-actions">
+                        <button type="submit" class="btn submit-btn">Apri il programma email <span aria-hidden="true">↗</span></button>
+                        <button type="button" class="email-preview-toggle" aria-expanded="false" aria-controls="email-preview">Anteprima email <span aria-hidden="true">＋</span></button>
+                    </div>
+                    <div id="email-preview" class="email-preview" role="region" aria-labelledby="email-preview-title" hidden>
+                        <div class="email-preview-header"><span id="email-preview-title">Anteprima del messaggio</span><span aria-hidden="true">✉</span></div>
+                        <div class="email-preview-meta"><div><small id="email-preview-to-label">A</small><strong>gio@giospezia.it</strong></div><div><small id="email-preview-subject-label">Oggetto</small><strong id="email-preview-subject">—</strong></div></div>
+                        <pre id="email-preview-body"></pre>
+                    </div>
                     <p class="form-footnote">* Campi obbligatori · Si aprirà il tuo programma email con i dati già compilati; dovrai solo inviare il messaggio.</p>
                     </form>
                 </div>
             </div>
-        </section>
+        </main>
         
     
         <!-- Footer -->
-        <footer class="footer">
-            <div class="container">
-                <div class="footer-content">
-                    <p>&copy; 2024 Giovanni Spezia. Tutti i diritti riservati.</p>
-                    <div class="social-icons">
-                        <a href="https://www.instagram.com/giospezia06/" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.youtube.com/@GioSpezia" target="_blank"><i class="fab fa-youtube"></i></a>
-                        <a href="https://www.linkedin.com/in/giovanni-spezia-71577124b/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://github.com/giovannispezia" target="_blank"><i class="fab fa-github"></i></a>
+        <footer class="footer site-footer">
+            <div class="footer-shell">
+                <div class="footer-top">
+                    <div class="footer-identity">
+                        <a class="footer-brand" href="../">Gio<span>Spezia.</span></a>
+                        <p class="footer-statement">Progetti, persone e idee in movimento.</p>
                     </div>
-                    <div class="quick-contact">
-                        <div>
-                            <i class="fas fa-envelope"></i> <a href="mailto:gio@giospezia.it">gio@giospezia.it</a>
-                        </div>
+                    <nav class="footer-col" aria-label="Esplora il sito">
+                        <span class="footer-col-label">ESPLORA</span>
+                        <a href="../">Home</a>
+                        <a href="../social/">Social</a>
+                        <a href="../staffexp/">Staff Experience</a>
+                        <a href="../eventi/">Eventi</a>
+                        <a href="../contact/">Contatti</a>
+                    </nav>
+                    <div class="footer-col">
+                        <span class="footer-col-label">SEGUIMI</span>
+                        <a href="https://www.instagram.com/giospezia06/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+                        <a href="https://www.youtube.com/@GioSpezia" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
+                        <a href="https://www.linkedin.com/in/giovanni-spezia-71577124b/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+                        <a href="https://github.com/giovannispezia" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
                     </div>
-                    <!-- Privacy Policy Link -->
-                    <div class="privacy-policy">
-                        <a href="../privacy/" class="privacy-link">Informativa sulla privacy</a>
-                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <small>© <span data-site-year>2026</span> Giovanni Spezia. Tutti i diritti riservati.</small>
+                    <a href="mailto:gio@giospezia.it">gio@giospezia.it</a>
+                    <a href="../privacy/">Informativa sulla privacy</a>
                 </div>
             </div>
         </footer>
@@ -247,7 +280,8 @@
     <button id="back-to-top"><i class="fas fa-chevron-up"></i></button>
 
     <!-- JavaScript -->
-    <script src="../js/language.js"></script>
-    <script src="../js/script.js"></script>
+    <script src="../js/language.js?v=loader-1"></script>
+    <script src="../js/script.js?v=loader-2"></script>
+    <script src="../js/utility-polish.js?v=utility-3"></script>
 </body>
 </html>

@@ -3,41 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>document.documentElement.classList.add('js-loading'); setTimeout(() => document.documentElement.classList.remove('js-loading'), 3500);</script>
     <title>Eventi | GioSpezia</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css?v=brand-icon-fix-2">
+    <link rel="stylesheet" href="../css/street.css?v=brand-icon-fix-2">
+    <link rel="stylesheet" href="../css/polish.css?v=brand-icon-fix-2">
+    <link rel="stylesheet" href="../css/staff-events-polish.css?v=staff-events-4">
+    <link rel="stylesheet" href="../css/yellow-glow.css?v=loader-2">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Montserrat:wght@600&family=Roboto:wght@400;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="../img/optimized/icon.svg" type="image/svg+xml">
+    <link rel="icon" href="../img/optimized/street-icon.png" type="image/png">
 </head>
-<body>
+<body class="dark">
+    <script>try { if (localStorage.getItem('theme') === 'light') document.body.classList.remove('dark'); } catch (_) {}</script>
     <!-- Fireworks Canvas -->
     <canvas id="fireworksCanvas"></canvas>
     
     <!-- Loader -->
     <div id="loader-wrapper" class="loader-screen" role="status" aria-live="polite" aria-label="Caricamento del sito">
         <div class="loader-grid" aria-hidden="true"></div>
-        <div class="loader-orbit loader-orbit-one" aria-hidden="true"></div>
-        <div class="loader-orbit loader-orbit-two" aria-hidden="true"></div>
         <div class="loader-content">
-            <div class="loader-eyebrow"><i class="loader-status-dot"></i> DIGITAL SECURITY · PERSONAL PORTFOLIO</div>
-            <h1 id="loader-text" data-text="GIOSPEZIA">GIOSPEZIA</h1>
-            <p id="loader-subtitle">Preparazione dell’esperienza</p>
-            <div class="loader-progress" role="progressbar" aria-label="Caricamento del sito" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                <span id="loader-progress-fill"></span>
-            </div>
-            <div class="loader-statusline">
-                <span id="loader-task">INTERFACCIA IN AVVIO</span>
-                <span id="loader-percent">00%</span>
-            </div>
+            <div class="loader-eyebrow"><i class="loader-status-dot" aria-hidden="true"></i> GIOSPEZIA · PERSONAL PORTFOLIO</div>
+            <h1 id="loader-text">GIOSPEZIA</h1>
+            <p id="loader-subtitle">Uno spazio per idee, progetti e movimento.</p>
+            <div class="loader-progress" role="progressbar" aria-label="Caricamento del sito" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="loader-progress-fill"></span></div>
+            <div class="loader-statusline"><span id="loader-task">CARICAMENTO</span><span id="loader-percent">00%</span></div>
         </div>
-        <div class="loader-footnote" aria-hidden="true"><span>GIOSPEZIA.IT</span><span>SECURITY · PRIVACY · CONTROL</span></div>
+        <div class="loader-footnote" aria-hidden="true"><span>GIOSPEZIA.IT</span><span>CREATE · MOVE · REPEAT</span></div>
     </div>
-
-    <!-- Back to Top Button -->
-    <button id="back-to-top" aria-label="Torna in alto"><i class="fas fa-chevron-up"></i></button>
 
     <!-- Cookie Banner -->
     <div id="cookieBox" class="cookie-banner" role="dialog" aria-labelledby="cookieTitle" aria-describedby="cookieDescription" hidden>
@@ -79,21 +75,21 @@
     </button>
     
     <!-- Main Content -->
-    <div id="content" style="display: none;">
+    <div id="content">
         <!-- Header Navigation -->
         <header class="navbar">
             <div class="container">
                 <div class="logo">
-                    <a href="../">GioSpezia</a>
+                    <a href="../"><img class="brand-icon" src="../img/optimized/icon.png" alt="" width="48" height="48" decoding="async">GioSpezia</a>
                 </div>
                 
                 <nav>
-                    <ul class="nav-links">
+                    <ul class="nav-links" id="primary-navigation">
                         <li><a href="../" class="nav-link">Home</a></li>
                         <li><a href="../social/" class="nav-link">Social</a></li>
                         <li><a href="../staffexp/" class="nav-link">Staff Experience</a></li>
-                        <li><a href="../eventi/" class="nav-link active">Event</a></li>
-                        <li><a href="../contact/" class="nav-link">Contact Me</a></li>
+                        <li><a href="../eventi/" class="nav-link active">Eventi</a></li>
+                        <li><a href="../contact/" class="nav-link">Contatti</a></li>
                         <!-- Mobile Theme Toggle -->
                         <li class="mobile-theme-toggle">
                             <button class="theme-toggle" aria-label="Cambia tema" aria-pressed="false">
@@ -117,11 +113,11 @@
                 </nav>
                 
                 <!-- Hamburger Menu -->
-                <div class="hamburger" aria-label="Menu">
+                <button class="hamburger" type="button" aria-label="Apri il menu" aria-controls="primary-navigation" aria-expanded="false">
                     <span></span>
                     <span></span>
                     <span></span>
-                </div>
+                </button>
                 
                 <!-- Desktop Theme Toggle -->
                 <button class="theme-toggle" id="themeToggle" aria-label="Cambia tema" aria-pressed="false">
@@ -143,137 +139,105 @@
             </div>
         </header>
 
-        <!-- Events Section -->
         <section id="events" class="events-section">
             <div class="container">
                 <div class="events-hero-panel">
-                    <div class="events-badge">
-                        <i class="fa-solid fa-calendar-check"></i>
-                        <span>Event Portfolio</span>
-                    </div>
-                    <h2 class="section-title">Eventi</h2>
-                    <p class="section-subtitle">Dalle fiere più importanti alle attivita community, ecco una selezione di esperienze che ho gestito o vissuto in prima linea.</p>
-                    <div class="events-hero-actions">
-                        <a href="#eventList" class="event-btn event-btn-outline">Esplora gli eventi</a>
-                        <a href="../contact/" class="event-btn">Proponi collaborazione</a>
-                    </div>
-                </div>
-
-                <div class="events-kpis" aria-label="Indicatori eventi">
-                    <div class="events-kpi-card">
-                        <strong>2+</strong>
-                        <span>eventi principali</span>
-                    </div>
-                    <div class="events-kpi-card">
-                        <strong>2024</strong>
-                        <span>ultimo anno attivita</span>
-                    </div>
-                    <div class="events-kpi-card">
-                        <strong>Gaming</strong>
-                        <span>focus community</span>
-                    </div>
-                </div>
-
-                <div class="events-grid" id="eventList">
-                    <!-- Event Card 1: Milan Games Week -->
-                    <div class="event-card">
-                        <div class="event-image">
-                            <img src="../img/optimized/GW.webp" alt="Milan Games Week & Cartoomics" width="620" height="340" loading="lazy" decoding="async">
-                            <span class="event-tag fiera">Fiera</span>
+                    <div class="events-hero-copy">
+                        <div class="events-badge"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i><span>Event Portfolio</span></div>
+                        <span class="events-edition">DAL VIVO / ONLINE / COMMUNITY</span>
+                        <h1>Eventi che diventano incontri<span>.</span></h1>
+                        <p>Dalle fiere ai momenti condivisi su Discord: due esperienze diverse, unite dalla voglia di portare le persone al centro.</p>
+                        <div class="events-hero-actions">
+                            <a href="#eventList" class="event-btn event-btn-outline">Esplora le storie <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></a>
+                            <a href="../contact/" class="event-btn">Proponi un evento <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
                         </div>
-                        <div class="event-info">
-                            <span class="event-date"><i class="fa-solid fa-calendar-days"></i> 22-24 Nov 2024 • Milano</span>
-                            <h3>Milan Games Week & Cartoomics</h3>
+                    </div>
+                    <figure class="events-hero-media">
+                        <img src="../img/optimized/GW.webp" alt="Pubblico della Milan Games Week" width="620" height="340" decoding="async">
+                        <figcaption><span>01 / 02</span> MILAN GAMES WEEK & CARTOOMICS</figcaption>
+                    </figure>
+                </div>
+
+                <div class="events-kpis" aria-label="Riepilogo eventi">
+                    <div class="events-kpi-card"><strong>02</strong><span>storie in evidenza</span></div>
+                    <div class="events-kpi-card"><strong>01</strong><span>fiera a Milano</span></div>
+                    <div class="events-kpi-card"><strong>01</strong><span>evento su Discord</span></div>
+                </div>
+
+                <div class="events-story-heading" id="eventList">
+                    <div><span class="events-edition">STORIE / 01—02</span><h2>Esplora le esperienze</h2></div>
+                    <p>Seleziona un evento per vedere il contesto, i dettagli e il collegamento originale.</p>
+                </div>
+                <nav class="events-selector" aria-label="Seleziona un evento">
+                    <a href="#event-gw" id="event-tab-gw" class="event-selector is-active" data-event-tab aria-controls="event-gw"><span class="event-selector-index">01 / FIERA</span><strong>Milan Games Week</strong><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                    <a href="#event-coral" id="event-tab-coral" class="event-selector" data-event-tab aria-controls="event-coral"><span class="event-selector-index">02 / COMMUNITY</span><strong>Open-Lobby CoralMC</strong><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                </nav>
+                <div class="events-story-stage">
+                    <article class="event-story" id="event-gw" aria-labelledby="event-tab-gw">
+                        <div class="event-story-media"><img src="../img/optimized/GW.webp" alt="L'arena e il pubblico della Milan Games Week" width="620" height="340" loading="lazy" decoding="async"><span>Milano / 2024</span></div>
+                        <div class="event-story-content">
+                            <span class="events-edition">FIERA / 22—24 NOVEMBRE 2024</span>
+                            <h3 id="event-gw-title">Milan Games Week & Cartoomics</h3>
                             <p>Ho partecipato allo stand QLASH e KitKat per CoralMC, tra community, gaming e innovazione.</p>
-                            <a href="https://www.milangamesweek.it/" target="_blank" class="event-btn">Scopri di più</a>
+                            <dl class="event-story-facts"><div><dt>Luogo</dt><dd>Milano</dd></div><div><dt>Con</dt><dd>CoralMC · QLASH · KitKat</dd></div></dl>
+                            <a href="https://www.milangamesweek.it/" class="event-story-link" target="_blank" rel="noopener noreferrer">Visita il sito dell'evento <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
                         </div>
-                    </div>
-
-                    <!-- Event Card 2: CoralMC Open-Lobby -->
-                    <div class="event-card">
-                        <div class="event-image">
-                            <img src="../img/optimized/eventocoral.webp" alt="Open-Lobby Palco su Discord" width="2844" height="1204" loading="lazy" decoding="async">
-                            <span class="event-tag coralmc">CoralMC</span>
+                    </article>
+                    <article class="event-story" id="event-coral" aria-labelledby="event-tab-coral">
+                        <div class="event-story-media"><img src="../img/optimized/eventocoral.webp" alt="Locandina dell'Open-Lobby Palco di CoralMC su Discord" width="2844" height="1204" loading="lazy" decoding="async"><span>Discord / 2024</span></div>
+                        <div class="event-story-content">
+                            <span class="events-edition">COMMUNITY / 15 LUGLIO 2024</span>
+                            <h3 id="event-coral-title">Open-Lobby Palco su Discord</h3>
+                            <p>Un appuntamento della community CoralMC con Q&A, minigame, Mega BW e attività Survival.</p>
+                            <details class="event-program"><summary>Scopri il programma <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></summary><ul><li>Q&A iniziale</li><li>Minigame: Sumo, TNTtag, Evolution, Hide and Seek, Murder Mystery, Spleef</li><li>Mega BW</li><li>Give Survival</li><li>Q&A finale</li></ul></details>
+                            <a href="https://discord.com/channels/705161910370173033/838157410752397374/1394723785374171226" class="event-story-link" target="_blank" rel="noopener noreferrer">Apri il post su Discord <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
                         </div>
-                        <div class="event-info">
-                            <span class="event-date"><i class="fa-solid fa-calendar-days"></i> 15 Luglio 2024 • CoralMC</span>
-                            <h3>Open-Lobby Palco su Discord</h3>
-                            <p>
-                                ✅ Q&A - Iniziale <br>
-                                ✅ MINIGAMES - Sumo, TNTtag, Evolution, Hide and Seek, Murder Mistery, Spleef <br>
-                                ✅ MEGA BW <br>
-                                ✅ GIVE - Survival <br>
-                                ✅ Q&A - Finale
-                            </p>
-                            <a href="https://discord.com/channels/705161910370173033/838157410752397374/1394723785374171226" target="_blank" class="event-btn">Leggi di più</a>
-                        </div>
-                    </div>
+                    </article>
                 </div>
 
-                <div class="events-bottom-note">
-                    <i class="fa-solid fa-bullhorn"></i>
-                    <p>Organizzo e supporto eventi con attenzione a community management, coinvolgimento utenti e comunicazione social.</p>
-                </div>
+                <aside class="events-bottom-note">
+                    <div><span class="events-edition">NEXT / COLLABORAZIONI</span><h2>Facciamo incontrare le persone.</h2><p>Organizzo e supporto eventi con attenzione a community management, coinvolgimento e comunicazione social.</p></div>
+                    <a href="../contact/" class="event-btn">Parliamone <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                </aside>
             </div>
         </section>
-
-        <!-- Future Events Timeline -->
-        <!--
-        <section class="future-events">
-            <div class="container">
-                <h2 class="section-title">Prossimi Eventi</h2>
-                <ul class="timeline">
-                    <li>
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <span class="timeline-date">7 Settembre 2025</span>
-                            <h3>La Spada di Excalibur</h3>
-                            <p>Un'antica profezia si avvera: la leggendaria Excalibur è stata spezzata e i suoi frammenti sono dispersi nel misterioso Santuario di Cristallo.</p>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <span class="timeline-date">21 Settembre 2025</span>
-                            <h3>Oltre le Onde</h3>
-                            <p>Salite a bordo della Vento di Smeraldo, una caravella che solca mari insidiosi sotto il comando del carismatico Capitano Marealto. Tra abbordaggi mozzafiato e il richiamo di leggende sepolte, il viaggio porterà gli avventurieri verso un destino inevitabile.</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </section>
-        -->
     </div>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2024 Giovanni Spezia. Tutti i diritti riservati.</p>
-                
-                <div class="social-icons">
-                    <a href="https://www.instagram.com/giospezia06/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.youtube.com/@GioSpezia" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.linkedin.com/in/giovanni-spezia-71577124b/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://github.com/giovannispezia" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+    <footer class="footer site-footer">
+            <div class="footer-shell">
+                <div class="footer-top">
+                    <div class="footer-identity">
+                        <a class="footer-brand" href="../">Gio<span>Spezia.</span></a>
+                        <p class="footer-statement">Progetti, persone e idee in movimento.</p>
+                    </div>
+                    <nav class="footer-col" aria-label="Esplora il sito">
+                        <span class="footer-col-label">ESPLORA</span>
+                        <a href="../">Home</a>
+                        <a href="../social/">Social</a>
+                        <a href="../staffexp/">Staff Experience</a>
+                        <a href="../eventi/">Eventi</a>
+                        <a href="../contact/">Contatti</a>
+                    </nav>
+                    <div class="footer-col">
+                        <span class="footer-col-label">SEGUIMI</span>
+                        <a href="https://www.instagram.com/giospezia06/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+                        <a href="https://www.youtube.com/@GioSpezia" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
+                        <a href="https://www.linkedin.com/in/giovanni-spezia-71577124b/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+                        <a href="https://github.com/giovannispezia" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+                    </div>
                 </div>
-                
-                <div class="quick-contact">
-                    <i class="fas fa-envelope"></i> 
+                <div class="footer-bottom">
+                    <small>© <span data-site-year>2026</span> Giovanni Spezia. Tutti i diritti riservati.</small>
                     <a href="mailto:gio@giospezia.it">gio@giospezia.it</a>
-                </div>
-                
-                <!-- Privacy Policy Link -->
-                <div class="privacy-policy">
-                    <a href="../privacy/" class="privacy-link">Informativa sulla privacy</a>
+                    <a href="../privacy/">Informativa sulla privacy</a>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 
     <!-- JavaScript -->
-    <script src="../js/language.js"></script>
-    <script src="../js/script.js"></script>
+    <script src="../js/language.js?v=loader-1"></script>
+    <script src="../js/script.js?v=loader-2"></script>
+    <script src="../js/staff-events-polish.js?v=staff-events-2"></script>
 </body>
 </html>

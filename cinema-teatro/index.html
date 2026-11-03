@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>document.documentElement.classList.add('js-loading'); setTimeout(() => document.documentElement.classList.remove('js-loading'), 3500);</script>
+    <title>Cinema &amp; Teatro | GioSpezia</title>
+    <meta name="description" content="Cinema e teatro nel percorso di GioSpezia: uno spazio per formazione, attestati ed esperienze creative.">
+    <link rel="stylesheet" href="../css/style.css?v=brand-icon-fix-2">
+    <link rel="stylesheet" href="../css/street.css?v=brand-icon-fix-2">
+    <link rel="stylesheet" href="../css/polish.css?v=cinema-nav-1">
+    <link rel="stylesheet" href="../css/cinema-teatro.css?v=3">
+    <link rel="stylesheet" href="../css/yellow-glow.css?v=loader-2">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Montserrat:wght@600&amp;family=Roboto:wght@400;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="icon" href="../img/optimized/street-icon.png" type="image/png">
+</head>
+<body class="dark">
+    <script>try { if (localStorage.getItem('theme') === 'light') document.body.classList.remove('dark'); } catch (_) {}</script>
+    <canvas id="fireworksCanvas"></canvas>
+
+    <!-- Loader -->
+    <div id="loader-wrapper" class="loader-screen" role="status" aria-live="polite" aria-label="Caricamento del sito">
+        <div class="loader-grid" aria-hidden="true"></div>
+        <div class="loader-content">
+            <div class="loader-eyebrow"><i class="loader-status-dot" aria-hidden="true"></i> GIOSPEZIA · PERSONAL PORTFOLIO</div>
+            <h1 id="loader-text">GIOSPEZIA</h1>
+            <p id="loader-subtitle">Uno spazio per idee, progetti e movimento.</p>
+            <div class="loader-progress" role="progressbar" aria-label="Caricamento del sito" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="loader-progress-fill"></span></div>
+            <div class="loader-statusline"><span id="loader-task">CARICAMENTO</span><span id="loader-percent">00%</span></div>
+        </div>
+        <div class="loader-footnote" aria-hidden="true"><span>GIOSPEZIA.IT</span><span>CREATE · MOVE · REPEAT</span></div>
+    </div>
+
+    <!-- Cookie Banner -->
+    <div id="cookieBox" class="cookie-banner" role="dialog" aria-labelledby="cookieTitle" aria-describedby="cookieDescription" hidden>
+        <button id="closeBanner" class="cookie-close" type="button" aria-label="Chiudi il pannello cookie, potrai riaprirlo più tardi">
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+        <div class="cookie-content">
+            <div class="cookie-kicker"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> PRIVACY / PREFERENZE</div>
+            <h3 id="cookieTitle">La tua privacy, sotto il tuo controllo.</h3>
+            <p id="cookieDescription">Scegli quali categorie facoltative autorizzare. Puoi aggiornare la scelta in qualsiasi momento dal pulsante Cookie.</p>
+            <div class="cookie-note">
+                <span><i class="fa-solid fa-lock" aria-hidden="true"></i> Preferenze salvate su questo dispositivo</span>
+                <a href="../privacy/#privacy-cookie">Informativa</a>
+            </div>
+            <div id="cookieChoices" class="cookie-buttons">
+                <button id="rejectCookies" class="cookie-button-secondary" type="button">Solo necessari</button>
+                <button id="customizeCookies" class="cookie-button-tertiary" type="button" aria-expanded="false" aria-controls="cookieManage">Personalizza</button>
+                <button id="acceptCookies" class="cookie-button-primary" type="button">Accetta tutti</button>
+            </div>
+            <div id="cookieManage" class="cookie-manage" hidden>
+                <h4>Gestisci le categorie</h4>
+                <div class="cookie-preference cookie-preference-required">
+                    <span><strong>Cookie necessari</strong><small>Servono al funzionamento delle preferenze.</small></span>
+                    <span class="cookie-always-on">Sempre attivi</span>
+                </div>
+                <label class="cookie-preference" for="marketing">
+                    <span><strong>Contenuti di terze parti</strong><small>Caricano i video YouTube incorporati nel sito.</small></span>
+                    <input type="checkbox" id="marketing">
+                </label>
+                <div class="cookie-manage-actions">
+                    <button id="backCookieChoices" class="cookie-button-secondary" type="button">Indietro</button>
+                    <button id="savePreferences" class="cookie-button-primary" type="button">Salva preferenze</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button id="reopenButton" class="cookie-reopen" type="button" aria-label="Apri le preferenze cookie" hidden>
+        <i class="fa-solid fa-shield-halved" aria-hidden="true"></i><span>Cookie</span>
+    </button>
+    
+    <!-- Contenuto principale -->
+    <div id="content">
+        <header class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <a href="../"><img class="brand-icon" src="../img/optimized/icon.png" alt="" width="48" height="48" decoding="async">GioSpezia</a>
+                </div>
+                <nav>
+                    <ul class="nav-links" id="primary-navigation">
+                        <li><a href="../" class="nav-link">Home</a></li>
+                        <li><a href="../social/" class="nav-link">Social</a></li>
+                        <li><a href="../cinema-teatro/" class="nav-link active" aria-current="page">Scena</a></li>
+                        <li><a href="../staffexp/" class="nav-link">Staff Experience</a></li>
+                        <li><a href="../eventi/" class="nav-link">Eventi</a></li>
+                        <li><a href="../contact/" class="nav-link">Contatti</a></li>
+                        <!-- Nuovo elemento per il toggle tema solo su mobile -->
+                        <li class="mobile-theme-toggle">
+                            <button class="theme-toggle" aria-label="Cambia tema" aria-pressed="false">
+                                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="5"/>
+                                    <line x1="12" y1="1" x2="12" y2="3"/>
+                                    <line x1="12" y1="21" x2="12" y2="23"/>
+                                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                                    <line x1="1" y1="12" x2="3" y2="12"/>
+                                    <line x1="21" y1="12" x2="23" y2="12"/>
+                                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                                </svg>
+                                <svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                                </svg>
+                            </button>
+                        </li>
+                    </ul>
+                </nav>
+                <button class="hamburger" type="button" aria-label="Apri il menu" aria-controls="primary-navigation" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+                <!-- Theme Toggle Button per desktop -->
+                <button class="theme-toggle" id="themeToggle" aria-label="Cambia tema" aria-pressed="false">
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"/>
+                        <line x1="12" y1="1" x2="12" y2="3"/>
+                        <line x1="12" y1="21" x2="12" y2="23"/>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                        <line x1="1" y1="12" x2="3" y2="12"/>
+                        <line x1="21" y1="12" x2="23" y2="12"/>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    </svg>
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <main class="cinema-page" id="main-content">
+            <section class="cinema-hero" aria-labelledby="cinema-title">
+                <div class="cinema-hero-inner">
+                    <div class="cinema-hero-copy">
+                        <span class="cinema-kicker"><span class="cinema-kicker-line"></span> GIOSPEZIA / UNA NUOVA SCENA</span>
+                        <span class="cinema-issue">PORTFOLIO CREATIVO <span aria-hidden="true">✳</span> CINEMA & TEATRO</span>
+                        <h1 id="cinema-title">Tra scena<br>e <em>schermo.</em></h1>
+                        <p>Un nuovo spazio del mio percorso: qui raccolgo formazione, attestati ed esperienze legate al cinema e al teatro.</p>
+                        <div class="cinema-hero-actions">
+                            <a class="cinema-button cinema-button-primary" href="#percorso">Esplora il percorso <span aria-hidden="true">↘</span></a>
+                            <a class="cinema-button cinema-button-outline" href="#esperienze">Vai alle esperienze <span aria-hidden="true">↓</span></a>
+                        </div>
+                        <div class="cinema-hero-foot"><span>01 / 03</span><span>SCORRI PER ESPLORARE <span aria-hidden="true">↓</span></span></div>
+                    </div>
+                    <div class="cinema-visual" data-scene="cinema">
+                        <div class="cinema-visual-top"><span>GIO SPEZIA PRESENTA</span><span id="scene-index">SCENA / 01</span></div>
+                        <div class="cinema-visual-stage">
+                            <span class="cinema-visual-orbit orbit-one" aria-hidden="true"></span>
+                            <span class="cinema-visual-orbit orbit-two" aria-hidden="true"></span>
+                            <span class="cinema-visual-light" aria-hidden="true"></span>
+                            <div class="cinema-visual-frame">
+                                <img class="cinema-scene-photo cinema-scene-photo-cinema" src="img/Spezia-Cinema.png" alt="Ritratto di Giovanni Spezia in un'ambientazione cinematografica" width="1122" height="1402" fetchpriority="high" decoding="async">
+                                <img class="cinema-scene-photo cinema-scene-photo-teatro" src="img/Spezia-Teatro.png" alt="Ritratto di Giovanni Spezia in un'ambientazione teatrale" width="1122" height="1402" decoding="async" aria-hidden="true">
+                                <div class="cinema-camera-ui" aria-hidden="true">
+                                    <span class="cinema-camera-rec"><i></i> REC</span>
+                                    <span class="cinema-camera-time">00:00:01</span>
+                                    <span class="cinema-camera-corner corner-tl"></span><span class="cinema-camera-corner corner-tr"></span>
+                                    <span class="cinema-camera-corner corner-bl"></span><span class="cinema-camera-corner corner-br"></span>
+                                    <span class="cinema-camera-bottom">GIO / TAKE 01</span>
+                                    <span class="cinema-camera-battery">▰▰▰</span>
+                                </div>
+                            </div>
+                            <span class="cinema-visual-curtain curtain-left" aria-hidden="true"></span>
+                            <span class="cinema-visual-curtain curtain-right" aria-hidden="true"></span>
+                        </div>
+                        <div class="cinema-visual-bottom">
+                            <strong id="scene-caption">STORIE DA GUARDARE</strong>
+                            <div class="cinema-scene-switch" role="group" aria-label="Scegli l'ambientazione">
+                                <button type="button" class="is-active" data-scene-button="cinema" aria-pressed="true">Cinema</button>
+                                <button type="button" data-scene-button="teatro" aria-pressed="false">Teatro</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cinema-marquee" aria-hidden="true"><span>REC · IMMAGINA · RACCONTA</span><span>✳</span><span>REC · IMMAGINA · RACCONTA</span><span>✳</span><span>REC · IMMAGINA · RACCONTA</span></div>
+            </section>
+
+            <section class="cinema-intro cinema-container" id="percorso" aria-labelledby="percorso-title">
+                <div class="cinema-section-index"><span>01</span><span>IL PERCORSO</span></div>
+                <div class="cinema-intro-heading">
+                    <div><p class="cinema-overline">DIETRO LE QUINTE / DAVANTI AL PUBBLICO</p><h2 id="percorso-title">Ogni storia<br>ha un <em>inizio.</em></h2></div>
+                    <p class="cinema-intro-lead">Il percorso prende forma tra studio e pratica. Sfoglia i tre capitoli per esplorare formazione, attestati ed esperienze sul palco e davanti alla camera.</p>
+                </div>
+                <div class="cinema-storyboard">
+                    <div class="cinema-storyboard-choices" role="group" aria-label="Seleziona un capitolo del percorso">
+                        <button class="cinema-storyboard-choice is-active" type="button" data-intro-chapter="0" aria-controls="cinema-storyboard-preview" aria-pressed="true"><span class="cinema-storyboard-choice-number">01 / 03</span><span class="cinema-storyboard-choice-copy"><strong>Formazione</strong><small>Corsi, laboratori e metodo.</small></span><span class="cinema-storyboard-choice-arrow" aria-hidden="true">↗</span></button>
+                        <button class="cinema-storyboard-choice" type="button" data-intro-chapter="1" aria-controls="cinema-storyboard-preview" aria-pressed="false"><span class="cinema-storyboard-choice-number">02 / 03</span><span class="cinema-storyboard-choice-copy"><strong>Attestati</strong><small>Certificati e dettagli verificabili.</small></span><span class="cinema-storyboard-choice-arrow" aria-hidden="true">↗</span></button>
+                        <button class="cinema-storyboard-choice" type="button" data-intro-chapter="2" aria-controls="cinema-storyboard-preview" aria-pressed="false"><span class="cinema-storyboard-choice-number">03 / 03</span><span class="cinema-storyboard-choice-copy"><strong>Esperienze</strong><small>Progetti, ruoli e nuove scene.</small></span><span class="cinema-storyboard-choice-arrow" aria-hidden="true">↗</span></button>
+                    </div>
+                    <div class="cinema-storyboard-preview" id="cinema-storyboard-preview" data-chapter="1">
+                        <img class="cinema-storyboard-photo cinema-storyboard-photo-cinema" src="img/Spezia-Cinema.png" alt="" width="1122" height="1402" loading="lazy" decoding="async">
+                        <img class="cinema-storyboard-photo cinema-storyboard-photo-teatro" src="img/Spezia-Teatro.png" alt="" width="1122" height="1402" loading="lazy" decoding="async">
+                        <div class="cinema-storyboard-top"><span>GIOSPEZIA / STORYBOARD</span><span id="intro-preview-count">01 — 03</span></div>
+                        <div class="cinema-storyboard-caption" aria-live="polite">
+                            <span id="intro-preview-kicker">CAPITOLO 01 / IMPARARE</span>
+                            <h3 id="intro-preview-title">Formazione</h3>
+                            <p id="intro-preview-description">Corsi e laboratori: qui raccolgo scuole, date e ciò che ho imparato.</p>
+                            <a id="intro-preview-link" href="#formazione"><span id="intro-preview-link-label">Apri la formazione</span><span aria-hidden="true">↗</span></a>
+                        </div>
+                        <div class="cinema-storyboard-progress" aria-hidden="true"><span></span></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cinema-learning" id="formazione" aria-labelledby="formazione-title">
+                <div class="cinema-container">
+                    <div class="cinema-section-index"><span>02</span><span>STUDIO &amp; FORMAZIONE</span></div>
+                    <div class="cinema-section-heading">
+                        <div><p class="cinema-overline">IL LAVORO PRIMA DELLA SCENA</p><h2 id="formazione-title">Formazione<br><em>&amp; attestati.</em></h2></div>
+                        <p>Uno spazio dedicato a corsi, laboratori e certificati. Ogni voce potrà raccontare cosa ho studiato, con chi e quando.</p>
+                    </div>
+                    <div class="cinema-learning-grid">
+                        <article class="cinema-ledger" aria-labelledby="corsi-title">
+                            <div class="cinema-ledger-head"><span>01 / FORMAZIONE</span><i class="fa-solid fa-clapperboard" aria-hidden="true"></i></div>
+                            <h3 id="corsi-title">Corsi &amp; laboratori</h3>
+                            <div class="cinema-ledger-list" id="corsi-list"><div class="cinema-empty"><strong>Archivio in preparazione</strong><p>Qui troverai corsi e laboratori, con scuola, anno e contenuti del percorso.</p></div></div>
+                        </article>
+                        <article class="cinema-ledger" aria-labelledby="certificati-title">
+                            <div class="cinema-ledger-head"><span>02 / ATTESTATI</span><i class="fa-solid fa-certificate" aria-hidden="true"></i></div>
+                            <h3 id="certificati-title">Certificati</h3>
+                            <div class="cinema-ledger-list" id="certificati-list"><div class="cinema-empty"><strong>Archivio in preparazione</strong><p>Qui troverai gli attestati e i certificati, con ente e data di rilascio.</p></div></div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cinema-work cinema-container" id="esperienze" aria-labelledby="esperienze-title">
+                <div class="cinema-section-index"><span>03</span><span>ESPERIENZE</span></div>
+                <div class="cinema-section-heading">
+                    <div><p class="cinema-overline">DALL'IDEA ALLA SCENA</p><h2 id="esperienze-title">Il mio archivio<br><em>in movimento.</em></h2></div>
+                    <p>Progetti, ruoli e momenti da raccontare. Seleziona un linguaggio per esplorare le esperienze di cinema o di teatro.</p>
+                </div>
+                <div class="cinema-work-switch" role="group" aria-label="Filtra le esperienze">
+                    <button type="button" class="is-active" data-work-button="cinema" aria-pressed="true"><span>01</span> Cinema <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></button>
+                    <button type="button" data-work-button="teatro" aria-pressed="false"><span>02</span> Teatro <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></button>
+                </div>
+                <div class="cinema-work-stage">
+                    <div class="cinema-work-side" aria-hidden="true">
+                        <img class="cinema-work-photo cinema-work-photo-cinema" src="img/Spezia-Cinema.png" alt="" width="1122" height="1402" loading="lazy" decoding="async">
+                        <img class="cinema-work-photo cinema-work-photo-teatro" src="img/Spezia-Teatro.png" alt="" width="1122" height="1402" loading="lazy" decoding="async">
+                        <span id="work-index">01 / CINEMA</span><span>GIOSPEZIA<br>CREATIVE ARCHIVE</span>
+                    </div>
+                    <div class="cinema-work-content">
+                        <div class="cinema-work-content-head"><span>ESPERIENZE SELEZIONATE</span><span id="work-count" aria-live="polite">00 VOCI</span></div>
+                        <h3 id="work-title">Cinema</h3>
+                        <div id="esperienze-list" class="cinema-work-list" aria-live="polite"><div class="cinema-empty"><strong>Archivio in preparazione</strong><p>I progetti e i ruoli di questa area saranno pubblicati qui.</p></div></div>
+                    </div>
+                </div>
+            </section>
+
+            <aside class="cinema-outro cinema-container">
+                <div><span class="cinema-overline">IL PROSSIMO CAPITOLO</span><h2>Hai una storia<br>da raccontare?</h2></div>
+                <div><p>Se hai un progetto per il palco o per lo schermo, raccontamelo.</p><a class="cinema-button cinema-button-primary" href="../contact/">Parliamone <span aria-hidden="true">↗</span></a></div>
+            </aside>
+        </main>
+    </div>
+    <!-- Footer -->
+    <footer class="footer site-footer">
+            <div class="footer-shell">
+                <div class="footer-top">
+                    <div class="footer-identity">
+                        <a class="footer-brand" href="../">Gio<span>Spezia.</span></a>
+                        <p class="footer-statement">Progetti, persone e idee in movimento.</p>
+                    </div>
+                    <nav class="footer-col" aria-label="Esplora il sito">
+                        <span class="footer-col-label">ESPLORA</span>
+                        <a href="../">Home</a>
+                        <a href="../social/">Social</a>
+                        <a href="../cinema-teatro/">Cinema &amp; Teatro</a>
+                        <a href="../staffexp/">Staff Experience</a>
+                        <a href="../eventi/">Eventi</a>
+                        <a href="../contact/">Contatti</a>
+                    </nav>
+                    <div class="footer-col">
+                        <span class="footer-col-label">SEGUIMI</span>
+                        <a href="https://www.instagram.com/giospezia06/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+                        <a href="https://www.youtube.com/@GioSpezia" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
+                        <a href="https://www.linkedin.com/in/giovanni-spezia-71577124b/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+                        <a href="https://github.com/giovannispezia" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <small>© <span data-site-year>2026</span> Giovanni Spezia. Tutti i diritti riservati.</small>
+                    <a href="mailto:gio@giospezia.it">gio@giospezia.it</a>
+                    <a href="../privacy/">Informativa sulla privacy</a>
+                </div>
+            </div>
+        </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top"><i class="fas fa-chevron-up"></i></button>
+
+    <!-- JavaScript -->
+    <script src="../js/language.js?v=cinema-2"></script>
+    <script src="../js/script.js?v=loader-2"></script>
+    <script src="../js/cinema-teatro-data.js?v=1"></script>
+    <script src="../js/cinema-teatro.js?v=3"></script>
+</body>
+</html>

@@ -6,7 +6,7 @@
   <base href="/">
   <script>
     if (location.protocol === 'file:') document.querySelector('base').href = new URL('.', location.href).href;
-    const legacyPages = { 'contact.html': 'contact/', 'eventi.html': 'eventi/', 'privacy.html': 'privacy/', 'social.html': 'social/', 'staffexp.html': 'staffexp/' };
+    const legacyPages = { 'contact.html': 'contact/', 'eventi.html': 'eventi/', 'privacy.html': 'privacy/', 'social.html': 'social/', 'staffexp.html': 'staffexp/', 'cinema-teatro.html': 'cinema-teatro/' };
     const oldPage = location.pathname.split('/').pop().toLowerCase();
     if (legacyPages[oldPage]) {
       const root = location.protocol === 'file:' ? new URL('.', location.href) : new URL('/', location.href);
@@ -54,10 +54,11 @@
         <div class="error-routes-label"><span>ESPLORA IL SITO</span><span aria-hidden="true">↓</span></div>
         <nav class="error-routes" aria-label="Pagine disponibili">
           <a href="/social/" data-route="social"><span class="error-route-num">01</span><span class="error-route-copy"><strong>Social</strong><small>Video e contenuti</small></span><span class="error-route-arrow" aria-hidden="true">↗</span></a>
-          <a href="/staffexp/" data-route="staffexp"><span class="error-route-num">02</span><span class="error-route-copy"><strong>Staff experience</strong><small>Ruoli e community</small></span><span class="error-route-arrow" aria-hidden="true">↗</span></a>
-          <a href="/eventi/" data-route="eventi"><span class="error-route-num">03</span><span class="error-route-copy"><strong>Eventi</strong><small>Esperienze dal vivo</small></span><span class="error-route-arrow" aria-hidden="true">↗</span></a>
-          <a href="/contact/" data-route="contact"><span class="error-route-num">04</span><span class="error-route-copy"><strong>Contatti</strong><small>Parliamo di idee</small></span><span class="error-route-arrow" aria-hidden="true">↗</span></a>
-          <a href="/privacy/" data-route="privacy"><span class="error-route-num">05</span><span class="error-route-copy"><strong>Privacy</strong><small>Dati e preferenze</small></span><span class="error-route-arrow" aria-hidden="true">↗</span></a>
+          <a href="/cinema-teatro/" data-route="cinema-teatro"><span class="error-route-num">02</span><span class="error-route-copy"><strong>Cinema &amp; Teatro</strong><small>Scena e schermo</small></span><span class="error-route-arrow" aria-hidden="true">↗</span></a>
+          <a href="/staffexp/" data-route="staffexp"><span class="error-route-num">03</span><span class="error-route-copy"><strong>Staff experience</strong><small>Ruoli e community</small></span><span class="error-route-arrow" aria-hidden="true">↗</span></a>
+          <a href="/eventi/" data-route="eventi"><span class="error-route-num">04</span><span class="error-route-copy"><strong>Eventi</strong><small>Esperienze dal vivo</small></span><span class="error-route-arrow" aria-hidden="true">↗</span></a>
+          <a href="/contact/" data-route="contact"><span class="error-route-num">05</span><span class="error-route-copy"><strong>Contatti</strong><small>Parliamo di idee</small></span><span class="error-route-arrow" aria-hidden="true">↗</span></a>
+          <a href="/privacy/" data-route="privacy"><span class="error-route-num">06</span><span class="error-route-copy"><strong>Privacy</strong><small>Dati e preferenze</small></span><span class="error-route-arrow" aria-hidden="true">↗</span></a>
         </nav>
       </div>
     </main>
@@ -65,7 +66,7 @@
     <footer class="error-footer"><span>GIOSPEZIA.IT / CREATE · MOVE · REPEAT</span><span>TORNA IN PISTA ↗</span></footer>
   </div>
   <script>
-    const routes = { home: '', social: 'social/', staffexp: 'staffexp/', eventi: 'eventi/', contact: 'contact/', privacy: 'privacy/' };
+    const routes = { home: '', social: 'social/', 'cinema-teatro': 'cinema-teatro/', staffexp: 'staffexp/', eventi: 'eventi/', contact: 'contact/', privacy: 'privacy/' };
     const siteRoot = location.protocol === 'file:' ? new URL('.', location.href) : new URL('/', location.href);
     document.querySelectorAll('[data-route]').forEach(link => { link.href = new URL(routes[link.dataset.route], siteRoot).href; });
     const backButton = document.getElementById('go-back');
@@ -86,7 +87,7 @@
     setTheme(document.documentElement.classList.contains('preferred-dark'));
     themeButton.addEventListener('click', () => setTheme(!document.body.classList.contains('dark')));
   </script>
-  <script src="js/language.js?v=loader-1"></script>
+  <script src="js/language.js?v=cinema-2"></script>
   <script src="js/utility-polish.js?v=utility-3"></script>
 </body>
 </html>

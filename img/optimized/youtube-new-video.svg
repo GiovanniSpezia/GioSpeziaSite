@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-label="Nuovo video di GioSpezia">
+  <defs>
+    <linearGradient id="background" x2="1" y2="1">
+      <stop stop-color="#25282a"/>
+      <stop offset="1" stop-color="#111314"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#background)" d="M0 0h1280v720H0z"/>
+  <circle cx="1060" cy="120" r="300" fill="#f5cf3d" opacity=".08"/>
+  <circle cx="170" cy="650" r="260" fill="#f5cf3d" opacity=".06"/>
+  <path fill="none" stroke="#f5cf3d" stroke-opacity=".5" stroke-width="2" d="M72 90h1136M72 630h1136"/>
+  <text x="78" y="155" fill="#f5cf3d" font-family="Arial,sans-serif" font-size="28" font-weight="700" letter-spacing="7">GIOSPEZIA / YOUTUBE</text>
+  <text x="78" y="395" fill="#fff" font-family="Arial,sans-serif" font-size="100" font-weight="700">NUOVO VIDEO</text>
+  <text x="82" y="458" fill="#c3c6c5" font-family="Arial,sans-serif" font-size="29" letter-spacing="3">GUARDALO SUL CANALE</text>
+  <path fill="#f5cf3d" d="M1080 360c0 59-48 107-107 107s-107-48-107-107 48-107 107-107 107 48 107 107z"/>
+  <path fill="#171717" d="m950 315 78 45-78 45z"/>
+</svg>

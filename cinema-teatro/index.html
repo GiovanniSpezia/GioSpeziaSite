@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../css/style.css?v=brand-icon-fix-2">
     <link rel="stylesheet" href="../css/street.css?v=brand-icon-fix-2">
     <link rel="stylesheet" href="../css/polish.css?v=cinema-nav-1">
-    <link rel="stylesheet" href="../css/cinema-teatro.css?v=3">
+    <link rel="stylesheet" href="../css/cinema-teatro.css?v=5">
     <link rel="stylesheet" href="../css/yellow-glow.css?v=loader-2">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -154,8 +154,8 @@
                             <span class="cinema-visual-orbit orbit-two" aria-hidden="true"></span>
                             <span class="cinema-visual-light" aria-hidden="true"></span>
                             <div class="cinema-visual-frame">
-                                <img class="cinema-scene-photo cinema-scene-photo-cinema" src="img/Spezia-Cinema.png" alt="Ritratto di Giovanni Spezia in un'ambientazione cinematografica" width="1122" height="1402" fetchpriority="high" decoding="async">
-                                <img class="cinema-scene-photo cinema-scene-photo-teatro" src="img/Spezia-Teatro.png" alt="Ritratto di Giovanni Spezia in un'ambientazione teatrale" width="1122" height="1402" decoding="async" aria-hidden="true">
+                                <img class="cinema-scene-photo cinema-scene-photo-cinema" src="../img/cinema-teatro/Spezia-Cinema.png" alt="Giovanni Spezia in un'ambientazione cinematografica" width="1122" height="1402" fetchpriority="high" decoding="async">
+                                <img class="cinema-scene-photo cinema-scene-photo-teatro" src="../img/cinema-teatro/Spezia-Teatro.png" alt="Giovanni Spezia in un'ambientazione teatrale" width="1122" height="1402" decoding="async" aria-hidden="true">
                                 <div class="cinema-camera-ui" aria-hidden="true">
                                     <span class="cinema-camera-rec"><i></i> REC</span>
                                     <span class="cinema-camera-time">00:00:01</span>
@@ -193,8 +193,7 @@
                         <button class="cinema-storyboard-choice" type="button" data-intro-chapter="2" aria-controls="cinema-storyboard-preview" aria-pressed="false"><span class="cinema-storyboard-choice-number">03 / 03</span><span class="cinema-storyboard-choice-copy"><strong>Esperienze</strong><small>Progetti, ruoli e nuove scene.</small></span><span class="cinema-storyboard-choice-arrow" aria-hidden="true">↗</span></button>
                     </div>
                     <div class="cinema-storyboard-preview" id="cinema-storyboard-preview" data-chapter="1">
-                        <img class="cinema-storyboard-photo cinema-storyboard-photo-cinema" src="img/Spezia-Cinema.png" alt="" width="1122" height="1402" loading="lazy" decoding="async">
-                        <img class="cinema-storyboard-photo cinema-storyboard-photo-teatro" src="img/Spezia-Teatro.png" alt="" width="1122" height="1402" loading="lazy" decoding="async">
+                        <div class="cinema-storyboard-art" aria-hidden="true"><span id="intro-preview-art-index" class="cinema-storyboard-art-index">CAPITOLO / 01</span><i id="intro-preview-icon" class="fa-solid fa-book-open"></i><span id="intro-preview-art-label" class="cinema-storyboard-art-label">STUDIO &amp; METODO</span></div>
                         <div class="cinema-storyboard-top"><span>GIOSPEZIA / STORYBOARD</span><span id="intro-preview-count">01 — 03</span></div>
                         <div class="cinema-storyboard-caption" aria-live="polite">
                             <span id="intro-preview-kicker">CAPITOLO 01 / IMPARARE</span>
@@ -235,15 +234,17 @@
                     <div><p class="cinema-overline">DALL'IDEA ALLA SCENA</p><h2 id="esperienze-title">Il mio archivio<br><em>in movimento.</em></h2></div>
                     <p>Progetti, ruoli e momenti da raccontare. Seleziona un linguaggio per esplorare le esperienze di cinema o di teatro.</p>
                 </div>
-                <div class="cinema-work-switch" role="group" aria-label="Filtra le esperienze">
-                    <button type="button" class="is-active" data-work-button="cinema" aria-pressed="true"><span>01</span> Cinema <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></button>
-                    <button type="button" data-work-button="teatro" aria-pressed="false"><span>02</span> Teatro <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></button>
+                <div class="cinema-work-switch" role="group" aria-label="Scegli un archivio">
+                    <button type="button" class="is-active" data-work-button="cinema" aria-pressed="true"><span class="work-tab-number">01</span><span class="work-tab-copy"><strong>Cinema</strong><small>Progetti sullo schermo</small></span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+                    <button type="button" data-work-button="teatro" aria-pressed="false"><span class="work-tab-number">02</span><span class="work-tab-copy"><strong>Teatro</strong><small>Storie dal palcoscenico</small></span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
                 </div>
                 <div class="cinema-work-stage">
                     <div class="cinema-work-side" aria-hidden="true">
-                        <img class="cinema-work-photo cinema-work-photo-cinema" src="img/Spezia-Cinema.png" alt="" width="1122" height="1402" loading="lazy" decoding="async">
-                        <img class="cinema-work-photo cinema-work-photo-teatro" src="img/Spezia-Teatro.png" alt="" width="1122" height="1402" loading="lazy" decoding="async">
-                        <span id="work-index">01 / CINEMA</span><span>GIOSPEZIA<br>CREATIVE ARCHIVE</span>
+                        <img class="cinema-work-photo cinema-work-photo-cinema" src="../img/cinema-teatro/Spezia-Cinema.png" alt="" width="1122" height="1402" loading="lazy" decoding="async">
+                        <img class="cinema-work-photo cinema-work-photo-teatro" src="../img/cinema-teatro/Spezia-Teatro.png" alt="" width="1122" height="1402" loading="lazy" decoding="async">
+                        <span class="cinema-work-index" id="work-index">01 / CINEMA</span>
+                        <div class="cinema-work-cover-copy"><span>GIOSPEZIA / CREATIVE ARCHIVE</span><strong id="work-cover-title">Luce.<br>Movimento.<br>Racconto.</strong></div>
+                        <span class="cinema-work-cover-foot">ESPERIENZE SELEZIONATE / 2026</span>
                     </div>
                     <div class="cinema-work-content">
                         <div class="cinema-work-content-head"><span>ESPERIENZE SELEZIONATE</span><span id="work-count" aria-live="polite">00 VOCI</span></div>
@@ -299,6 +300,6 @@
     <script src="../js/language.js?v=cinema-2"></script>
     <script src="../js/script.js?v=loader-2"></script>
     <script src="../js/cinema-teatro-data.js?v=1"></script>
-    <script src="../js/cinema-teatro.js?v=3"></script>
+    <script src="../js/cinema-teatro.js?v=4"></script>
 </body>
 </html>

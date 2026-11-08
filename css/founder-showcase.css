@@ -1,0 +1,113 @@
+﻿/* MythicMaster case study: true 3:2 artwork ratio removes letterbox bands without cropping the banner. */
+#founder .founder-card {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+    min-height: 0;
+    border-radius: 18px;
+    background: linear-gradient(120deg, rgba(255,255,255,.035), transparent 48%), var(--panel);
+    transition: border-color .3s ease, box-shadow .3s ease;
+}
+#founder .founder-card:hover {
+    border-color: rgba(245,207,61,.45);
+    box-shadow: 0 28px 70px rgba(0,0,0,.28), 0 0 36px rgba(245,207,61,.07);
+}
+#founder .founder-image {
+    position: relative;
+    display: block;
+    align-self: center;
+    width: auto;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    min-width: 0;
+    margin: clamp(16px,2.2vw,30px);
+    overflow: hidden;
+    color: inherit;
+    border: 1px solid rgba(222,179,255,.2);
+    border-radius: 13px;
+    background: #351d49;
+    box-shadow: 0 18px 44px rgba(0,0,0,.22);
+    isolation: isolate;
+    text-decoration: none;
+}
+#founder .founder-image::before {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    content: "";
+    background: linear-gradient(180deg, rgba(14,8,20,.08), transparent 45%, rgba(14,8,20,.38));
+    pointer-events: none;
+}
+#founder .founder-image::after {
+    position: absolute;
+    z-index: 1;
+    inset: 10px;
+    content: "";
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 8px;
+    opacity: .75;
+    pointer-events: none;
+    transition: inset .35s ease, border-color .35s ease;
+}
+#founder .founder-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    object-position: center;
+    transition: transform .7s cubic-bezier(.2,.7,.2,1), filter .5s ease;
+}
+#founder .founder-image:hover img,
+#founder .founder-image:focus-visible img { transform: scale(1.045); filter: saturate(1.08); }
+#founder .founder-image:hover::after,
+#founder .founder-image:focus-visible::after { inset: 15px; border-color: rgba(255,228,133,.55); }
+#founder .founder-image:focus-visible { outline: 3px solid var(--signal); outline-offset: 4px; }
+#founder .founder-image-mark { left: 24px; bottom: 22px; z-index: 2; padding: 9px 12px; border-radius: 5px; box-shadow: 0 6px 20px rgba(0,0,0,.22); }
+#founder .founder-image-open {
+    position: absolute;
+    z-index: 2;
+    top: 22px;
+    right: 22px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 11px;
+    color: #fff8e2;
+    border: 1px solid rgba(255,255,255,.24);
+    border-radius: 6px;
+    background: rgba(17,12,22,.68);
+    backdrop-filter: blur(9px);
+    font: 700 .66rem/1 var(--street-body);
+    letter-spacing: .04em;
+    transition: color .2s ease, background .2s ease, transform .2s ease;
+}
+#founder .founder-image:hover .founder-image-open,
+#founder .founder-image:focus-visible .founder-image-open { color: #17130a; background: var(--signal); transform: translateY(-2px); }
+#founder .founder-info { padding: clamp(28px,3.3vw,48px); }
+#founder .founder-roles { gap: 8px; margin-bottom: 18px; }
+#founder .founder-roles span { padding: 8px 11px; transition: transform .2s ease, border-color .2s ease, background .2s ease; }
+#founder .founder-roles span:hover { transform: translateY(-2px); border-color: rgba(245,207,61,.55); background: rgba(245,207,61,.1); }
+#founder .founder-info p { max-width: 39ch; margin-block: 0 4px; line-height: 1.72; }
+#founder .founder-btn { margin-top: 22px; }
+#founder .founder-btn i { transition: transform .2s ease; }
+#founder .founder-btn:hover i { transform: translate(2px,-2px); }
+@media(max-width:900px) {
+    #founder .founder-card { grid-template-columns: minmax(0,1fr); }
+    #founder .founder-image { width: auto; height: auto; min-height: 0; margin: 20px; }
+    #founder .founder-image img { height: 100%; min-height: 0; }
+    #founder .founder-info { padding: 12px clamp(22px,5vw,42px) 34px; }
+}
+@media(max-width:600px) {
+    #founder .founder-image { margin: 13px; border-radius: 10px; }
+    #founder .founder-image-open { top: 14px; right: 14px; padding: 8px 9px; font-size: .59rem; }
+    #founder .founder-image-mark { left: 16px; bottom: 15px; }
+    #founder .founder-info { padding: 12px 20px 25px; }
+}
+@media(prefers-reduced-motion:reduce) {
+    #founder .founder-card,
+    #founder .founder-image img,
+    #founder .founder-image::after,
+    #founder .founder-image-open,
+    #founder .founder-roles span,
+    #founder .founder-btn i { transition: none; }
+}

@@ -37,6 +37,12 @@
     activeIntro = index;
     const chapter = introChapters[index];
     introPreview.dataset.chapter = String(index + 1);
+    const chapterIcons = ['fa-book-open', 'fa-certificate', 'fa-clapperboard'];
+    const chapterLabels = ['STUDIO & METODO', 'TRAGUARDI & COMPETENZE', 'CINEMA & TEATRO'];
+    const previewIcon = document.getElementById('intro-preview-icon');
+    previewIcon.className = `fa-solid ${chapterIcons[index]}`;
+    document.getElementById('intro-preview-art-index').textContent = `CAPITOLO / ${String(index + 1).padStart(2, '0')}`;
+    document.getElementById('intro-preview-art-label').textContent = translate(chapterLabels[index]);
     document.getElementById('intro-preview-count').textContent = `${String(index + 1).padStart(2, '0')} — 03`;
     document.getElementById('intro-preview-kicker').textContent = translate(chapter.kicker);
     document.getElementById('intro-preview-title').textContent = translate(chapter.title);
@@ -97,6 +103,7 @@
     document.getElementById('work-index').textContent = activeWork === 'cinema' ? '01 / CINEMA' : translate('02 / TEATRO');
     document.getElementById('work-count').textContent = `${String(entries.length).padStart(2, '0')} ${translate('VOCI')}`;
     workStage.dataset.work = activeWork;
+    document.getElementById('work-cover-title').textContent = activeWork === 'cinema' ? 'Luce.\nMovimento.\nRacconto.' : 'Presenza.\nVoce.\nEmozione.';
   };
 
   const updateScene = (value) => {
